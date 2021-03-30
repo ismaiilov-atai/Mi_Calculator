@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="extra_age">Age</string>
+    <string name="extra_area">Area</string>
+    <string name="extra_bmi">BMI</string>
+    <string name="extra_data">Data</string>
+    <string name="extra_Date">Date</string>
+    <string name="extra_discount">Discount</string>
+    <string name="extra_length">Length</string>
+    <string name="extra_mass">Mass</string>
+    <string name="extra_numeral_system">Numeral System</string>
+    <string name="extra_speed">Speed</string>
+    <string name="extra_temperature">Temperature</string>
+    <string name="extra_time">Time</string>
+    <string name="extra_volume">Volume</string>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="btn_styles">
+        <item name="android:padding">15dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:gravity">bottom|center_horizontal</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="btn_operation_styles">
+        <item name="android:padding">15dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:gravity">start|center_horizontal</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+
+    <style name="extraCalculationStyle">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">#A9A9A7</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+</resources>

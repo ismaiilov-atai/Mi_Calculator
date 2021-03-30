@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_layout"
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    android:layout_marginBottom="25dp"
+    >
+
+    <ImageView
+        android:id="@+id/item_image_ex_calculate"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_age"
+        app:layout_constraintBottom_toTopOf="@+id/item_txt_ex_calculate"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="1" />
+
+    <TextView
+        android:id="@+id/item_txt_ex_calculate"
+        style="@style/extraCalculationStyle"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:text="Age"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_image_ex_calculate"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
