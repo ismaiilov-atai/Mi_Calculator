@@ -42,9 +42,13 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
 
     var fieldLiveData: MutableLiveData<String> = MutableLiveData()
     var resultLiveData: MutableLiveData<String> = MutableLiveData()
-    var isEqualClicked: MutableLiveData<Boolean> = MutableLiveData()
+    var historyLiveData: MutableLiveData<ArrayList<HistoryModel>> = MutableLiveData()
+    var equalClickedAnimationLiveData: MutableLiveData<Boolean> = MutableLiveData()
 
+    private var isEqualClicked = false
     private var mathString = String()
+
+    private var historysModel: ArrayList<HistoryModel> = ArrayList()
 
     private val checkOperation: ArrayList<String> by lazy {
         val checkArray = ArrayList<String>()
@@ -58,7 +62,8 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
         val operation = Operation.valueOf(viewId)
         if (operation?.type != null) {
             onClickMath(operation)
-            isEqualClicked.value = false
+            isEqualClicked = false
+            equalClickedAnimationLiveData.value = false
         } else if (operation != null)
             onOperationClick(operation)
     }
@@ -68,6 +73,11 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
             if (operation.type == Operation.ZERO.type && mathString.isEmpty()){
                 fieldLiveData.value = fieldLiveData.value
             }else {
+                if (isEqualClicked && !checkOperation.contains(operation.type)) {
+                    isEqualClicked = false
+                    mathString = String()
+                }
+
                 mathString += operation.type
                 fieldLiveData.value = mathString
                 realTimeResult()
@@ -92,14 +102,30 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
     }
 
     private fun calculate() {
-        isEqualClicked.value = true
+        if (!isEqualClicked) {
+            try {
+                historysModel.add(
+                    0,
+                    HistoryModel(mathString, Expressions().eval(mathString).toString())
+                )
+
+                historyLiveData.value = historysModel
+
+                mathString = Expressions().eval(mathString).toString()
+            } catch (e: Exception) {
+                resultLiveData.value = "0"
+            } finally {
+                isEqualClicked = true
+                equalClickedAnimationLiveData.value = true
+            }
+        }
     }
 
     private fun realTimeResult() {
         try {
             val result = Expressions().eval(mathString)
             resultLiveData.value = "= $result"
-        }catch (e:Exception){
+        }catch (e: Exception){
             resultLiveData.value = "0"
         }
     }

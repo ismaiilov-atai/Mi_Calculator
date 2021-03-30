@@ -12,32 +12,23 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
 
-    var bindingMain: ActivityMainBinding? = null
-    private lateinit var swipeAdapter: SwipeAdapter
+    private lateinit var bindingMain: ActivityMainBinding
     private lateinit var viewPager: ViewPager2
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bindingMain = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(bindingMain?.root)
-        viewPager = bindingMain?.viewPager!!
-        viewPager.adapter = createAdapter()
-        val tabLayout = bindingMain?.tabLayout!!
+        setContentView(bindingMain.root)
 
-        TabLayoutMediator(tabLayout,viewPager){ tab, position->
+        viewPager = bindingMain.viewPager
+        viewPager.adapter = SwipeAdapter(this)
+
+        TabLayoutMediator(bindingMain.tabLayout, viewPager) { tab, position ->
             when(position){
                 0 -> tab.icon = ContextCompat.getDrawable(applicationContext,R.drawable.ic_calculate)
                 1 -> tab.icon = ContextCompat.getDrawable(applicationContext,R.drawable.ic_dashboard)
                 2 -> tab.icon = ContextCompat.getDrawable(applicationContext,R.drawable.ic_cash)
             }
         }.attach()
-
     }
-
-    private fun createAdapter() : SwipeAdapter{
-        swipeAdapter = SwipeAdapter(this)
-        return swipeAdapter
-    }
-
 }
