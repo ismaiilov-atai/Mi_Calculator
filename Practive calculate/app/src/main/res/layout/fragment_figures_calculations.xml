@@ -22,9 +22,9 @@
     <TextView
         android:id="@+id/text_figures"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:textSize="35sp"
+        android:textSize="47sp"
         android:textAlignment="textEnd"
         android:maxLines="1"
         android:paddingEnd="20dp"
@@ -35,7 +35,7 @@
     <TextView
         android:id="@+id/text_result"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="30sp"
         android:gravity="bottom|end"
@@ -62,10 +62,9 @@
     <TableLayout
         android:id="@+id/table_layout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="400dp"
         android:stretchColumns="*"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_result"
         app:layout_constraintVertical_weight="1.7"
         android:paddingBottom="20dp"
         >

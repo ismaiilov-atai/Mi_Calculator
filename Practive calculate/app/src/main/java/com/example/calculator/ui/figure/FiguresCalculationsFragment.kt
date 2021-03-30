@@ -1,9 +1,13 @@
 package com.example.calculator.ui.figure
 
+import android.animation.ValueAnimator
 import android.os.Bundle
 import android.view.View
-import com.example.calculator.databinding.FragmentFiguresCalculationsBinding
+import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.calculator.base.BaseFragment
+import com.example.calculator.databinding.FragmentFiguresCalculationsBinding
+import java.awt.font.TextAttribute
 
 class FiguresCalculationsFragment :
     BaseFragment<FragmentFiguresCalculationsBinding, FiguresCalculationViewModel>(
@@ -28,14 +32,39 @@ class FiguresCalculationsFragment :
             binding.textResult.text = it
         }
 
-        viewModel.isEqualClicked.observe(this){
-            if (it) binding.textResult.textSize = 50F
-            else binding.textResult.textSize = 30F
+        viewModel.equalClickedAnimationLiveData.observe(this) {
+            if (it) {
+                showResultAnimation(30F, 47F, 400, binding.textResult)
+                showResultAnimation(47F, 30F, 400, binding.textFigures)
+            } else {
+                binding.textResult.textSize = 30F
+                binding.textFigures.textSize = 47F
+            }
         }
+
+        viewModel.historyLiveData.observe(this) {
+            adapter.historyList = it
+            adapter.notifyDataSetChanged()
+            binding.recyclerView.scrollToPosition(it.size)
+        }
+    }
+
+    private fun showResultAnimation(startSize: Float, endSize: Float, animationDuration: Long, view: TextView) {
+        val animator = ValueAnimator.ofFloat(startSize, endSize)
+        animator.duration = animationDuration
+
+        animator.addUpdateListener { valueAnimator ->
+            val animatedValue = valueAnimator.animatedValue as Float
+            view.textSize = animatedValue
+        }
+
+        animator.start()
     }
 
     private fun setupUI() {
         adapter = FiguresAdapter()
+        (binding.recyclerView.layoutManager as? LinearLayoutManager)?.stackFromEnd = false
+        (binding.recyclerView.layoutManager as? LinearLayoutManager)?.reverseLayout = true
         binding.recyclerView.adapter = adapter
 
         //clear delete
