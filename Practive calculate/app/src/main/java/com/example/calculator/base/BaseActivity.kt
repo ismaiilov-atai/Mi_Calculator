@@ -3,7 +3,6 @@ package com.example.calculator.base
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider

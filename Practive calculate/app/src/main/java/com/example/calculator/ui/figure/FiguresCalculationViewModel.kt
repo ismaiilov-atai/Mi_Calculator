@@ -13,29 +13,43 @@ import kotlinx.coroutines.launch
 class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewModel(event) {
 
     enum class Operation(var id: Int?, var type: String? = null) {
-        AC(R.id.figures_ac),
+        AC(R.id.figures_clear),
         CLEAR(R.id.figures_clear),
 
-        ZERO(R.id.figures_btn_zero, "0"),
-        ONE(R.id.figures_btn_one, "1"),
-        TWO(R.id.figures_btn_two, "2"),
-        THREE(R.id.figures_btn_three, "3"),
-        FOUR(R.id.figures_btn_four, "4"),
-        FIVE(R.id.figures_btn_five, "5"),
-        SIX(R.id.figures_btn_six, "6"),
-        SEVEN(R.id.figures_btn_seven, "7"),
-        EIGHT(R.id.figures_btn_eight, "8"),
-        NINE(R.id.figures_btn_nine, "9"),
+        ZERO(R.id.figures_zero, "0"),
+        ONE(R.id.figures_one, "1"),
+        TWO(R.id.figures_two, "2"),
+        THREE(R.id.figures_three, "3"),
+        FOUR(R.id.figures_four, "4"),
+        FIVE(R.id.figures_five, "5"),
+        SIX(R.id.figures_six, "6"),
+        SEVEN(R.id.figures_seven, "7"),
+        EIGHT(R.id.figures_eight, "8"),
+        NINE(R.id.figures_nine, "9"),
 
-        DECREMENT(R.id.figures_btn_minus, " - "),
-        PLUS(R.id.figures_btn_plus, " + "),
-        MULTIPLICATION(R.id.figures_btn_multiplication, " * "),
+        DECREMENT(R.id.figures_minus, " - "),
+        PLUS(R.id.figures_plus, " + "),
+        MULTIPLICATION(R.id.figures_multiple, " * "),
         DIVIDE(R.id.figures_divide, " / "),
-        PERCENTAGE(R.id.figures_pracentage, " % "),
-        DOT(R.id.figures_btn_dot, "."),
+        PERCENTAGE(R.id.figures_presantage, " % "),
+        DOT(R.id.figures_dot, "."),
+        SIN(R.id.figures_sin,"sin("),
+        COS(R.id.figures_cos,"cos("),
+        TAN(R.id.figures_sin,"tan("),
+        XY(R.id.figures_x_y,"^"),
+        LG(R.id.figures_lg,"lg("),
+        IN(R.id.figures_in,"in("),
+        LEFT_PARENTHESIS(R.id.figures_left_parenthesis,"("),
+        RIGHT_PARENTHESIS(R.id.figures_right_parenthesis,")"),
+        UNDER(R.id.figures_under_x,"√"),
+        X_EXCLAMATION(R.id.figures_x_exclamation,"!"),
+        ONE_DIVIDED_X(R.id.figures_one_divide_x,"^(-1)"),
+        ONE_CONSTANT(R.id.figures_p_constant,"π"),
+        E_COUNT(R.id.figures_e,"e"),
 
-        TRACTION(R.id.figures_btn_transaction),
-        EQUAL(R.id.figures_btn_equal);
+
+        TRACTION(R.id.figures_transform),
+        EQUAL(R.id.figures_equal);
 
         companion object {
             fun valueOf(value: Int?) = values().find { it.id == value }

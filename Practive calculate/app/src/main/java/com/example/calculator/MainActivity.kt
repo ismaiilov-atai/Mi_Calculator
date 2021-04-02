@@ -57,7 +57,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ArchiveActivity::class.java)
             startActivity(intent)
         }
-
         return customView
     }
 

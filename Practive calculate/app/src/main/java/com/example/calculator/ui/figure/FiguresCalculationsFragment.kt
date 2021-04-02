@@ -65,31 +65,50 @@ class FiguresCalculationsFragment :
         binding.recyclerView.adapter = adapter
 
         //clear delete
-        binding.figuresAc.setOnClickListener(this)
+        binding.figuresClear.setOnClickListener(this)
         binding.figuresClear.setOnClickListener(this)
 
         // figures
-        binding.figuresBtnZero.setOnClickListener(this)
-        binding.figuresBtnOne.setOnClickListener(this)
-        binding.figuresBtnTwo.setOnClickListener(this)
-        binding.figuresBtnThree.setOnClickListener(this)
-        binding.figuresBtnFour.setOnClickListener(this)
-        binding.figuresBtnFive.setOnClickListener(this)
-        binding.figuresBtnSix.setOnClickListener(this)
-        binding.figuresBtnSeven.setOnClickListener(this)
-        binding.figuresBtnEight.setOnClickListener(this)
-        binding.figuresBtnNine.setOnClickListener(this)
+        binding.figuresZero.setOnClickListener(this)
+        binding.figuresOne.setOnClickListener(this)
+        binding.figuresTwo.setOnClickListener(this)
+        binding.figuresThree.setOnClickListener(this)
+        binding.figuresFour.setOnClickListener(this)
+        binding.figuresFive.setOnClickListener(this)
+        binding.figuresSix.setOnClickListener(this)
+        binding.figuresSeven.setOnClickListener(this)
+        binding.figuresEight.setOnClickListener(this)
+        binding.figuresNine.setOnClickListener(this)
 
         //operations
-        binding.figuresPracentage.setOnClickListener(this)
+        binding.figuresPresantage.setOnClickListener(this)
         binding.figuresDivide.setOnClickListener(this)
-        binding.figuresBtnMultiplication.setOnClickListener(this)
-        binding.figuresBtnMinus.setOnClickListener(this)
-        binding.figuresBtnPlus.setOnClickListener(this)
-        binding.figuresBtnDot.setOnClickListener(this)
+        binding.figuresMultiple.setOnClickListener(this)
+        binding.figuresMinus.setOnClickListener(this)
+        binding.figuresPlus.setOnClickListener(this)
+        binding.figuresDot.setOnClickListener(this)
+
+        //extra
+        binding.figuresSecondD.setOnClickListener(this)
+
+        binding.figuresDeg.setOnClickListener(this)
+        binding.figuresSin.setOnClickListener(this)
+        binding.figuresCos.setOnClickListener(this)
+        binding.figuresTan.setOnClickListener(this)
+
+        binding.figuresXY.setOnClickListener(this)
+        binding.figuresLg.setOnClickListener(this)
+        binding.figuresIn.setOnClickListener(this)
+        binding.figuresLeftParenthesis.setOnClickListener(this)
+        binding.figuresRightParenthesis.setOnClickListener(this)
+        binding.figuresUnderX.setOnClickListener(this)
+        binding.figuresXExclamation.setOnClickListener(this)
+        binding.figuresOneDivideX.setOnClickListener(this)
+        binding.figuresPConstant.setOnClickListener(this)
+        binding.figuresE.setOnClickListener(this)
 
         //imageView
-        binding.figuresBtnEqual.setOnClickListener(this)
+        binding.figuresEqual.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
