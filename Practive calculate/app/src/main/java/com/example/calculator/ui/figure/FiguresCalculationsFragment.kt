@@ -7,13 +7,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.calculator.base.BaseFragment
 import com.example.calculator.databinding.FragmentFiguresCalculationsBinding
-import java.awt.font.TextAttribute
 
 class FiguresCalculationsFragment :
-    BaseFragment<FragmentFiguresCalculationsBinding, FiguresCalculationViewModel>(
-        FragmentFiguresCalculationsBinding::inflate,
-        FiguresCalculationViewModel::class.java
-    ), View.OnClickListener {
+    BaseFragment<FragmentFiguresCalculationsBinding, FiguresCalculationViewModel>(FragmentFiguresCalculationsBinding::inflate, FiguresCalculationViewModel::class.java), View.OnClickListener {
 
     private lateinit var adapter: FiguresAdapter
 
@@ -21,18 +17,20 @@ class FiguresCalculationsFragment :
         super.onViewCreated(view, savedInstanceState)
         setupUI()
         observer()
+
+        viewModel.loadHistory()
     }
 
     private fun observer() {
-        viewModel.fieldLiveData.observe(this) {
+        viewModel.fieldLiveData.observe(viewLifecycleOwner) {
             binding.textFigures.text = it
         }
 
-        viewModel.resultLiveData.observe(this) {
+        viewModel.resultLiveData.observe(viewLifecycleOwner) {
             binding.textResult.text = it
         }
 
-        viewModel.equalClickedAnimationLiveData.observe(this) {
+        viewModel.equalClickedAnimationLiveData.observe(viewLifecycleOwner) {
             if (it) {
                 showResultAnimation(30F, 47F, 400, binding.textResult)
                 showResultAnimation(47F, 30F, 400, binding.textFigures)
@@ -42,7 +40,7 @@ class FiguresCalculationsFragment :
             }
         }
 
-        viewModel.historyLiveData.observe(this) {
+        viewModel.historyLiveData.observe(viewLifecycleOwner) {
             adapter.historyList = it
             adapter.notifyDataSetChanged()
             binding.recyclerView.scrollToPosition(it.size)
@@ -52,7 +50,6 @@ class FiguresCalculationsFragment :
     private fun showResultAnimation(startSize: Float, endSize: Float, animationDuration: Long, view: TextView) {
         val animator = ValueAnimator.ofFloat(startSize, endSize)
         animator.duration = animationDuration
-
         animator.addUpdateListener { valueAnimator ->
             val animatedValue = valueAnimator.animatedValue as Float
             view.textSize = animatedValue

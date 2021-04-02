@@ -1,12 +1,14 @@
 package com.example.calculator.ui.figure
 
-import android.graphics.Path
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.calculator.R
 import com.example.calculator.base.BaseViewModel
 import com.example.calculator.base.BaseViewModelEventListener
+import com.example.calculator.database.HistoryDatabase
+import com.example.calculator.database.HistoryItem
 import com.example.calculator.utils.Expressions
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewModel(event) {
 
@@ -42,13 +44,11 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
 
     var fieldLiveData: MutableLiveData<String> = MutableLiveData()
     var resultLiveData: MutableLiveData<String> = MutableLiveData()
-    var historyLiveData: MutableLiveData<ArrayList<HistoryModel>> = MutableLiveData()
+    var historyLiveData: MutableLiveData<List<HistoryItem>> = MutableLiveData()
     var equalClickedAnimationLiveData: MutableLiveData<Boolean> = MutableLiveData()
 
     private var isEqualClicked = false
     private var mathString = String()
-
-    private var historysModel: ArrayList<HistoryModel> = ArrayList()
 
     private val checkOperation: ArrayList<String> by lazy {
         val checkArray = ArrayList<String>()
@@ -62,10 +62,21 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
         val operation = Operation.valueOf(viewId)
         if (operation?.type != null) {
             onClickMath(operation)
-            isEqualClicked = false
             equalClickedAnimationLiveData.value = false
         } else if (operation != null)
             onOperationClick(operation)
+    }
+
+    fun loadHistory() {
+        GlobalScope.launch {
+            var historys = HistoryDatabase.instance?.historyDao()?.getAll()
+
+            historys = historys?.asReversed()
+
+            uiScope.launch {
+                historyLiveData.value = historys
+            }
+        }
     }
 
     private fun onClickMath(operation: Operation) {
@@ -75,9 +86,7 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
             }else {
                 if (isEqualClicked && !checkOperation.contains(operation.type)) {
                     isEqualClicked = false
-                    mathString = String()
                 }
-
                 mathString += operation.type
                 fieldLiveData.value = mathString
                 realTimeResult()
@@ -95,7 +104,6 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
     private fun removeLastOne() {
         mathString = if (checkOperation.contains(mathString.takeLast(3))) mathString.dropLast(3)
         else mathString.dropLast(1)
-
         fieldLiveData.value = mathString
 
         realTimeResult()
@@ -104,16 +112,22 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
     private fun calculate() {
         if (!isEqualClicked) {
             try {
-                historysModel.add(
-                    0,
-                    HistoryModel(mathString, Expressions().eval(mathString).toString())
-                )
+                GlobalScope.launch {
+                    HistoryDatabase.instance?.historyDao()?.insertAll(HistoryItem(mathString, Expressions().eval(mathString).toString()))
+                    var historys = HistoryDatabase.instance?.historyDao()?.getAll()
+                    historys = historys?.asReversed()
 
-                historyLiveData.value = historysModel
-
+                    uiScope.launch {
+                        historyLiveData.value = historys
+                    }
+                }
                 mathString = Expressions().eval(mathString).toString()
             } catch (e: Exception) {
-                resultLiveData.value = "0"
+                if (mathString.isNotEmpty()) {
+                    resultLiveData.value = "= 0"
+                } else {
+                    resultLiveData.value = "0"
+                }
             } finally {
                 isEqualClicked = true
                 equalClickedAnimationLiveData.value = true
@@ -126,7 +140,11 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
             val result = Expressions().eval(mathString)
             resultLiveData.value = "= $result"
         }catch (e: Exception){
-            resultLiveData.value = "0"
+            if (mathString.isNotEmpty()) {
+                resultLiveData.value = "= 0"
+            } else {
+                resultLiveData.value = "0"
+            }
         }
     }
 }
