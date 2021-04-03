@@ -58,12 +58,14 @@
     <GridLayout
         android:id="@+id/grid_layout"
         android:layout_width="match_parent"
-        android:layout_height="440dp"
+        android:layout_height="450dp"
         android:columnCount="5"
         android:rowCount="7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingBottom="20dp"
+        >
 
         <TextView
             android:id="@+id/figures_second_d"
@@ -223,7 +225,7 @@
             android:layout_rowWeight="1"
             android:text="÷"
             android:layout_gravity="center_vertical"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textColor="@color/purple_500" />
 
         <TextView
@@ -280,7 +282,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            android:text="*"
+            android:text="X"
             android:layout_gravity="center_vertical"
             android:textSize="20sp"
             android:textColor="@color/purple_500" />
@@ -396,7 +398,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            android:text="+"
+            android:text="＋"
             android:layout_gravity="center_vertical"
             android:textSize="20sp"
             android:textColor="@color/purple_500" />
@@ -451,7 +453,7 @@
 
         <ImageView
             android:id="@+id/figures_equal"
-            android:padding="10dp"
+            android:padding="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"

@@ -13,8 +13,15 @@ class ArchiveAdapter: RecyclerView.Adapter<ArchiveAdapter.FigureViewHolder>() {
 
     var historyList: List<HistoryItem> = ArrayList()
 
+    var listener: OnclickListener? = null
+
+    fun addOnItemClick(listener: OnclickListener){
+        this.listener = listener
+    }
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FigureViewHolder {
-        return FigureViewHolder(ArchiveItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return FigureViewHolder(ArchiveItemBinding.inflate(LayoutInflater.from(parent.context), parent, false), listener)
     }
 
     override fun onBindViewHolder(holder: FigureViewHolder, position: Int) {
@@ -35,15 +42,20 @@ class ArchiveAdapter: RecyclerView.Adapter<ArchiveAdapter.FigureViewHolder>() {
             holder.binding.figuresTextView.setTextColor(Color.parseColor("#B1AEAE"))
             holder.binding.figuresTxtresultView.setTextColor(Color.parseColor("#B1AEAE"))
             holder.binding.archiveDivider.visibility = View.GONE
-            holder.binding.figuresTextView.textSize = 30f
-            holder.binding.figuresTxtresultView.textSize = 30f
+            holder.binding.figuresTextView.textSize = 20f
+            holder.binding.figuresTxtresultView.textSize = 20f
         }
     }
 
     override fun getItemCount() :Int = historyList.size
 
-    class FigureViewHolder(val binding: ArchiveItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    interface OnclickListener{
+        fun onClickItem(item:HistoryItem)
+    }
+
+    class FigureViewHolder(val binding: ArchiveItemBinding, private val listener: OnclickListener? ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(item: HistoryItem) {
+            binding.archiveItem.setOnClickListener { listener?.onClickItem(item) }
             binding.figuresTextView.text = item.math
             binding.figuresTxtresultView.text = "= ${item.result}"
         }

@@ -1,9 +1,15 @@
 package com.example.calculator
 
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.PorterDuff
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.MotionEvent
+import android.view.View
 import android.widget.PopupWindow
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
@@ -40,12 +46,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     fun popupDisplay() : PopupWindow {
         val pop_binding = FigureMenuBinding.inflate(layoutInflater)
         val customView  = PopupWindow(applicationContext)
         val view = pop_binding.root
 
-        customView.width = 350
+        customView.width = 380
         customView.height = 220
 
         customView.setBackgroundDrawable(null)
@@ -53,11 +60,40 @@ class MainActivity : AppCompatActivity() {
         customView.elevation = 80F
         customView.contentView = view
 
-        pop_binding.historyText.setOnClickListener{
-            val intent = Intent(this, ArchiveActivity::class.java)
-            startActivity(intent)
-        }
+        val intent = Intent(this,ArchiveActivity::class.java)
+        pop_binding.historyMenu.setOnTouchListener(View.OnTouchListener { view, motionEvent ->
+            when (motionEvent.action){
+                MotionEvent.ACTION_DOWN -> view.setBackgroundColor(ContextCompat.getColor(this,R.color.onHover))
+                MotionEvent.ACTION_UP -> {
+                    view.setBackgroundColor(ContextCompat.getColor(this,R.color.white))
+                    startActivity(intent)
+                }
+            }
+            return@OnTouchListener true
+        })
+
         return customView
     }
+
+    private var math_value = ""
+    private var math_result = ""
+
+    override fun onResume() {
+        super.onResume()
+        if (intent.getStringExtra(ArchiveActivity.KEY_MATH)?.isNotEmpty() == true &&
+            intent.getStringExtra(ArchiveActivity.KEY_RESULT)?.isNotEmpty() == true) {
+                intent.getStringExtra(ArchiveActivity.KEY_MATH)?.let { math_value = it}
+                intent.getStringExtra(ArchiveActivity.KEY_RESULT)?.let { math_result = it }
+        }
+    }
+
+    fun getResultString(): String {
+        return math_result
+    }
+
+    fun getMathString(): String {
+        return math_value
+    }
+
 
 }

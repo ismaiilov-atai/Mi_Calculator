@@ -30,7 +30,7 @@ abstract class BaseActivity<B: ViewBinding, VM: BaseViewModel>(private var bindi
 
     }
 
-    val activityViewModel: VM by lazy {
+    val viewmodel: VM by lazy {
         ViewModelProvider(this,BaseFactory(this)).get(className)
     }
 

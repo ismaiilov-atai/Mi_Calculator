@@ -2,14 +2,11 @@ package com.example.calculator.ui.extra
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import com.example.calculator.base.BaseFragment
 import com.example.calculator.databinding.FragmentExtraCalculationBinding
 
-class ExtraCalculationFragment :
-    BaseFragment<FragmentExtraCalculationBinding, ExtraCalculationViewModel>(
-        FragmentExtraCalculationBinding::inflate,
-        ExtraCalculationViewModel::class.java
-    ) {
+class ExtraCalculationFragment : BaseFragment<FragmentExtraCalculationBinding, ExtraCalculationViewModel>(FragmentExtraCalculationBinding::inflate, ExtraCalculationViewModel::class.java) {
 
     private val adapter: ExtraAdapter = ExtraAdapter()
 
@@ -24,7 +21,7 @@ class ExtraCalculationFragment :
 
         adapter.addOnItemClickListener(object : ExtraAdapter.OnItemClickListener {
             override fun onClick(item: ExtraModel) {
-
+                    Toast.makeText(requireContext(),"ololo",Toast.LENGTH_SHORT).show()
             }
         })
     }

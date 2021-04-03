@@ -15,9 +15,17 @@ class ArchiveViewModel(event: BaseViewModelEventListener) : BaseViewModel(event)
     fun loadHistory(){
         GlobalScope.launch {
             val history = HistoryDatabase.instance?.historyDao()?.getAll()
-
             uiScope.launch {
                 historyListLiveData.value = history
+            }
+        }
+    }
+
+    fun clearArchive() {
+        GlobalScope.launch {
+           HistoryDatabase.instance?.historyDao()?.deleteAll()
+            uiScope.launch {
+                historyListLiveData.value = emptyList()
             }
         }
     }

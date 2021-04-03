@@ -14,5 +14,8 @@ interface HistoryDao {
     fun insertAll(vararg history: HistoryItem)
 
     @Delete
-    fun delete(user: HistoryItem)
+    fun delete(vararg history: HistoryItem)
+
+    @Query("DELETE FROM historyitem")
+    fun deleteAll()
 }

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/archive_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="10dp">
+    android:padding="5dp">
 
     <View
         android:id="@+id/archive_divider"
@@ -24,7 +25,7 @@
         android:layout_height="0dp"
         android:text="test"
         android:textColor="#878484"
-        android:textSize="30sp"
+        android:textSize="15sp"
         android:paddingEnd="10dp"
         android:textAlignment="textEnd"
         android:maxLines="1"
@@ -37,7 +38,7 @@
         android:layout_height="0dp"
         android:textColor="#FF878484"
         android:text="test2"
-        android:textSize="30sp"
+        android:textSize="15sp"
         android:textAlignment="textEnd"
         android:maxLines="1"
         android:paddingEnd="10dp"

@@ -14,20 +14,18 @@
         <item name="android:textSize">20sp</item>
     </style>
 
-
     <style name="extraCalculationStyle">
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">#A9A9A7</item>
         <item name="android:gravity">center_vertical</item>
     </style>
 
-
-
     <style name="extra_btns_style">
         <item name="android:visibility">visible</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">@color/light_gray</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:padding">15dp</item>
     </style>
 
 </resources>

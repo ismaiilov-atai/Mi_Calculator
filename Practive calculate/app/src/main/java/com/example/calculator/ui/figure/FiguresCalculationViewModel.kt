@@ -14,7 +14,7 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
 
     enum class Operation(var id: Int?, var type: String? = null) {
         AC(R.id.figures_clear),
-        CLEAR(R.id.figures_clear),
+        CLEAR(R.id.figures_delete),
 
         ZERO(R.id.figures_zero, "0"),
         ONE(R.id.figures_one, "1"),
@@ -46,7 +46,6 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
         ONE_DIVIDED_X(R.id.figures_one_divide_x,"^(-1)"),
         ONE_CONSTANT(R.id.figures_p_constant,"π"),
         E_COUNT(R.id.figures_e,"e"),
-
 
         TRACTION(R.id.figures_transform),
         EQUAL(R.id.figures_equal);
@@ -110,41 +109,54 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
 
     private fun onOperationClick(operation: Operation) {
         when (operation) {
-            Operation.AC -> removeLastOne()
+            Operation.AC -> clearAll()
+            Operation.CLEAR -> removeLastOne()
             Operation.EQUAL -> calculate()
         }
+    }
+
+    private fun clearAll() {
+        mathString = String()
+        fieldLiveData.value = mathString
+        resultLiveData.value = "0"
     }
 
     private fun removeLastOne() {
         mathString = if (checkOperation.contains(mathString.takeLast(3))) mathString.dropLast(3)
         else mathString.dropLast(1)
         fieldLiveData.value = mathString
-
         realTimeResult()
     }
 
     private fun calculate() {
         if (!isEqualClicked) {
-            try {
-                GlobalScope.launch {
-                    HistoryDatabase.instance?.historyDao()?.insertAll(HistoryItem(mathString, Expressions().eval(mathString).toString()))
-                    var historys = HistoryDatabase.instance?.historyDao()?.getAll()
-                    historys = historys?.asReversed()
+            if (mathString.isNotEmpty()) {
+                try {
+                    GlobalScope.launch {
+                        HistoryDatabase.instance?.historyDao()?.insertAll(
+                            HistoryItem(
+                                mathString,
+                                Expressions().eval(mathString).toString()
+                            )
+                        )
+                        var historys = HistoryDatabase.instance?.historyDao()?.getAll()
+                        historys = historys?.asReversed()
 
-                    uiScope.launch {
-                        historyLiveData.value = historys
+                        uiScope.launch {
+                            historyLiveData.value = historys
+                        }
                     }
+                    mathString = Expressions().eval(mathString).toString()
+                } catch (e: Exception) {
+                    if (mathString.isNotEmpty()) {
+                        resultLiveData.value = "= 0"
+                    } else {
+                        resultLiveData.value = "0"
+                    }
+                } finally {
+                    isEqualClicked = true
+                    equalClickedAnimationLiveData.value = true
                 }
-                mathString = Expressions().eval(mathString).toString()
-            } catch (e: Exception) {
-                if (mathString.isNotEmpty()) {
-                    resultLiveData.value = "= 0"
-                } else {
-                    resultLiveData.value = "0"
-                }
-            } finally {
-                isEqualClicked = true
-                equalClickedAnimationLiveData.value = true
             }
         }
     }

@@ -5,11 +5,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.calculator.MainActivity
 import com.example.calculator.base.BaseFragment
 import com.example.calculator.databinding.FragmentFiguresCalculationsBinding
 
-class FiguresCalculationsFragment :
-    BaseFragment<FragmentFiguresCalculationsBinding, FiguresCalculationViewModel>(FragmentFiguresCalculationsBinding::inflate, FiguresCalculationViewModel::class.java), View.OnClickListener {
+class FiguresCalculationsFragment: BaseFragment<FragmentFiguresCalculationsBinding, FiguresCalculationViewModel>(FragmentFiguresCalculationsBinding::inflate, FiguresCalculationViewModel::class.java), View.OnClickListener {
 
     private lateinit var adapter: FiguresAdapter
 
@@ -66,7 +66,7 @@ class FiguresCalculationsFragment :
 
         //clear delete
         binding.figuresClear.setOnClickListener(this)
-        binding.figuresClear.setOnClickListener(this)
+        binding.figuresDelete.setOnClickListener(this)
 
         // figures
         binding.figuresZero.setOnClickListener(this)
@@ -113,5 +113,12 @@ class FiguresCalculationsFragment :
 
     override fun onClick(v: View?) {
         viewModel.onButtonClick(v?.id)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val mainActivity = activity as MainActivity
+        binding.textResult.text = mainActivity.getResultString()
+        binding.textFigures.text = mainActivity.getMathString()
     }
 }
