@@ -9,9 +9,14 @@ class MainViewModel(event: BaseViewModelEventListener): BaseViewModel(event) {
     val resultDataFromClick: MutableLiveData<String> = MutableLiveData()
     val mathDataFromClick: MutableLiveData<String> = MutableLiveData()
 
-    fun setResultFromClick(result: String,math: String){
+    val shouldShow: MutableLiveData<Boolean> = MutableLiveData()
+
+    fun setResultFromClick(result: String, math: String){
         resultDataFromClick.value = result
         mathDataFromClick.value = math
     }
 
+    fun setShouldShow(shouldShowValue: Boolean){
+        shouldShow.value = shouldShowValue
+    }
 }

@@ -1,4 +1,4 @@
-package com.example.calculator.ui.figure
+package com.example.calculator.adapter
 
 
 import android.view.LayoutInflater
@@ -19,7 +19,7 @@ class FiguresAdapter : RecyclerView.Adapter<FiguresAdapter.FigureViewHolder>() {
         holder.onBind(historyList[position])
     }
 
-    override fun getItemCount() :Int = historyList.size
+    override fun getItemCount(): Int = historyList.size
 
     class FigureViewHolder(private val binding: ItemFigureSolvedViewBinding) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(item: HistoryItem) {

@@ -1,10 +1,11 @@
-package com.example.calculator.ui.extra
+package com.example.calculator.adapter
 
 import android.view.LayoutInflater
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.calculator.databinding.ItemExtraCalculatingViewBinding
+import com.example.calculator.ui.extra.ExtraModel
 
 class ExtraAdapter : RecyclerView.Adapter<ExtraAdapter.ExtraViewHolder>() {
 

@@ -5,9 +5,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.calculator.MainActivity
 import com.example.calculator.ui.extra.ExtraCalculationFragment
 import com.example.calculator.ui.figure.FiguresCalculationsFragment
+import com.example.calculator.ui.cash.InvestmentFragment
 
 class SwipeAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) {
 
@@ -17,8 +17,7 @@ class SwipeAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) 
         return when (position) {
             0 -> FiguresCalculationsFragment()
             1 -> ExtraCalculationFragment()
-            2 -> FiguresCalculationsFragment()
-
+            2 -> InvestmentFragment()
             else -> Fragment()
         }
     }

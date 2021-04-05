@@ -3,6 +3,8 @@ package com.example.calculator
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.os.Bundle
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.widget.PopupWindow
@@ -20,9 +22,6 @@ import com.google.android.material.tabs.TabLayoutMediator
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(ActivityMainBinding::inflate, MainViewModel::class.java) {
 
     private lateinit var viewPager: ViewPager2
-
-    private var mathValue = ""
-    private var mathResult = ""
 
     override fun setupView() {
         super.setupView()
@@ -85,12 +84,5 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(ActivityMa
         })
 
         return customView
-    }
-
-    override fun onResume() {
-        super.onResume()
-        intent.getStringExtra(ArchiveActivity.KEY_MATH)?.let { mathValue = it }
-        intent.getStringExtra(ArchiveActivity.KEY_RESULT)?.let { mathResult = it }
-        aViewmodel.setResultFromClick(mathResult,mathValue)
     }
 }

@@ -25,11 +25,11 @@ abstract class BaseActivity<B: ViewBinding, VM: BaseViewModel>(private var bindi
         super.onCreate(savedInstanceState)
         binding = bindingInflate(layoutInflater)
         setContentView(binding.root)
-        setupView()
 
+        setupView()
     }
 
-    val aViewmodel: VM by lazy {
+    val viewModel: VM by lazy {
         ViewModelProvider(this,BaseFactory(this)).get(className)
     }
 

@@ -5,9 +5,9 @@
     <application
         android:name=".utils.App"
         android:allowBackup="true"
-        android:icon="@drawable/ic_volume"
+        android:icon="@drawable/ic_equals_sign"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/ic_volume"
+        android:roundIcon="@drawable/ic_equals_sign"
         android:supportsRtl="true"
         android:theme="@style/Theme.Calculator">
         <activity

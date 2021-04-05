@@ -16,7 +16,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 
-abstract class BaseFragment<Binding : ViewBinding, VM : BaseViewModel>(private val inflate: (LayoutInflater, ViewGroup?, Boolean) -> Binding, className : Class<VM>) : Fragment(),BaseViewModelEventListener {
+abstract class BaseFragment<Binding: ViewBinding, VM: BaseViewModel>(private val inflate: (LayoutInflater, ViewGroup?, Boolean) -> Binding, className: Class<VM>): Fragment(), BaseViewModelEventListener {
 
     private var _binding: Binding? = null
     val binding get() = _binding!!
@@ -25,7 +25,7 @@ abstract class BaseFragment<Binding : ViewBinding, VM : BaseViewModel>(private v
     val uiScope = CoroutineScope(Main + job)
 
     val viewModel: VM by lazy {
-        ViewModelProvider(this,BaseFactory(this)).get(className)
+        ViewModelProvider(this, BaseFactory(this)).get(className)
     }
 
     private val progressDialog: ACProgressFlower? by lazy {

@@ -1,11 +1,15 @@
 package com.example.calculator.ui.figure
 
+import android.content.Intent
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.calculator.R
 import com.example.calculator.base.BaseViewModel
 import com.example.calculator.base.BaseViewModelEventListener
 import com.example.calculator.database.HistoryDatabase
 import com.example.calculator.database.HistoryItem
+import com.example.calculator.utils.Constants.KEY_MATH
+import com.example.calculator.utils.Constants.KEY_RESULT
 import com.example.calculator.utils.Expressions
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -33,27 +37,55 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
         DIVIDE(R.id.figures_divide, " / "),
         PERCENTAGE(R.id.figures_presantage, " % "),
         DOT(R.id.figures_dot, "."),
+
+        TRACTION(R.id.figures_transform),
+        EQUAL(R.id.figures_equal),
+
+        AC_NORMAL(R.id.figures_clear_normal),
+        CLEAR_NORMAL(R.id.figures_delete_normal),
+
+        ZERO_NORMAL(R.id.figures_zero_normal, "0"),
+        ONE_NORMAL(R.id.figures_one_normal, "1"),
+        TWO_NORMAL(R.id.figures_two_normal, "2"),
+        THREE_NORMAL(R.id.figures_three_normal, "3"),
+        FOUR_NORMAL(R.id.figures_four_normal, "4"),
+        FIVE_NORMAL(R.id.figures_five_normal, "5"),
+        SIX_NORMAL(R.id.figures_six_normal, "6"),
+        SEVEN_NORMAL(R.id.figures_seven_normal, "7"),
+        EIGHT_NORMAL(R.id.figures_eight_normal, "8"),
+        NINE_NORMAL(R.id.figures_nine_normal, "9"),
+
+        DECREMENT_NORMAL(R.id.figures_minus_normal, " - "),
+        PLUS_NORMAL(R.id.figures_plus_normal, " + "),
+        MULTIPLICATION_NORMAL(R.id.figures_multiple_normal, " * "),
+        DIVIDE_NARMAL(R.id.figures_divide_normal, " / "),
+        PERCENTAGE_NORMAL(R.id.figures_presantage_normal, " % "),
+        DOT_NORMAL(R.id.figures_dot_normal, "."),
+
+        TRACTION_NORMAL(R.id.figures_transform_normal),
+        EQUAL_NORMAL(R.id.figures_equal_normal),
+
         SIN(R.id.figures_sin,"sin("),
         COS(R.id.figures_cos,"cos("),
         TAN(R.id.figures_sin,"tan("),
         XY(R.id.figures_x_y,"^"),
         LG(R.id.figures_lg,"lg("),
         IN(R.id.figures_in,"in("),
+
         LEFT_PARENTHESIS(R.id.figures_left_parenthesis,"("),
         RIGHT_PARENTHESIS(R.id.figures_right_parenthesis,")"),
         UNDER(R.id.figures_under_x,"√"),
         X_EXCLAMATION(R.id.figures_x_exclamation,"!"),
         ONE_DIVIDED_X(R.id.figures_one_divide_x,"^(-1)"),
         ONE_CONSTANT(R.id.figures_p_constant,"π"),
-        E_COUNT(R.id.figures_e,"e"),
-
-        TRACTION(R.id.figures_transform),
-        EQUAL(R.id.figures_equal);
+        E_COUNT(R.id.figures_e,"e");
 
         companion object {
             fun valueOf(value: Int?) = values().find { it.id == value }
         }
     }
+
+    var layoutLiveData: MutableLiveData<Boolean> = MutableLiveData()
 
     var fieldLiveData: MutableLiveData<String> = MutableLiveData()
     var resultLiveData: MutableLiveData<String> = MutableLiveData()
@@ -80,12 +112,21 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
             onOperationClick(operation)
     }
 
+    fun loadDataFromHistory(intent: Intent?) {
+        if (intent != null) {
+            val math = intent.getStringExtra(KEY_MATH)
+            val result = intent.getStringExtra(KEY_RESULT)
+
+            math?.let { mathString = it }
+            math?.let { fieldLiveData.value = it }
+            result?.let { resultLiveData.value = "= $it" }
+        }
+    }
+
     fun loadHistory() {
         GlobalScope.launch {
             var historys = HistoryDatabase.instance?.historyDao()?.getAll()
-
             historys = historys?.asReversed()
-
             uiScope.launch {
                 historyLiveData.value = historys
             }
@@ -94,11 +135,10 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
 
     private fun onClickMath(operation: Operation) {
         if (!(checkOperation.contains(mathString.takeLast(3)) && checkOperation.contains(operation.type))) {
-            if (operation.type == Operation.ZERO.type && mathString.isEmpty()){
-                fieldLiveData.value = fieldLiveData.value
-            }else {
+            if (!((operation.type == Operation.ZERO.type || operation.type == Operation.ZERO_NORMAL.type) && mathString.isEmpty())) {
                 if (isEqualClicked && !checkOperation.contains(operation.type)) {
                     isEqualClicked = false
+                    mathString = String()
                 }
                 mathString += operation.type
                 fieldLiveData.value = mathString
@@ -109,10 +149,16 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
 
     private fun onOperationClick(operation: Operation) {
         when (operation) {
-            Operation.AC -> clearAll()
-            Operation.CLEAR -> removeLastOne()
-            Operation.EQUAL -> calculate()
+            Operation.AC, Operation.AC_NORMAL -> clearAll()
+            Operation.CLEAR, Operation.CLEAR_NORMAL -> removeLastOne()
+            Operation.EQUAL, Operation.EQUAL_NORMAL -> calculate()
+            Operation.TRACTION -> showCalculatorLayout(false)
+            Operation.TRACTION_NORMAL -> showCalculatorLayout(true)
         }
+    }
+
+    private fun showCalculatorLayout(mode: Boolean) {
+        layoutLiveData.value = mode
     }
 
     private fun clearAll() {
@@ -132,13 +178,10 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
         if (!isEqualClicked) {
             if (mathString.isNotEmpty()) {
                 try {
+                    val result = Expressions().eval(mathString).toString()
+
                     GlobalScope.launch {
-                        HistoryDatabase.instance?.historyDao()?.insertAll(
-                            HistoryItem(
-                                mathString,
-                                Expressions().eval(mathString).toString()
-                            )
-                        )
+                        HistoryDatabase.instance?.historyDao()?.insertAll(HistoryItem(mathString, result))
                         var historys = HistoryDatabase.instance?.historyDao()?.getAll()
                         historys = historys?.asReversed()
 
@@ -146,7 +189,7 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
                             historyLiveData.value = historys
                         }
                     }
-                    mathString = Expressions().eval(mathString).toString()
+                    mathString = result
                 } catch (e: Exception) {
                     if (mathString.isNotEmpty()) {
                         resultLiveData.value = "= 0"
