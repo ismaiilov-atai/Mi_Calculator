@@ -1,6 +1,5 @@
 package com.example.calculator.base
 
-
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -19,8 +18,8 @@ abstract class BaseActivity<B: ViewBinding, VM: BaseViewModel>(private var bindi
     protected lateinit var binding: B
     private var mViewModel: VM? = null
 
-    val job = Job()
-    val uiScope = CoroutineScope(Dispatchers.Main + job)
+    protected val job = Job()
+    protected val uiScope = CoroutineScope(Dispatchers.Main + job)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +29,7 @@ abstract class BaseActivity<B: ViewBinding, VM: BaseViewModel>(private var bindi
 
     }
 
-    val viewmodel: VM by lazy {
+    val aViewmodel: VM by lazy {
         ViewModelProvider(this,BaseFactory(this)).get(className)
     }
 

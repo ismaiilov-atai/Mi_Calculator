@@ -8,5 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="light_gray">#AAA5A5</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="onHover">#D1CECE</color>
+    <color name="onHover">#E3DEDE</color>
 </resources>

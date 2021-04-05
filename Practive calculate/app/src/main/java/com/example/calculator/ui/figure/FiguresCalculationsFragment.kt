@@ -4,14 +4,21 @@ import android.animation.ValueAnimator
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.calculator.MainActivity
+import com.example.calculator.MainViewModel
 import com.example.calculator.base.BaseFragment
 import com.example.calculator.databinding.FragmentFiguresCalculationsBinding
 
 class FiguresCalculationsFragment: BaseFragment<FragmentFiguresCalculationsBinding, FiguresCalculationViewModel>(FragmentFiguresCalculationsBinding::inflate, FiguresCalculationViewModel::class.java), View.OnClickListener {
 
     private lateinit var adapter: FiguresAdapter
+
+//    private val sharedViewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
+    private val sharedViewModel: MainViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -117,8 +124,12 @@ class FiguresCalculationsFragment: BaseFragment<FragmentFiguresCalculationsBindi
 
     override fun onResume() {
         super.onResume()
-        val mainActivity = activity as MainActivity
-        binding.textResult.text = mainActivity.getResultString()
-        binding.textFigures.text = mainActivity.getMathString()
+        sharedViewModel.resultDataFromClick.observe(requireActivity()){
+            viewModel.resultLiveData.value = it
+        }
+
+        sharedViewModel.mathDataFromClick.observe(requireActivity()){
+            viewModel.fieldLiveData.value = it
+        }
     }
 }

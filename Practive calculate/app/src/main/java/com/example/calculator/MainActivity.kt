@@ -3,53 +3,51 @@ package com.example.calculator
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.PorterDuff
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.widget.PopupWindow
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.example.calculator.adapter.SwipeAdapter
+import com.example.calculator.base.BaseActivity
 import com.example.calculator.databinding.ActivityMainBinding
 import com.example.calculator.databinding.FigureMenuBinding
 import com.example.calculator.ui.archive.ArchiveActivity
 import com.google.android.material.tabs.TabLayoutMediator
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(ActivityMainBinding::inflate, MainViewModel::class.java) {
 
-    private lateinit var bindingMain: ActivityMainBinding
     private lateinit var viewPager: ViewPager2
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        bindingMain = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(bindingMain.root)
+    private var mathValue = ""
+    private var mathResult = ""
 
-        viewPager = bindingMain.viewPager
+    override fun setupView() {
+        super.setupView()
+        viewPager = binding.viewPager
         viewPager.adapter = SwipeAdapter(this)
 
-        TabLayoutMediator(bindingMain.tabLayout, viewPager) { tab, position ->
-            when(position){
-                0 -> tab.icon = ContextCompat.getDrawable(applicationContext,R.drawable.ic_calculate)
-                1 -> tab.icon = ContextCompat.getDrawable(applicationContext,R.drawable.ic_dashboard)
-                2 -> tab.icon = ContextCompat.getDrawable(applicationContext,R.drawable.ic_cash)
+        TabLayoutMediator(binding.tabLayout, viewPager) { tab, position ->
+            when (position) {
+                0 -> tab.icon =
+                    ContextCompat.getDrawable(applicationContext, R.drawable.ic_calculate)
+                1 -> tab.icon =
+                    ContextCompat.getDrawable(applicationContext, R.drawable.ic_dashboard)
+                2 -> tab.icon = ContextCompat.getDrawable(applicationContext, R.drawable.ic_cash)
             }
         }.attach()
 
-        bindingMain.moreItem.setOnClickListener{
-           popupDisplay().showAsDropDown(bindingMain.moreItem, -300,30)
+        binding.moreItem.setOnClickListener {
+            popupDisplay().showAsDropDown(binding.moreItem, -250, -10)
         }
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    fun popupDisplay() : PopupWindow {
+    fun popupDisplay(): PopupWindow {
         val pop_binding = FigureMenuBinding.inflate(layoutInflater)
-        val customView  = PopupWindow(applicationContext)
+        val customView = PopupWindow(applicationContext)
         val view = pop_binding.root
 
         customView.width = 380
@@ -60,13 +58,27 @@ class MainActivity : AppCompatActivity() {
         customView.elevation = 80F
         customView.contentView = view
 
-        val intent = Intent(this,ArchiveActivity::class.java)
+        val intent = Intent(this, ArchiveActivity::class.java)
         pop_binding.historyMenu.setOnTouchListener(View.OnTouchListener { view, motionEvent ->
-            when (motionEvent.action){
-                MotionEvent.ACTION_DOWN -> view.setBackgroundColor(ContextCompat.getColor(this,R.color.onHover))
+            when (motionEvent.action) {
+                MotionEvent.ACTION_DOWN -> view.setBackgroundColor(ContextCompat.getColor(this, R.color.onHover))
                 MotionEvent.ACTION_UP -> {
-                    view.setBackgroundColor(ContextCompat.getColor(this,R.color.white))
                     startActivity(intent)
+                    view.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                    customView.dismiss()
+                }
+            }
+            return@OnTouchListener true
+        })
+
+        //about menuItem
+        pop_binding.aboutMenu.setOnTouchListener(View.OnTouchListener { view, motionEvent ->
+            when (motionEvent.action) {
+                MotionEvent.ACTION_DOWN -> view.setBackgroundColor(ContextCompat.getColor(this, R.color.onHover))
+                MotionEvent.ACTION_UP -> {
+                    Toast.makeText(this,"about item was clicked! ",Toast.LENGTH_SHORT).show()
+                    view.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                    customView.dismiss()
                 }
             }
             return@OnTouchListener true
@@ -75,25 +87,10 @@ class MainActivity : AppCompatActivity() {
         return customView
     }
 
-    private var math_value = ""
-    private var math_result = ""
-
     override fun onResume() {
         super.onResume()
-        if (intent.getStringExtra(ArchiveActivity.KEY_MATH)?.isNotEmpty() == true &&
-            intent.getStringExtra(ArchiveActivity.KEY_RESULT)?.isNotEmpty() == true) {
-                intent.getStringExtra(ArchiveActivity.KEY_MATH)?.let { math_value = it}
-                intent.getStringExtra(ArchiveActivity.KEY_RESULT)?.let { math_result = it }
-        }
+        intent.getStringExtra(ArchiveActivity.KEY_MATH)?.let { mathValue = it }
+        intent.getStringExtra(ArchiveActivity.KEY_RESULT)?.let { mathResult = it }
+        aViewmodel.setResultFromClick(mathResult,mathValue)
     }
-
-    fun getResultString(): String {
-        return math_result
-    }
-
-    fun getMathString(): String {
-        return math_value
-    }
-
-
 }
