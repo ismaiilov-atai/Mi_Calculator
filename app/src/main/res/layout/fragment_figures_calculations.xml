@@ -83,6 +83,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2nd"
+                android:background="@drawable/back_crossed"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_gravity="center_vertical"/>
@@ -91,6 +92,7 @@
             <TextView
                 android:id="@+id/figures_deg"
                 style="@style/extra_btns_style"
+                android:background="@drawable/back_crossed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="deg"
@@ -100,6 +102,7 @@
 
             <TextView
                 android:id="@+id/figures_sin"
+                android:background="@drawable/back_crossed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="sin"
@@ -110,6 +113,7 @@
 
             <TextView
                 android:id="@+id/figures_cos"
+                android:background="@drawable/back_crossed"
                 style="@style/extra_btns_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -121,6 +125,7 @@
             <TextView
                 android:id="@+id/figures_tan"
                 style="@style/extra_btns_style"
+                android:background="@drawable/back_crossed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -133,6 +138,7 @@
                 android:id="@+id/figures_x_y"
                 style="@style/extra_btns_style"
                 android:layout_width="wrap_content"
+                android:background="@drawable/back_crossed"
                 android:layout_height="wrap_content"
                 android:text="x'"
                 android:layout_columnWeight="1"
@@ -142,6 +148,7 @@
             <TextView
                 android:id="@+id/figures_lg"
                 style="@style/extra_btns_style"
+                android:background="@drawable/back_crossed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="lg"
@@ -153,6 +160,7 @@
                 android:id="@+id/figures_in"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/back_crossed"
                 android:text="in"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
@@ -184,6 +192,7 @@
                 style="@style/extra_btns_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/back_crossed"
                 android:text="√x"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
@@ -243,6 +252,7 @@
                 style="@style/extra_btns_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/back_crossed"
                 android:text="X!"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
@@ -361,6 +371,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="π"
+                android:background="@drawable/back_crossed"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_gravity="center_vertical"/>

@@ -10,10 +10,7 @@ import com.example.calculator.base.BaseFragment
 import com.example.calculator.databinding.FragmentFiguresCalculationsBinding
 import com.example.calculator.utils.setVisibility
 
-class FiguresCalculationsFragment: BaseFragment<FragmentFiguresCalculationsBinding, FiguresCalculationViewModel>(
-    FragmentFiguresCalculationsBinding::inflate,
-    FiguresCalculationViewModel::class.java
-), View.OnClickListener {
+class FiguresCalculationsFragment: BaseFragment<FragmentFiguresCalculationsBinding, FiguresCalculationViewModel>(FragmentFiguresCalculationsBinding::inflate, FiguresCalculationViewModel::class.java), View.OnClickListener {
 
     private lateinit var adapter: FiguresAdapter
 
@@ -60,30 +57,19 @@ class FiguresCalculationsFragment: BaseFragment<FragmentFiguresCalculationsBindi
                 fadeIn.duration = 300
 
                 fadeIn.addListener(object : Animator.AnimatorListener {
-                    override fun onAnimationStart(animation: Animator?) {
-
-                    }
-
+                    override fun onAnimationStart(animation: Animator?) {}
                     override fun onAnimationEnd(animation: Animator?, isReverse: Boolean) {
                         binding.gridNormal.setVisibility(!it)
                         binding.gridMore.setVisibility(it)
                         fadeOut.start()
                     }
-
-                    override fun onAnimationEnd(animation: Animator?) {
-
-                    }
-
-                    override fun onAnimationCancel(animation: Animator?) {
-
-                    }
-
-                    override fun onAnimationRepeat(animation: Animator?) {
-
-                    }
+                    override fun onAnimationEnd(animation: Animator?) {}
+                    override fun onAnimationCancel(animation: Animator?) {}
+                    override fun onAnimationRepeat(animation: Animator?) {}
                 })
 
                 fadeIn.start()
+
             } else {
                 val fadeOut = ObjectAnimator.ofFloat(binding.gridNormal, "alpha", 0f, 1f)
                 fadeOut.duration = 300
@@ -92,27 +78,15 @@ class FiguresCalculationsFragment: BaseFragment<FragmentFiguresCalculationsBindi
                 fadeIn.duration = 300
 
                 fadeIn.addListener(object : Animator.AnimatorListener {
-                    override fun onAnimationStart(animation: Animator?) {
-
-                    }
-
+                    override fun onAnimationStart(animation: Animator?) {}
                     override fun onAnimationEnd(animation: Animator?, isReverse: Boolean) {
                         binding.gridNormal.setVisibility(!it)
                         binding.gridMore.setVisibility(it)
                         fadeOut.start()
                     }
-
-                    override fun onAnimationEnd(animation: Animator?) {
-
-                    }
-
-                    override fun onAnimationCancel(animation: Animator?) {
-
-                    }
-
-                    override fun onAnimationRepeat(animation: Animator?) {
-
-                    }
+                    override fun onAnimationEnd(animation: Animator?) {}
+                    override fun onAnimationCancel(animation: Animator?) {}
+                    override fun onAnimationRepeat(animation: Animator?) {}
                 })
 
                 fadeIn.start()
@@ -120,12 +94,7 @@ class FiguresCalculationsFragment: BaseFragment<FragmentFiguresCalculationsBindi
         }
     }
 
-    private fun showResultAnimation(
-        startSize: Float,
-        endSize: Float,
-        animationDuration: Long,
-        view: TextView
-    ) {
+    private fun showResultAnimation(startSize: Float, endSize: Float, animationDuration: Long, view: TextView) {
         val animator = ValueAnimator.ofFloat(startSize, endSize)
         animator.duration = animationDuration
         animator.addUpdateListener { valueAnimator ->
@@ -160,7 +129,6 @@ class FiguresCalculationsFragment: BaseFragment<FragmentFiguresCalculationsBindi
         binding.figuresEight.setOnClickListener(this)
         binding.figuresNine.setOnClickListener(this)
 
-
         binding.figuresZeroNormal.setOnClickListener(this)
         binding.figuresOneNormal.setOnClickListener(this)
         binding.figuresTwoNormal.setOnClickListener(this)
@@ -180,14 +148,12 @@ class FiguresCalculationsFragment: BaseFragment<FragmentFiguresCalculationsBindi
         binding.figuresPlus.setOnClickListener(this)
         binding.figuresDot.setOnClickListener(this)
 
-
         binding.figuresPresantageNormal.setOnClickListener(this)
         binding.figuresDivideNormal.setOnClickListener(this)
         binding.figuresMultipleNormal.setOnClickListener(this)
         binding.figuresMinusNormal.setOnClickListener(this)
         binding.figuresPlusNormal.setOnClickListener(this)
         binding.figuresDotNormal.setOnClickListener(this)
-
 
         //extra
         binding.figuresSecondD.setOnClickListener(this)
@@ -213,7 +179,6 @@ class FiguresCalculationsFragment: BaseFragment<FragmentFiguresCalculationsBindi
 
         //imageView
         binding.figuresEqual.setOnClickListener(this)
-
         binding.figuresEqualNormal.setOnClickListener(this)
     }
 
