@@ -493,7 +493,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:paddingBottom="20dp">
+            android:paddingBottom="10dp">
 
             <TextView
                 android:id="@+id/figures_clear_normal"
@@ -501,7 +501,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="AC"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_gravity="center_vertical"
@@ -516,7 +516,7 @@
                 android:layout_rowWeight="1"
                 style="@style/btn_operation_styles"
                 android:layout_gravity="center_vertical"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textColor="@color/purple_500" />
 
             <TextView
@@ -528,7 +528,7 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:text="%"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textColor="@color/purple_500" />
 
             <TextView
@@ -540,7 +540,7 @@
                 android:layout_rowWeight="1"
                 android:text="÷"
                 android:layout_gravity="center_vertical"
-                android:textSize="24sp"
+                android:textSize="25sp"
                 android:textColor="@color/purple_500" />
 
 
@@ -551,7 +551,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="7"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_gravity="center_vertical"
@@ -566,7 +566,7 @@
                 android:layout_rowWeight="1"
                 style="@style/btn_operation_styles"
                 android:layout_gravity="center_vertical"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textColor="@color/black" />
 
             <TextView
@@ -578,7 +578,7 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:text="9"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textColor="@color/black" />
 
             <TextView
@@ -590,7 +590,7 @@
                 android:layout_rowWeight="1"
                 android:text="X"
                 android:layout_gravity="center_vertical"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textColor="@color/purple_500" />
 
 
@@ -600,7 +600,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_gravity="center_vertical"
@@ -615,7 +615,7 @@
                 android:layout_rowWeight="1"
                 style="@style/btn_operation_styles"
                 android:layout_gravity="center_vertical"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textColor="@color/black" />
 
             <TextView
@@ -627,7 +627,7 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:text="6"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textColor="@color/black" />
 
             <TextView
@@ -639,7 +639,7 @@
                 android:layout_rowWeight="1"
                 android:text="-"
                 android:layout_gravity="center_vertical"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textColor="@color/purple_500" />
 
             <TextView
@@ -648,7 +648,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_gravity="center_vertical"
@@ -663,7 +663,7 @@
                 android:layout_rowWeight="1"
                 style="@style/btn_operation_styles"
                 android:layout_gravity="center_vertical"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textColor="@color/black" />
 
             <TextView
@@ -675,7 +675,7 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:text="3"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textColor="@color/black" />
 
             <TextView
@@ -687,7 +687,7 @@
                 android:layout_rowWeight="1"
                 android:text="＋"
                 android:layout_gravity="center_vertical"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textColor="@color/purple_500" />
 
             <ImageView
@@ -698,7 +698,7 @@
                 android:src="@drawable/ic_transform"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:layout_gravity="center_vertical"
                 android:textColor="@color/black" />
 
@@ -711,7 +711,7 @@
                 android:layout_rowWeight="1"
                 style="@style/btn_operation_styles"
                 android:layout_gravity="center_vertical"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textColor="@color/black" />
 
             <TextView
@@ -723,7 +723,7 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:text="."
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textColor="@color/black" />
 
             <ImageView
