@@ -14,17 +14,23 @@ class ExtraCalculationFragment : BaseFragment<FragmentExtraCalculationBinding, E
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupUi()
+        context?.let { viewModel.loadData(it) }
+
+        setupUI()
     }
 
-    private fun setupUi() {
-        adapter.listModel = viewModel.listModel
+    private fun setupUI() {
         binding.recyclerExtra.adapter = adapter
 
         adapter.addOnItemClickListener(object : ExtraAdapter.OnItemClickListener {
             override fun onClick(item: ExtraModel) {
-                Toast.makeText(requireContext(),"ololo",Toast.LENGTH_SHORT).show()
+                context?.startActivity(item.intent)
             }
         })
+
+        viewModel.listMutableLiveData.observe(viewLifecycleOwner) {
+            adapter.listModel = it
+            adapter.notifyDataSetChanged()
+        }
     }
 }

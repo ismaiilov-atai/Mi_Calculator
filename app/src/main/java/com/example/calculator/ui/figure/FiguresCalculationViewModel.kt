@@ -11,8 +11,13 @@ import com.example.calculator.database.HistoryItem
 import com.example.calculator.utils.Constants.KEY_MATH
 import com.example.calculator.utils.Constants.KEY_RESULT
 import com.example.calculator.utils.Expressions
+import com.example.calculator.utils.parser.ExpressionParser
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+
+fun main() {
+    println(ExpressionParser().evaluate("√(23)"))
+}
 
 class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewModel(event) {
 
@@ -31,11 +36,11 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
         EIGHT(R.id.figures_eight, "8"),
         NINE(R.id.figures_nine, "9"),
 
-        DECREMENT(R.id.figures_minus, " - "),
-        PLUS(R.id.figures_plus, " + "),
-        MULTIPLICATION(R.id.figures_multiple, " * "),
-        DIVIDE(R.id.figures_divide, " / "),
-        PERCENTAGE(R.id.figures_presantage, " % "),
+        DECREMENT(R.id.figures_minus, "-"),
+        PLUS(R.id.figures_plus, "+"),
+        MULTIPLICATION(R.id.figures_multiple, "*"),
+        DIVIDE(R.id.figures_divide, "/"),
+        PERCENTAGE(R.id.figures_presantage, "%"),
         DOT(R.id.figures_dot, "."),
 
         TRACTION(R.id.figures_transform),
@@ -55,11 +60,11 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
         EIGHT_NORMAL(R.id.figures_eight_normal, "8"),
         NINE_NORMAL(R.id.figures_nine_normal, "9"),
 
-        DECREMENT_NORMAL(R.id.figures_minus_normal, " - "),
-        PLUS_NORMAL(R.id.figures_plus_normal, " + "),
-        MULTIPLICATION_NORMAL(R.id.figures_multiple_normal, " * "),
-        DIVIDE_NARMAL(R.id.figures_divide_normal, " / "),
-        PERCENTAGE_NORMAL(R.id.figures_presantage_normal, " % "),
+        DECREMENT_NORMAL(R.id.figures_minus_normal, "-"),
+        PLUS_NORMAL(R.id.figures_plus_normal, "+"),
+        MULTIPLICATION_NORMAL(R.id.figures_multiple_normal, "*"),
+        DIVIDE_NORMAL(R.id.figures_divide_normal, "/"),
+        PERCENTAGE_NORMAL(R.id.figures_presantage_normal, "%"),
         DOT_NORMAL(R.id.figures_dot_normal, "."),
 
         TRACTION_NORMAL(R.id.figures_transform_normal),
@@ -69,15 +74,15 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
         COS(R.id.figures_cos,"cos("),
         TAN(R.id.figures_sin,"tan("),
         XY(R.id.figures_x_y,"^"),
-        LG(R.id.figures_lg,"lg("),
-        IN(R.id.figures_in,"in("),
+        LG(R.id.figures_lg,"log("),
+        IN(R.id.figures_in,"ln("),
 
         LEFT_PARENTHESIS(R.id.figures_left_parenthesis,"("),
         RIGHT_PARENTHESIS(R.id.figures_right_parenthesis,")"),
-        UNDER(R.id.figures_under_x,"√"),
+        UNDER(R.id.figures_under_x,"sqrt("),
         X_EXCLAMATION(R.id.figures_x_exclamation,"!"),
         ONE_DIVIDED_X(R.id.figures_one_divide_x,"^(-1)"),
-        ONE_CONSTANT(R.id.figures_p_constant,"π"),
+        ONE_CONSTANT(R.id.figures_p_constant,"PI"),
         E_COUNT(R.id.figures_e,"e");
 
         companion object {
@@ -97,7 +102,7 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
 
     private val checkOperation: ArrayList<String> by lazy {
         val checkArray = ArrayList<String>()
-        checkArray.add(" + "); checkArray.add(" - ")
+        checkArray.add("PI"); checkArray.add(" - ")
         checkArray.add(" * "); checkArray.add(" / ")
         checkArray.add(" % ")
         return@lazy checkArray
@@ -178,7 +183,8 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
         if (!isEqualClicked) {
             if (mathString.isNotEmpty()) {
                 try {
-                    val result = Expressions().eval(mathString).toString()
+//                    val result = Expressions().eval(mathString).toString()      /* <-------------------------*/
+                    val result = ExpressionParser().evaluate(mathString).toString()
 
                     GlobalScope.launch {
                         HistoryDatabase.instance?.historyDao()?.insertAll(HistoryItem(mathString, result))
@@ -188,8 +194,9 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
                         uiScope.launch {
                             historyLiveData.value = historys
                         }
+
+                        mathString = result
                     }
-                    mathString = result
                 } catch (e: Exception) {
                     if (mathString.isNotEmpty()) {
                         resultLiveData.value = "= 0"
@@ -206,7 +213,8 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
 
     private fun realTimeResult() {
         try {
-            val result = Expressions().eval(mathString)
+//            val result = Expressions().eval(mathString)       /* <-------------------------*/
+            val result = ExpressionParser().evaluate(mathString)
             resultLiveData.value = "= $result"
         }catch (e: Exception){
             if (mathString.isNotEmpty()) {

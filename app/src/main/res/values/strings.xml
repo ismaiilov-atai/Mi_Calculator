@@ -16,11 +16,21 @@
     <string name="extra_time">Time</string>
     <string name="extra_volume">Volume</string>
     <string name="history_lable">History</string>
+    <string name="age_lable">Age</string>
+    <string name="next_birthday">Next birthday</string>
+    <string name="monday">Monday</string>
+    <string name="summary">Summary</string>
+    <string name="years">Years</string>
+    <string name="month">Month</string>
+    <string name="weeks">Weeks</string>
+    <string name="minutes">Minutes</string>
+    <string name="hours">Hours</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="today">Today</string>
     <string name="title_activity_archive">ArchiveActivity</string>
     <string name="currency">Currency</string>
     <string name="investment">Investment</string>
     <string name="loan">Loan</string>
-
 
 
     <!-- Strings used for fragments for navigation -->

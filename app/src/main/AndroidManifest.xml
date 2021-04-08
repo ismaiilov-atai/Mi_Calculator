@@ -10,6 +10,7 @@
         android:roundIcon="@drawable/ic_equals_sign"
         android:supportsRtl="true"
         android:theme="@style/Theme.Calculator">
+        <activity android:name=".ui.age.AgeActivity"></activity>
         <activity
             android:name=".ui.archive.ArchiveActivity"
             android:label="@string/title_activity_archive"
