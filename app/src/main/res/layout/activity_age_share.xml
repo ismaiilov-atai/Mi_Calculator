@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.age.AgeShareActivity">
+    tools:context=".ui.share.AgeShareActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/age_share_lable_holder"

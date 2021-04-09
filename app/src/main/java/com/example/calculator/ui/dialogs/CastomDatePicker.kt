@@ -36,11 +36,6 @@ class CastomDatePicker(var type: Type) : DialogFragment(), OnDateSetListener {
 		return DatePickerDialog(requireContext(), this, year, month, day)
 	}
 
-	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-		binding = SpinnerDatePickerBinding.inflate(inflater,container,false)
-		return binding?.root
-	}
-
 	override fun onDestroyView() {
 		super.onDestroyView()
 		binding = null

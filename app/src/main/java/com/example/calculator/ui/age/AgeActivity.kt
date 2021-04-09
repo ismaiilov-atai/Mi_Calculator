@@ -4,17 +4,15 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
-import android.view.View.MeasureSpec
 import androidx.core.content.ContextCompat
 import com.example.calculator.R
 import com.example.calculator.base.BaseActivity
 import com.example.calculator.databinding.ActivityAgeBinding
 import com.example.calculator.ui.dialogs.CastomDatePicker
+import com.example.calculator.ui.share.AgeShareActivity
 import java.io.ByteArrayOutputStream
 
-class AgeActivity : BaseActivity<ActivityAgeBinding, AgeViewModel>(
-	ActivityAgeBinding::inflate, AgeViewModel::class.java
-), CastomDatePicker.OnDateSetTypeListener {
+class AgeActivity : BaseActivity<ActivityAgeBinding, AgeViewModel>(ActivityAgeBinding::inflate, AgeViewModel::class.java), CastomDatePicker.OnDateSetTypeListener {
 
 	override fun setupView() {
 		super.setupView()

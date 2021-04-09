@@ -1,4 +1,4 @@
-package com.example.calculator.ui.age
+package com.example.calculator.ui.share
 
 import android.content.ContentValues
 import android.content.Intent

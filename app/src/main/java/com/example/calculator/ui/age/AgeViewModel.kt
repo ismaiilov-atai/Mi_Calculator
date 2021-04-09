@@ -1,12 +1,12 @@
 package com.example.calculator.ui.age
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.calculator.base.BaseViewModel
 import com.example.calculator.base.BaseViewModelEventListener
 import java.util.*
 
 class AgeViewModel(event: BaseViewModelEventListener) : BaseViewModel(event) {
+
 	var birthDayLiveDate: MutableLiveData<String> = MutableLiveData()
 	var currentDayLiveDate: MutableLiveData<String> = MutableLiveData()
 
@@ -67,10 +67,6 @@ class AgeViewModel(event: BaseViewModelEventListener) : BaseViewModel(event) {
 		val minutes = (calculateDate / 60000).toInt()
 
 		dateCalendarLiveDate.value = Age(day, month, year, weeks, hours, minutes)
-	}
-
-	private fun nextBirthday(birthDate: Date, toDayDate: Date){
-
 	}
 
 	private fun calculateBirthdayDate() {
