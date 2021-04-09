@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
 import androidx.fragment.app.DialogFragment
+import com.example.calculator.R
 import com.example.calculator.databinding.SpinnerDatePickerBinding
 import java.util.*
 
@@ -48,4 +49,10 @@ class CastomDatePicker(var type: Type) : DialogFragment(), OnDateSetListener {
 	override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
 		listener?.onDateSet(type, year, month, dayOfMonth)
 	}
+
+	override fun onActivityCreated(savedInstanceState: Bundle?) {
+		super.onActivityCreated(savedInstanceState)
+		dialog?.window?.attributes?.windowAnimations = R.style.dialogAnimation
+	}
+
 }

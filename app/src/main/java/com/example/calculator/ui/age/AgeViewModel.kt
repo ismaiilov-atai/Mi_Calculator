@@ -1,5 +1,6 @@
 package com.example.calculator.ui.age
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.calculator.base.BaseViewModel
 import com.example.calculator.base.BaseViewModelEventListener
@@ -68,6 +69,10 @@ class AgeViewModel(event: BaseViewModelEventListener) : BaseViewModel(event) {
 		dateCalendarLiveDate.value = Age(day, month, year, weeks, hours, minutes)
 	}
 
+	private fun nextBirthday(birthDate: Date, toDayDate: Date){
+
+	}
+
 	private fun calculateBirthdayDate() {
 		val toDayAgeCalendar: Calendar = Calendar.getInstance()
 		toDayAgeCalendar.set(Calendar.YEAR, toDayAge.years)
@@ -82,8 +87,6 @@ class AgeViewModel(event: BaseViewModelEventListener) : BaseViewModel(event) {
 		dateOfBirthCalendar.set(Calendar.MONTH, dateOfBirthAge.months)
 
 		val dateOfBirthResult = dateOfBirthCalendar.time
-
-		val s = calculateAge(dateOfBirthResult, toDayDateResult)
 
 		birthdayCalendarLiveDate.value = calculateAge(dateOfBirthResult, toDayDateResult)
 	}
@@ -115,7 +118,8 @@ class AgeViewModel(event: BaseViewModelEventListener) : BaseViewModel(event) {
 		}
 
 		if (now[Calendar.DATE] > birthDay[Calendar.DATE]) days =
-			now[Calendar.DATE] - birthDay[Calendar.DATE] else if (now[Calendar.DATE] < birthDay[Calendar.DATE]) {
+			now[Calendar.DATE] - birthDay[Calendar.DATE]
+		else if (now[Calendar.DATE] < birthDay[Calendar.DATE]) {
 			val today = now[Calendar.DAY_OF_MONTH]
 			now.add(Calendar.MONTH, -1)
 			days =

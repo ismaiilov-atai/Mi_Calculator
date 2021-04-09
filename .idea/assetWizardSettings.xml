@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/arrow_drop_down/baseline_arrow_drop_down_24.xml" />
+                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/ios_share/baseline_ios_share_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,8 +28,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="646161" />
-                            <entry key="outputName" value="ic_drop_down" />
+                            <entry key="color" value="a9a9a7" />
+                            <entry key="outputName" value="ic_share" />
+                            <entry key="sourceFile" value="$USER_HOME$/Downloads/telegram.svg" />
                           </map>
                         </option>
                       </PersistentState>

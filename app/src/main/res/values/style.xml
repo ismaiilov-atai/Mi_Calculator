@@ -28,4 +28,10 @@
         <item name="android:padding">15dp</item>
     </style>
 
+
+    <style name="dialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_up</item>
+        <item name="android:windowExitAnimation">@anim/slide_out</item>
+    </style>
+
 </resources>

@@ -16,6 +16,7 @@
     <string name="extra_time">Time</string>
     <string name="extra_volume">Volume</string>
     <string name="history_lable">History</string>
+    <string name="area_lable">Area converter</string>
     <string name="age_lable">Age</string>
     <string name="next_birthday">Next birthday</string>
     <string name="monday">Monday</string>
@@ -31,6 +32,9 @@
     <string name="currency">Currency</string>
     <string name="investment">Investment</string>
     <string name="loan">Loan</string>
+
+
+    <string name="days">days</string>
 
 
     <!-- Strings used for fragments for navigation -->

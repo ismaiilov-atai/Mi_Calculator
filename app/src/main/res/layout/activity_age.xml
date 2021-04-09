@@ -137,494 +137,506 @@
         app:layout_constraintTop_toBottomOf="@+id/date_today" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/date_layout"
         android:layout_width="match_parent"
         android:layout_height="430dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:background="@drawable/age_holder_frame"
+        android:background="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/space_after_today_container">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/age_calculate_container"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:padding="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/age_horizontal_view"
-            app:layout_constraintEnd_toStartOf="@+id/between_age_next_birthday"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-
-            <TextView
-                android:id="@+id/age_calculation_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/age_lable"
-                android:textSize="40sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Space
-                android:id="@+id/space_after_age_txt_calculation"
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/age_calculation_txt" />
-
-
-            <TextView
-                android:id="@+id/age_calculation_years_figures"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
-                android:text="10"
-                android:textColor="@color/purple_500"
-                android:textSize="60sp"
-                app:layout_constraintEnd_toEndOf="@+id/age_calculation_txt"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/space_after_age_txt_calculation" />
-
-            <TextView
-                android:id="@+id/age_calculation_txt_years"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="years"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@+id/age_calculation_years_figures"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/age_calculation_years_figures"
-                app:layout_constraintTop_toTopOf="@+id/age_calculation_years_figures"
-                app:layout_constraintVertical_bias="0.7" />
-
-
-            <TextView
-                android:id="@+id/age_months_txt"
-                android:layout_width="65dp"
-                android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:text="7 months"
-                android:textAlignment="center"
-                android:textSize="10sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <View
-                android:id="@+id/slash_between_age"
-                android:layout_width="1dp"
-                android:layout_height="0dp"
-                android:background="#858080"
-                app:layout_constraintBottom_toBottomOf="@id/age_months_txt"
-                app:layout_constraintStart_toEndOf="@+id/age_months_txt"
-                app:layout_constraintTop_toTopOf="@id/age_months_txt" />
-
-            <TextView
-                android:layout_width="50dp"
-                android:layout_height="0dp"
-                android:padding="2dp"
-                android:text="22 days"
-                android:textAlignment="center"
-                android:textSize="10sp"
-                app:layout_constraintBottom_toBottomOf="@+id/age_months_txt"
-                app:layout_constraintStart_toEndOf="@+id/slash_between_age"
-                app:layout_constraintTop_toTopOf="@+id/age_months_txt" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <View
-            android:id="@+id/between_age_next_birthday"
-            android:layout_width="1dp"
-            android:layout_height="190dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="#9AC8C3C3"
-            app:layout_constraintBottom_toTopOf="@+id/age_horizontal_view"
-            app:layout_constraintEnd_toStartOf="@+id/next_birthday_container"
-            app:layout_constraintStart_toEndOf="@+id/age_calculate_container"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/next_birthday_container"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:padding="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/age_horizontal_view"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="430dp"
+            android:background="@drawable/age_holder_frame"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toEndOf="@id/between_age_next_birthday"
             app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/next_birthday_txt"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/next_birthday"
-                android:textAlignment="center"
-                android:textColor="@color/purple_500"
-                android:textSize="15sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Space
-                android:id="@+id/space_after_birthday_txt"
-                android:layout_width="match_parent"
-                android:layout_height="23dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/next_birthday_txt" />
-
-            <ImageView
-                android:id="@+id/bday_cake"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/back_image_cake"
-                android:padding="10dp"
-                android:src="@drawable/ic_cake"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/space_after_birthday_txt" />
-
-            <Space
-                android:id="@+id/space_after_bday_cake"
-                android:layout_width="match_parent"
-                android:layout_height="23dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bday_cake" />
-
-            <TextView
-                android:id="@+id/next_bday_day"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/monday"
-                android:textAlignment="center"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/space_after_bday_cake" />
-
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent">
+                android:id="@+id/age_calculate_container"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:padding="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/age_horizontal_view"
+                app:layout_constraintEnd_toStartOf="@+id/between_age_next_birthday"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
 
                 <TextView
-                    android:id="@+id/next_months_txt"
+                    android:id="@+id/age_calculation_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/age_lable"
+                    android:textSize="40sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Space
+                    android:id="@+id/space_after_age_txt_calculation"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/age_calculation_txt" />
+
+
+                <TextView
+                    android:id="@+id/age_calculation_years_figures"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="10"
+                    android:textColor="@color/purple_500"
+                    android:textSize="60sp"
+                    app:layout_constraintEnd_toEndOf="@+id/age_calculation_txt"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/space_after_age_txt_calculation" />
+
+                <TextView
+                    android:id="@+id/age_calculation_txt_years"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="years"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/age_calculation_years_figures"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/age_calculation_years_figures"
+                    app:layout_constraintTop_toTopOf="@+id/age_calculation_years_figures"
+                    app:layout_constraintVertical_bias="0.7" />
+
+
+                <TextView
+                    android:id="@+id/age_months_txt"
                     android:layout_width="65dp"
                     android:layout_height="wrap_content"
                     android:padding="2dp"
                     android:text="7 months"
                     android:textAlignment="center"
                     android:textSize="10sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <View
-                    android:id="@+id/slash_between_next"
+                    android:id="@+id/slash_between_age"
                     android:layout_width="1dp"
                     android:layout_height="0dp"
                     android:background="#858080"
-                    app:layout_constraintBottom_toBottomOf="@id/next_months_txt"
-                    app:layout_constraintStart_toEndOf="@+id/next_months_txt"
-                    app:layout_constraintTop_toTopOf="@id/next_months_txt" />
+                    app:layout_constraintBottom_toBottomOf="@id/age_months_txt"
+                    app:layout_constraintStart_toEndOf="@+id/age_months_txt"
+                    app:layout_constraintTop_toTopOf="@id/age_months_txt" />
 
                 <TextView
+                    android:id="@+id/age_days_lived"
                     android:layout_width="50dp"
                     android:layout_height="0dp"
                     android:padding="2dp"
                     android:text="22 days"
                     android:textAlignment="center"
                     android:textSize="10sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/next_months_txt"
-                    app:layout_constraintStart_toEndOf="@+id/slash_between_next"
-                    app:layout_constraintTop_toTopOf="@+id/next_months_txt" />
-
+                    app:layout_constraintBottom_toBottomOf="@+id/age_months_txt"
+                    app:layout_constraintStart_toEndOf="@+id/slash_between_age"
+                    app:layout_constraintTop_toTopOf="@+id/age_months_txt" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <View
-            android:id="@+id/age_horizontal_view"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="#9AC8C3C3"
-            app:layout_constraintBottom_toTopOf="@+id/age_summary"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/between_age_next_birthday" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/age_summary"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:paddingLeft="30dp"
-            android:paddingTop="20dp"
-            android:paddingRight="30dp"
-            android:paddingBottom="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/age_horizontal_view">
-
-            <TextView
-                android:id="@+id/summary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/summary"
-                android:textAlignment="center"
-                android:textColor="@color/purple_500"
-                android:textSize="18sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
+            <View
+                android:id="@+id/between_age_next_birthday"
+                android:layout_width="1dp"
+                android:layout_height="190dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#9AC8C3C3"
+                app:layout_constraintBottom_toTopOf="@+id/age_horizontal_view"
+                app:layout_constraintEnd_toStartOf="@+id/next_birthday_container"
+                app:layout_constraintStart_toEndOf="@+id/age_calculate_container"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Space
-                android:id="@+id/space_after_summary"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/summary" />
-
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/dateiled_summary_container"
-                android:layout_width="match_parent"
+                android:id="@+id/next_birthday_container"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_constraintBottom_toTopOf="@+id/powered_by"
-                app:layout_constraintLeft_toLeftOf="parent"
+                android:padding="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/age_horizontal_view"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/space_after_summary">
+                app:layout_constraintStart_toEndOf="@id/between_age_next_birthday"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/next_birthday_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/next_birthday"
+                    android:textAlignment="center"
+                    android:textColor="@color/purple_500"
+                    android:textSize="15sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Space
+                    android:id="@+id/space_after_birthday_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="23dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/next_birthday_txt" />
+
+                <ImageView
+                    android:id="@+id/bday_cake"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/back_image_cake"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_cake"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/space_after_birthday_txt" />
+
+                <Space
+                    android:id="@+id/space_after_bday_cake"
+                    android:layout_width="match_parent"
+                    android:layout_height="23dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bday_cake" />
+
+                <TextView
+                    android:id="@+id/next_bday_day"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/monday"
+                    android:textAlignment="center"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/space_after_bday_cake" />
+
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/year_container"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:paddingRight="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/month_container"
-                    app:layout_constraintHorizontal_weight="1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
 
                     <TextView
-                        android:id="@+id/years_txt"
-                        android:layout_width="match_parent"
+                        android:id="@+id/next_months_txt"
+                        android:layout_width="65dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/years"
+                        android:padding="2dp"
+                        android:text="7 months"
                         android:textAlignment="center"
-                        android:textSize="12dp"
+                        android:textSize="10sp"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/summary_year_figure"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="10"
-                        android:textAlignment="center"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/years_txt" />
-
-
-                    <Space
-                        android:id="@+id/space_between_year"
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/summary_year_figure" />
+                    <View
+                        android:id="@+id/slash_between_next"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="#858080"
+                        app:layout_constraintBottom_toBottomOf="@id/next_months_txt"
+                        app:layout_constraintStart_toEndOf="@+id/next_months_txt"
+                        app:layout_constraintTop_toTopOf="@id/next_months_txt" />
 
                     <TextView
-                        android:id="@+id/summary_year_days_txt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="1dp"
-                        android:text="Days"
+                        android:layout_width="50dp"
+                        android:layout_height="0dp"
+                        android:padding="2dp"
+                        android:text="22 days"
                         android:textAlignment="center"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/space_between_year"
-
-                        />
-
-
-                    <TextView
-                        android:id="@+id/summary_days_figure"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="3887"
-                        android:textAlignment="center"
-                        android:textSize="15dp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/summary_year_days_txt" />
+                        android:textSize="10sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/next_months_txt"
+                        app:layout_constraintStart_toEndOf="@+id/slash_between_next"
+                        app:layout_constraintTop_toTopOf="@+id/next_months_txt" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/month_container"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/weeks_container"
-                    app:layout_constraintHorizontal_weight="1"
-                    app:layout_constraintStart_toEndOf="@+id/year_container"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <TextView
-                        android:id="@+id/month_txt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/month"
-                        android:textAlignment="center"
-                        android:textSize="12dp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/summary_month_figure"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="127"
-                        android:textAlignment="center"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/month_txt" />
-
-
-                    <Space
-                        android:id="@+id/space_between_month"
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/summary_month_figure" />
-
-                    <TextView
-                        android:id="@+id/summary_month_hours_txt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="1dp"
-                        android:text="@string/hours"
-                        android:textAlignment="center"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/space_between_month" />
-
-
-                    <TextView
-                        android:id="@+id/summary_hours_figure"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="93288"
-                        android:textAlignment="center"
-                        android:textSize="15dp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/summary_month_hours_txt" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/weeks_container"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:paddingLeft="20dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_weight="1"
-                    app:layout_constraintStart_toEndOf="@+id/month_container"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <TextView
-                        android:id="@+id/weeks_txt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/weeks"
-                        android:textAlignment="center"
-                        android:textSize="12dp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/summary_weeks_figure"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="555"
-                        android:textAlignment="center"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/weeks_txt" />
-
-
-                    <Space
-                        android:id="@+id/space_between_weeks"
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/summary_weeks_figure" />
-
-                    <TextView
-                        android:id="@+id/summary_month_minutes_txt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="1dp"
-                        android:text="@string/minutes"
-                        android:textAlignment="center"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/space_between_weeks" />
-
-
-                    <TextView
-                        android:id="@+id/summary_minutes_figure"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="5999898"
-                        android:textAlignment="center"
-                        android:textSize="15sp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/summary_month_minutes_txt" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/powered_by"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Powered by Atai"
-                android:textAlignment="center"
-                android:textSize="8dp"
-                app:layout_constraintBottom_toBottomOf="parent" />
+            <View
+                android:id="@+id/age_horizontal_view"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#9AC8C3C3"
+                app:layout_constraintBottom_toTopOf="@+id/age_summary"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/between_age_next_birthday" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/age_summary"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:paddingLeft="30dp"
+                android:paddingTop="20dp"
+                android:paddingRight="30dp"
+                android:paddingBottom="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/age_horizontal_view">
+
+                <TextView
+                    android:id="@+id/summary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/summary"
+                    android:textAlignment="center"
+                    android:textColor="@color/purple_500"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Space
+                    android:id="@+id/space_after_summary"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/summary" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/dateiled_summary_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toTopOf="@+id/powered_by"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/space_after_summary">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/year_container"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:paddingRight="20dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/month_container"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/years_txt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/years"
+                            android:textAlignment="center"
+                            android:textSize="12dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/summary_year_figure"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="10"
+                            android:textAlignment="center"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/years_txt" />
+
+
+                        <Space
+                            android:id="@+id/space_between_year"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/summary_year_figure" />
+
+                        <TextView
+                            android:id="@+id/summary_year_days_txt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="1dp"
+                            android:text="Days"
+                            android:textAlignment="center"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/space_between_year"
+
+                            />
+
+
+                        <TextView
+                            android:id="@+id/summary_days_figure"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="3887"
+                            android:textAlignment="center"
+                            android:textSize="15dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/summary_year_days_txt" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/month_container"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/weeks_container"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/year_container"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/month_txt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/month"
+                            android:textAlignment="center"
+                            android:textSize="12dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/summary_month_figure"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="127"
+                            android:textAlignment="center"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/month_txt" />
+
+
+                        <Space
+                            android:id="@+id/space_between_month"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/summary_month_figure" />
+
+                        <TextView
+                            android:id="@+id/summary_month_hours_txt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="1dp"
+                            android:text="@string/hours"
+                            android:textAlignment="center"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/space_between_month" />
+
+
+                        <TextView
+                            android:id="@+id/summary_hours_figure"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="93288"
+                            android:textAlignment="center"
+                            android:textSize="15dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/summary_month_hours_txt" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/weeks_container"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:paddingLeft="20dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/month_container"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/weeks_txt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/weeks"
+                            android:textAlignment="center"
+                            android:textSize="12dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/summary_weeks_figure"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="555"
+                            android:textAlignment="center"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/weeks_txt" />
+
+
+                        <Space
+                            android:id="@+id/space_between_weeks"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/summary_weeks_figure" />
+
+                        <TextView
+                            android:id="@+id/summary_month_minutes_txt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="1dp"
+                            android:text="@string/minutes"
+                            android:textAlignment="center"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/space_between_weeks" />
+
+
+                        <TextView
+                            android:id="@+id/summary_minutes_figure"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="5999898"
+                            android:textAlignment="center"
+                            android:textSize="15sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/summary_month_minutes_txt" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/powered_by"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Powered by Atai"
+                    android:textAlignment="center"
+                    android:textSize="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

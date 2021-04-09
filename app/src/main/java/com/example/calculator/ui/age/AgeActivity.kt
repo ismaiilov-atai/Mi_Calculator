@@ -1,12 +1,20 @@
 package com.example.calculator.ui.age
 
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.view.View.MeasureSpec
 import androidx.core.content.ContextCompat
 import com.example.calculator.R
 import com.example.calculator.base.BaseActivity
 import com.example.calculator.databinding.ActivityAgeBinding
 import com.example.calculator.ui.dialogs.CastomDatePicker
+import java.io.ByteArrayOutputStream
 
-class AgeActivity : BaseActivity<ActivityAgeBinding, AgeViewModel>(ActivityAgeBinding::inflate, AgeViewModel::class.java), CastomDatePicker.OnDateSetTypeListener {
+class AgeActivity : BaseActivity<ActivityAgeBinding, AgeViewModel>(
+	ActivityAgeBinding::inflate, AgeViewModel::class.java
+), CastomDatePicker.OnDateSetTypeListener {
 
 	override fun setupView() {
 		super.setupView()
@@ -15,6 +23,7 @@ class AgeActivity : BaseActivity<ActivityAgeBinding, AgeViewModel>(ActivityAgeBi
 		observers()
 	}
 
+	@SuppressLint("SetTextI18n")
 	private fun observers() {
 		viewModel.birthDayLiveDate.observe(this) {
 			binding.birthdayDate.text = it
@@ -25,34 +34,59 @@ class AgeActivity : BaseActivity<ActivityAgeBinding, AgeViewModel>(ActivityAgeBi
 		}
 
 		viewModel.birthdayCalendarLiveDate.observe(this) {
-
+			binding.ageCalculationYearsFigures.text = it.years.toString()
+			binding.ageMonthsTxt.text = "${it.months} month"
+			binding.ageDaysLived.text = "${it.days} ${getString(R.string.days)}"
 		}
 
 		viewModel.dateCalendarLiveDate.observe(this) {
-			binding.ageCalculationYearsFigures.text
+			binding.summaryYearFigure.text = it.years.toString()
+			binding.summaryDaysFigure.text = it.days.toString()
+			binding.summaryMonthFigure.text = it.months.toString()
+			binding.summaryHoursFigure.text = it.hours.toString()
+			binding.summaryWeeksFigure.text = it.weeks.toString()
+			binding.summaryMinutesFigure.text = it.minutes.toString()
 		}
 	}
 
 	private fun setupUI() {
 		binding.birthdayDate.setOnClickListener {
 			showDatePickerDialog(CastomDatePicker.Type.DateOfBirth)
+
 			binding.birthdayDate.setTextColor(ContextCompat.getColor(this, R.color.purple_500))
 			binding.currentDate.setTextColor(ContextCompat.getColor(this, R.color.light_gray))
 		}
 
 		binding.currentDate.setOnClickListener {
 			showDatePickerDialog(CastomDatePicker.Type.ToDay)
+
 			binding.birthdayDate.setTextColor(ContextCompat.getColor(this, R.color.light_gray))
 			binding.currentDate.setTextColor(ContextCompat.getColor(this, R.color.purple_500))
 		}
 
 		binding.ageArrowBack.setOnClickListener { finish() }
+
+		binding.shareBtn.setOnClickListener {
+			val intent = Intent(this, AgeShareActivity::class.java)
+			intent.putExtra("image", createDateBitmap())
+			startActivity(intent)
+		}
+	}
+
+	private fun createDateBitmap(): ByteArray {
+		val bitmap = Bitmap.createBitmap(binding.dateLayout.width, binding.dateLayout.height, Bitmap.Config.RGB_565)
+		val canvas = Canvas(bitmap)
+		binding.dateLayout.draw(canvas)
+
+		val stream = ByteArrayOutputStream()
+		bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
+		return stream.toByteArray()
 	}
 
 	private fun showDatePickerDialog(type: CastomDatePicker.Type) {
-		val newFragment = CastomDatePicker(type)
-		newFragment.listener = this
-		newFragment.show(supportFragmentManager, "datePicker")
+		val datePicker = CastomDatePicker(type)
+		datePicker.listener = this
+		datePicker.show(supportFragmentManager, "datePicker")
 	}
 
 	override fun onDateSet(type: CastomDatePicker.Type, year: Int, month: Int, dayOfMonth: Int) {
