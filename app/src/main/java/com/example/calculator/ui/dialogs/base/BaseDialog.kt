@@ -20,9 +20,16 @@ open class BaseDialog<Binding: ViewBinding,VM: ViewModel>(private val inflate: (
 		ViewModelProvider(this).get(className)
 	}
 
+	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+		super.onViewCreated(view, savedInstanceState)
+		setupUI()
+	}
+
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 		_binding = inflate.invoke(LayoutInflater.from(context),container,false)
 		return  binding.root
 	}
+
+	open fun setupUI(){}
 
 }
