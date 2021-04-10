@@ -9,6 +9,7 @@ import com.example.calculator.R
 import com.example.calculator.base.BaseViewModel
 import com.example.calculator.base.BaseViewModelEventListener
 import com.example.calculator.ui.age.AgeActivity
+import com.example.calculator.ui.area.AreaActivity
 
 class ExtraCalculationViewModel(event: BaseViewModelEventListener) : BaseViewModel(event) {
 
@@ -17,7 +18,8 @@ class ExtraCalculationViewModel(event: BaseViewModelEventListener) : BaseViewMod
     fun loadData(context: Context) {
         listMutableLiveData.value = ArrayList(listOf(
             ExtraModel(R.drawable.ic_age, R.string.extra_age, Intent(context,                  AgeActivity::class.java)),
-            ExtraModel(R.drawable.ic_area,R.string.extra_area, Intent(context,                 MainActivity::class.java)),
+            ExtraModel(R.drawable.ic_area,R.string.extra_area, Intent(context,                 AreaActivity::class.java)),
+
             ExtraModel(R.drawable.ic_bmi,R.string.extra_bmi, Intent(context,                   MainActivity::class.java)),
             ExtraModel(R.drawable.ic_mb_lte,R.string.extra_data, Intent(context,               MainActivity::class.java)),
             ExtraModel(R.drawable.ic_date,R.string.extra_Date, Intent(context,                 MainActivity::class.java)),
