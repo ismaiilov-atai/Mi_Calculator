@@ -2,7 +2,7 @@ package com.example.calculator.ui.area
 
 import com.example.calculator.base.BaseActivity
 import com.example.calculator.databinding.ActivityAreaBinding
-import com.example.calculator.ui.dialogs.PickUnitDialog
+import com.example.calculator.ui.dialogs.unit.PickUnitDialog
 
 class AreaActivity : BaseActivity<ActivityAreaBinding, AreaViewModel>(ActivityAreaBinding::inflate, AreaViewModel::class.java) {
 
@@ -10,9 +10,10 @@ class AreaActivity : BaseActivity<ActivityAreaBinding, AreaViewModel>(ActivityAr
 		super.setupView()
 		binding.areaArrowBack.setOnClickListener { finish() }
 		binding.firstUnitDropDown.setOnClickListener {
-			PickUnitDialog()
-				.show(supportFragmentManager, "unitPicker")
+			val style = supportFragmentManager.beginTransaction()
+			PickUnitDialog(binding.areaLayout).show(style, "unitPicker")
 		}
+
 	}
 
 }

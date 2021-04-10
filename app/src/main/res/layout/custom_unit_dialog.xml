@@ -3,7 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="15dp">
+    android:padding="15dp"
+    android:background="@drawable/unit_pick_layout_back"
+    android:elevation="60dp"
+    >
 
     <TextView
         android:id="@+id/select_unit"

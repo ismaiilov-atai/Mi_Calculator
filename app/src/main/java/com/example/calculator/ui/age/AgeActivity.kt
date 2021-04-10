@@ -8,7 +8,7 @@ import androidx.core.content.ContextCompat
 import com.example.calculator.R
 import com.example.calculator.base.BaseActivity
 import com.example.calculator.databinding.ActivityAgeBinding
-import com.example.calculator.ui.dialogs.CastomDatePicker
+import com.example.calculator.ui.dialogs.date.CastomDatePicker
 import com.example.calculator.ui.share.AgeShareActivity
 import java.io.ByteArrayOutputStream
 
