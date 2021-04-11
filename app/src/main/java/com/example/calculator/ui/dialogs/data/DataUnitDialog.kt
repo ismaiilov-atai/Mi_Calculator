@@ -20,6 +20,7 @@ class DataUnitDialog(private val viewGroup: ViewGroup) : BaseDialog<DataUnitLayo
 		params?.height = (viewGroup.height * 0.55).toInt()
 		params?.gravity = Gravity.BOTTOM
 		dialog?.window?.attributes = params
+
 	}
 
 	override fun setupUI() {
@@ -32,10 +33,4 @@ class DataUnitDialog(private val viewGroup: ViewGroup) : BaseDialog<DataUnitLayo
 		super.onActivityCreated(savedInstanceState)
 		dialog?.window?.attributes?.windowAnimations = R.style.dialogAnimation
 	}
-
-
-
-
-
-
 }
