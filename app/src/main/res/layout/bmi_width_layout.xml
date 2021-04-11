@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/unit_pick_layout_back"
-    android:elevation="60dp"
     android:padding="15dp">
 
     <TextView

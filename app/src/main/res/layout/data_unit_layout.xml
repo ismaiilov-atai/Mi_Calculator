@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/unit_pick_layout_back"
+    android:paddingRight="20dp"
+    android:paddingLeft="20dp"
+    android:paddingBottom="20dp"
+    >
+
+    <TextView
+        android:id="@+id/select_unit_data"
+        style="@style/unite_pick"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_unit"
+        android:textAlignment="center"
+        android:paddingTop="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Space
+        android:id="@+id/space_after_lable_data"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/select_unit_data" />
+
+    <TextView
+        android:id="@+id/byte_b"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="18dp"
+        android:text="Byte B"
+        android:textColor="#0B0A0A"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space_after_lable_data" />
+
+    <TextView
+        android:id="@+id/kilobyte_kb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="18dp"
+        android:text="Kilobyte KB"
+        android:textColor="#0B0A0A"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/byte_b" />
+
+    <TextView
+        android:id="@+id/megabyte_mb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="18dp"
+        android:text="Megabyte MB"
+        android:textColor="#0B0A0A"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kilobyte_kb" />
+
+    <TextView
+        android:id="@+id/gigabyte_gb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="18dp"
+        android:text="Gigabyte GB"
+        android:textColor="#0B0A0A"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/megabyte_mb" />
+
+    <TextView
+        android:id="@+id/terabyte_tb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="18dp"
+        android:text="Terabyte TB"
+        android:textColor="#0B0A0A"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gigabyte_gb" />
+
+    <TextView
+        android:id="@+id/petabyte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="18dp"
+        android:text="Petabyte PB"
+        android:textColor="#0B0A0A"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/terabyte_tb" />
+
+    <TextView
+        android:id="@+id/cancel_bmi_dialog"
+        style="@style/btn_cancel_style"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/unit_cancel_background"
+        android:padding="10dp"
+        android:text="@string/cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

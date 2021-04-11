@@ -11,6 +11,7 @@ import com.example.calculator.base.BaseViewModelEventListener
 import com.example.calculator.ui.age.AgeActivity
 import com.example.calculator.ui.area.AreaActivity
 import com.example.calculator.ui.bmi.BMIActivity
+import com.example.calculator.ui.dataconvert.DataConverterActivity
 
 class ExtraCalculationViewModel(event: BaseViewModelEventListener) : BaseViewModel(event) {
 
@@ -22,7 +23,7 @@ class ExtraCalculationViewModel(event: BaseViewModelEventListener) : BaseViewMod
             ExtraModel(R.drawable.ic_area,R.string.extra_area, Intent(context,                 AreaActivity::class.java)),
 
             ExtraModel(R.drawable.ic_bmi,R.string.extra_bmi, Intent(context,                   BMIActivity::class.java)),
-            ExtraModel(R.drawable.ic_mb_lte,R.string.extra_data, Intent(context,               MainActivity::class.java)),
+            ExtraModel(R.drawable.ic_mb_lte,R.string.extra_data, Intent(context,               DataConverterActivity::class.java)),
             ExtraModel(R.drawable.ic_date,R.string.extra_Date, Intent(context,                 MainActivity::class.java)),
             ExtraModel(R.drawable.ic_discount,R.string.extra_discount, Intent(context,         MainActivity::class.java)),
             ExtraModel(R.drawable.ic_length,R.string.extra_length, Intent(context,             MainActivity::class.java)),
