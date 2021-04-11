@@ -9,14 +9,14 @@ class AreaActivity : BaseActivity<ActivityAreaBinding, AreaViewModel>(ActivityAr
 
 	override fun setupView() {
 		super.setupView()
-		binding.areaArrowBack.setOnClickListener { finish() }
+		binding.areaArrowBackArea.setOnClickListener { finish() }
 
-		binding.firstUnitDropDown.setOnClickListener {
+		binding.firstUnitDropDownArea.setOnClickListener {
 			val style = supportFragmentManager.beginTransaction()
 			PickUnitDialog(binding.areaLayout).show(style, "unitPicker")
 		}
 
-		binding.secondUnitDropDown.setOnClickListener {
+		binding.secondUnitDropDownArea.setOnClickListener {
 			val style = supportFragmentManager.beginTransaction()
 			PickUnitDialog(binding.areaLayout).show(style, "unitPicker")
 		}

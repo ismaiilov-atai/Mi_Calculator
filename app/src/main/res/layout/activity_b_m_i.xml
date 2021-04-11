@@ -2,25 +2,26 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/area_layout"
+    android:id="@+id/bmi_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingRight="10dp"
-    tools:context=".ui.area.AreaActivity">
+    tools:context=".ui.bmi.BMIActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/area_lable_holder"
+        android:id="@+id/bmi_lable_holder"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginTop="10dp"
         android:paddingStart="15dp"
         android:paddingEnd="15dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/first_unit_holder_bmi"
+        >
 
         <ImageView
-            android:id="@+id/area_arrow_back"
+            android:id="@+id/bmi_arrow_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_arrow_back"
@@ -28,11 +29,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/area_labale"
+            android:id="@+id/bmi_labale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/area_lable"
+            android:text="BMI"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -41,53 +42,45 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <Space
-        android:id="@+id/space_after_area_lable"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/area_lable_holder" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/first_unit_holder"
+        android:id="@+id/first_unit_holder_bmi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/space_after_area_lable"
-
+        app:layout_constraintTop_toBottomOf="@+id/bmi_lable_holder"
+        app:layout_constraintBottom_toTopOf="@+id/space_after_first_unit_holder_bmi"
         >
 
         <TextView
-            android:id="@+id/first_unit_drop_down"
+            android:id="@+id/first_unit_drop_down_bmi"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:drawableRight="@drawable/ic_drop_down"
             android:gravity="center_vertical"
-            android:text="km2"
+            android:text="Weight"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/value_unit"
+            android:id="@+id/value_unit_bmi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="1dp"
             android:padding="2dp"
-            android:text="1"
+            android:text="60"
             android:textColor="@color/purple_500"
             android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="@+id/first_unit_drop_down"
+            app:layout_constraintBottom_toBottomOf="@+id/first_unit_drop_down_bmi"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/description_unit"
+            android:id="@+id/description_unit_bmi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp"
@@ -95,56 +88,59 @@
             android:textSize="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/value_unit" />
+            app:layout_constraintTop_toBottomOf="@+id/value_unit_bmi" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Space
-        android:id="@+id/space_after_first_unit_holder"
+        android:id="@+id/space_after_first_unit_holder_bmi"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/first_unit_holder" />
+        app:layout_constraintTop_toBottomOf="@+id/first_unit_holder_bmi"
+        app:layout_constraintBottom_toTopOf="@+id/second_unit_holder_bmi"
+
+        />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/second_unit_holder"
+        android:id="@+id/second_unit_holder_bmi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/space_after_second_unit"
+        app:layout_constraintBottom_toTopOf="@+id/space_after_second_unit_bmi"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/space_after_first_unit_holder">
+        app:layout_constraintTop_toBottomOf="@+id/space_after_first_unit_holder_bmi">
 
         <TextView
-            android:id="@+id/second_unit_drop_down"
+            android:id="@+id/second_unit_drop_down_bmi"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="25dp"
             android:drawableRight="@drawable/ic_drop_down"
             android:gravity="center_vertical"
-            android:text="km2"
+            android:text="Height"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/value_unit_second"
+            android:id="@+id/value_unit_second_bmi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="1dp"
             android:padding="2dp"
-            android:text="1"
+            android:text="170"
             android:textColor="@color/purple_500"
             android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="@+id/second_unit_drop_down"
+            app:layout_constraintBottom_toBottomOf="@+id/second_unit_drop_down_bmi"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/description_unit_second"
+            android:id="@+id/description_unit_second_bmi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp"
@@ -152,45 +148,46 @@
             android:textSize="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/value_unit_second" />
+            app:layout_constraintTop_toBottomOf="@+id/value_unit_second_bmi" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Space
-        android:id="@+id/space_after_second_unit"
+        android:id="@+id/space_after_second_unit_bmi"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:layout_constraintBottom_toTopOf="@+id/line_view"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toTopOf="@+id/line_view_bmi"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/second_unit_holder" />
+        app:layout_constraintTop_toBottomOf="@+id/second_unit_holder_bmi" />
 
     <View
-        android:id="@+id/line_view"
+        android:id="@+id/line_view_bmi"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="#8A8686"
-        app:layout_constraintBottom_toTopOf="@+id/area_grid_container"
+        app:layout_constraintBottom_toTopOf="@+id/bmi_grid_container"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/space_after_second_unit"/>
+        app:layout_constraintTop_toBottomOf="@+id/space_after_second_unit_bmi" />
 
     <GridLayout
-        android:id="@+id/area_grid_container"
+        android:id="@+id/bmi_grid_container"
         android:layout_width="0dp"
-        android:layout_height="430dp"
+        android:layout_height="420dp"
         android:columnCount="3"
         android:rowCount="4"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/area_clear_holder"
+        app:layout_constraintEnd_toStartOf="@+id/bmi_clear_holder"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/line_view">
+        app:layout_constraintTop_toBottomOf="@+id/line_view_bmi"
+        >
 
         <TextView
-            android:id="@+id/figures_seven_normal"
+            android:id="@+id/figures_seven_normal_bmi"
             style="@style/btn_operation_styles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -214,7 +211,7 @@
             android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/figures_nine_normal"
+            android:id="@+id/figures_nine_bmi"
             style="@style/btn_operation_styles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -226,7 +223,7 @@
             android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/figures_four_normal"
+            android:id="@+id/figures_four_bmi"
             style="@style/btn_operation_styles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -238,7 +235,7 @@
             android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/figures_five_normal"
+            android:id="@+id/figures_five_bmi"
             style="@style/btn_operation_styles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -250,7 +247,7 @@
             android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/figures_six_normal"
+            android:id="@+id/figures_six_bmi"
             style="@style/btn_operation_styles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -262,7 +259,7 @@
             android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/figures_one_normal"
+            android:id="@+id/figures_one_bmi"
             style="@style/btn_operation_styles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -274,7 +271,7 @@
             android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/figures_two_normal"
+            android:id="@+id/figures_two_bmi"
             style="@style/btn_operation_styles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -286,7 +283,7 @@
             android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/figures_three_normal"
+            android:id="@+id/figures_three_bmi"
             style="@style/btn_operation_styles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -298,7 +295,7 @@
             android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/empty"
+            android:id="@+id/empty_bmi"
             style="@style/btn_operation_styles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -309,7 +306,7 @@
             android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/figures_zero_normal"
+            android:id="@+id/figures_zero_bmi"
             style="@style/btn_operation_styles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -321,7 +318,7 @@
             android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/figures_dot_normal"
+            android:id="@+id/figures_dot_bmi"
             style="@style/btn_operation_styles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -336,17 +333,17 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/area_clear_holder"
+        android:id="@+id/bmi_clear_holder"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@id/area_grid_container"
+        app:layout_constraintBottom_toBottomOf="@id/bmi_grid_container"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="0.2"
-        app:layout_constraintStart_toEndOf="@id/area_grid_container"
-        app:layout_constraintTop_toTopOf="@id/area_grid_container">
+        app:layout_constraintStart_toEndOf="@id/bmi_grid_container"
+        app:layout_constraintTop_toTopOf="@id/bmi_grid_container">
 
         <TextView
-            android:id="@+id/area_clear_btn"
+            android:id="@+id/bmi_clear_btn"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
@@ -355,48 +352,48 @@
             android:text="AC"
             android:textColor="@color/purple_500"
             android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/space_between_removal"
+            app:layout_constraintBottom_toTopOf="@+id/space_between_removal_bmi"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_weight="1"/>
+            app:layout_constraintVertical_weight="1" />
 
         <Space
-            android:id="@+id/space_between_removal"
+            android:id="@+id/space_between_removal_bmi"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/area_remove_btn"
+            app:layout_constraintBottom_toTopOf="@+id/bmi_remove_btn_bmi"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/area_clear_btn"
+            app:layout_constraintTop_toBottomOf="@+id/bmi_clear_btn"
             app:layout_constraintVertical_weight="0.3" />
 
         <ImageView
-            android:id="@+id/area_remove_btn"
+            android:id="@+id/bmi_remove_btn_bmi"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/back_for_two_deletion"
             android:padding="20dp"
             android:src="@drawable/ic_back_for_extras"
-            app:layout_constraintBottom_toTopOf="@+id/space_between_go_remove"
+            app:layout_constraintBottom_toTopOf="@+id/space_between_go_remove_bmi"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/space_between_removal"
+            app:layout_constraintTop_toBottomOf="@+id/space_between_removal_bmi"
             app:layout_constraintVertical_weight="1" />
 
         <Space
-            android:id="@+id/space_between_go_remove"
+            android:id="@+id/space_between_go_remove_bmi"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@id/area_go_btn"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bmi_go_btn"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/area_remove_btn"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bmi_remove_btn_bmi"
             app:layout_constraintVertical_weight="0.2" />
 
         <TextView
-            android:id="@+id/area_go_btn"
+            android:id="@+id/bmi_go_btn"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="20dp"
@@ -408,9 +405,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/space_between_go_remove"
-            app:layout_constraintVertical_weight="1"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/space_between_go_remove_bmi"
+            app:layout_constraintVertical_weight="1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

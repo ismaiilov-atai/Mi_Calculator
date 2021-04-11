@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/area_arrow_back"
+            android:id="@+id/area_arrow_back_area"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_arrow_back"
@@ -49,7 +49,7 @@
         app:layout_constraintTop_toBottomOf="@+id/area_lable_holder" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/first_unit_holder"
+        android:id="@+id/first_unit_holder_area"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -61,7 +61,7 @@
         >
 
         <TextView
-            android:id="@+id/first_unit_drop_down"
+            android:id="@+id/first_unit_drop_down_area"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:drawableRight="@drawable/ic_drop_down"
@@ -73,7 +73,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/value_unit"
+            android:id="@+id/value_unit_area"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="1dp"
@@ -81,12 +81,12 @@
             android:text="1"
             android:textColor="@color/purple_500"
             android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="@+id/first_unit_drop_down"
+            app:layout_constraintBottom_toBottomOf="@+id/first_unit_drop_down_area"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/description_unit"
+            android:id="@+id/description_unit_area"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp"
@@ -94,31 +94,31 @@
             android:textSize="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/value_unit" />
+            app:layout_constraintTop_toBottomOf="@+id/value_unit_area" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Space
-        android:id="@+id/space_after_first_unit_holder"
+        android:id="@+id/space_after_first_unit_holder_area"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/first_unit_holder" />
+        app:layout_constraintTop_toBottomOf="@+id/first_unit_holder_area" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/second_unit_holder"
+        android:id="@+id/second_unit_holder_area"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/space_after_first_unit_holder"
-        app:layout_constraintBottom_toTopOf="@+id/space_after_second_unit">
+        app:layout_constraintTop_toBottomOf="@+id/space_after_first_unit_holder_area"
+        app:layout_constraintBottom_toTopOf="@+id/space_after_second_unit_area">
 
         <TextView
-            android:id="@+id/second_unit_drop_down"
+            android:id="@+id/second_unit_drop_down_area"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:drawableRight="@drawable/ic_drop_down"
@@ -130,7 +130,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/value_unit_second"
+            android:id="@+id/value_unit_second_area"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="1dp"
@@ -138,12 +138,12 @@
             android:text="1"
             android:textColor="@color/purple_500"
             android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="@+id/second_unit_drop_down"
+            app:layout_constraintBottom_toBottomOf="@+id/second_unit_drop_down_area"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/description_unit_second"
+            android:id="@+id/description_unit_second_area"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp"
@@ -151,33 +151,31 @@
             android:textSize="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/value_unit_second" />
+            app:layout_constraintTop_toBottomOf="@+id/value_unit_second_area" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Space
-        android:id="@+id/space_after_second_unit"
+        android:id="@+id/space_after_second_unit_area"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/line_view"
-        app:layout_constraintTop_toBottomOf="@+id/second_unit_holder"
+        app:layout_constraintBottom_toTopOf="@+id/line_view_area"
+        app:layout_constraintTop_toBottomOf="@+id/second_unit_holder_area"
         />
 
     <View
-        android:id="@+id/line_view"
+        android:id="@+id/line_view_area"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        app:layout_constraintTop_toBottomOf="@+id/space_after_second_unit"
+        app:layout_constraintTop_toBottomOf="@+id/space_after_second_unit_area"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:background="#8A8686"
-        app:layout_constraintBottom_toTopOf="@+id/area_grid_container"
-
-        />
+        app:layout_constraintBottom_toTopOf="@+id/area_grid_container" />
 
     <GridLayout
         android:id="@+id/area_grid_container"
@@ -190,11 +188,11 @@
         app:layout_constraintEnd_toStartOf="@+id/area_clear_holder"
         app:layout_constraintStart_toStartOf="parent"
         android:paddingBottom="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/line_view"
+        app:layout_constraintTop_toBottomOf="@+id/line_view_area"
         >
 
         <TextView
-            android:id="@+id/figures_seven_normal"
+            android:id="@+id/figures_seven_normal_area"
             style="@style/btn_operation_styles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -206,7 +204,7 @@
             android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/figures_eight_normal"
+            android:id="@+id/figures_eight_area"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="8"
@@ -218,7 +216,7 @@
             android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/figures_nine_normal"
+            android:id="@+id/figures_nine_area"
             style="@style/btn_operation_styles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -230,7 +228,7 @@
             android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/figures_four_normal"
+            android:id="@+id/figures_four_area"
             style="@style/btn_operation_styles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -242,7 +240,7 @@
             android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/figures_five_normal"
+            android:id="@+id/figures_five_area"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="5"
@@ -254,7 +252,7 @@
             android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/figures_six_normal"
+            android:id="@+id/figures_six_area"
             style="@style/btn_operation_styles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -266,7 +264,7 @@
             android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/figures_one_normal"
+            android:id="@+id/figures_one_area"
             style="@style/btn_operation_styles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -278,7 +276,7 @@
             android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/figures_two_normal"
+            android:id="@+id/figures_two_area"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2"
@@ -290,7 +288,7 @@
             android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/figures_three_normal"
+            android:id="@+id/figures_three_area"
             style="@style/btn_operation_styles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -302,7 +300,7 @@
             android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/empty"
+            android:id="@+id/empty_area"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
@@ -313,7 +311,7 @@
             android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/figures_zero_normal"
+            android:id="@+id/figures_zero_area"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0"
@@ -325,7 +323,7 @@
             android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/figures_dot_normal"
+            android:id="@+id/figures_dot_area"
             style="@style/btn_operation_styles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -357,7 +355,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/space_between_removal"
+            app:layout_constraintBottom_toTopOf="@+id/space_between_removal_area"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintVertical_weight="1"
@@ -371,24 +369,24 @@
             />
 
         <Space
-            android:id="@+id/space_between_removal"
+            android:id="@+id/space_between_removal_area"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintVertical_weight="0.2"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/area_clear_btn"
-            app:layout_constraintBottom_toTopOf="@+id/area_remove_btn"/>
+            app:layout_constraintBottom_toTopOf="@+id/area_remove_btn_area"/>
 
 
         <ImageView
-            android:id="@+id/area_remove_btn"
+            android:id="@+id/area_remove_btn_area"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintVertical_weight="1"
-            app:layout_constraintTop_toBottomOf="@+id/space_between_removal"
+            app:layout_constraintTop_toBottomOf="@+id/space_between_removal_area"
             app:layout_constraintBottom_toBottomOf="parent"
             android:src="@drawable/ic_back_for_extras"
             android:padding="20dp"
