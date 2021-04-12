@@ -48,6 +48,7 @@ class AgeActivity : BaseActivity<ActivityAgeBinding, AgeViewModel>(ActivityAgeBi
 	}
 
 	private fun setupUI() {
+
 		binding.birthdayDate.setOnClickListener {
 			showDatePickerDialog(CastomDatePicker.Type.DateOfBirth)
 
@@ -96,6 +97,7 @@ class AgeActivity : BaseActivity<ActivityAgeBinding, AgeViewModel>(ActivityAgeBi
 			CastomDatePicker.Type.ToDay -> {
 				viewModel.setToDay(year, month, dayOfMonth)
 			}
+
 		}
 	}
 }

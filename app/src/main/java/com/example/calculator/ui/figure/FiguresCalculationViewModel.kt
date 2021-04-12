@@ -13,10 +13,6 @@ import com.example.calculator.utils.parser.ExpressionParser
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-fun main() {
-    println(ExpressionParser().evaluate("√(23)"))
-}
-
 class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewModel(event) {
 
     enum class Operation(var id: Int?, var type: String? = null) {
@@ -47,16 +43,16 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
         AC_NORMAL(R.id.figures_clear_normal),
         CLEAR_NORMAL(R.id.figures_delete_normal),
 
-        ZERO_NORMAL(R.id.figures_zero_bmi, "0"),
-        ONE_NORMAL(R.id.figures_one_bmi, "1"),
-        TWO_NORMAL(R.id.figures_two_bmi, "2"),
-        THREE_NORMAL(R.id.figures_three_bmi, "3"),
-        FOUR_NORMAL(R.id.figures_four_bmi, "4"),
-        FIVE_NORMAL(R.id.figures_five_bmi, "5"),
-        SIX_NORMAL(R.id.figures_six_bmi, "6"),
-        SEVEN_NORMAL(R.id.figures_seven_normal_bmi, "7"),
+        ZERO_NORMAL(R.id.figures_zero_normal, "0"),
+        ONE_NORMAL(R.id.figures_one_normal, "1"),
+        TWO_NORMAL(R.id.figures_two_normal, "2"),
+        THREE_NORMAL(R.id.figures_three_normal, "3"),
+        FOUR_NORMAL(R.id.figures_four_normal, "4"),
+        FIVE_NORMAL(R.id.figures_five_normal, "5"),
+        SIX_NORMAL(R.id.figures_six_normal, "6"),
+        SEVEN_NORMAL(R.id.figures_seven_normal, "7"),
         EIGHT_NORMAL(R.id.figures_eight_normal, "8"),
-        NINE_NORMAL(R.id.figures_nine_bmi, "9"),
+        NINE_NORMAL(R.id.figures_nine_normal, "9"),
 
         DECREMENT_NORMAL(R.id.figures_minus_normal, "-"),
         PLUS_NORMAL(R.id.figures_plus_normal, "+"),

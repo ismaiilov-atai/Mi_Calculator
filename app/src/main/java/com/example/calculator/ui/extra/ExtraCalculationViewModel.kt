@@ -13,6 +13,8 @@ import com.example.calculator.ui.area.AreaActivity
 import com.example.calculator.ui.bmi.BMIActivity
 import com.example.calculator.ui.dataconvert.DataConverterActivity
 import com.example.calculator.ui.date.DateActivity
+import com.example.calculator.ui.discount.DiscountActivity
+import com.example.calculator.ui.length.LengthActivity
 
 class ExtraCalculationViewModel(event: BaseViewModelEventListener) : BaseViewModel(event) {
 
@@ -26,8 +28,8 @@ class ExtraCalculationViewModel(event: BaseViewModelEventListener) : BaseViewMod
             ExtraModel(R.drawable.ic_bmi,R.string.extra_bmi, Intent(context,                   BMIActivity::class.java)),
             ExtraModel(R.drawable.ic_mb_lte,R.string.extra_data, Intent(context,  DataConverterActivity::class.java)),
             ExtraModel(R.drawable.ic_date,R.string.extra_Date, Intent(context,                 DateActivity::class.java)),
-            ExtraModel(R.drawable.ic_discount,R.string.extra_discount, Intent(context,         MainActivity::class.java)),
-            ExtraModel(R.drawable.ic_length,R.string.extra_length, Intent(context,             MainActivity::class.java)),
+            ExtraModel(R.drawable.ic_discount,R.string.extra_discount, Intent(context,         DiscountActivity::class.java)),
+            ExtraModel(R.drawable.ic_length,R.string.extra_length, Intent(context,             LengthActivity::class.java)),
             ExtraModel(R.drawable.ic_mass,R.string.extra_mass, Intent(context,                 MainActivity::class.java)),
             ExtraModel(R.drawable.ic_num_system,R.string.extra_numeral_system, Intent(context, MainActivity::class.java)),
             ExtraModel(R.drawable.ic_speed,R.string.extra_speed, Intent(context,               MainActivity::class.java)),

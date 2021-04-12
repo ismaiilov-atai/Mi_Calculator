@@ -9,3 +9,4 @@ fun View.setVisibility(mode: Boolean) {
         this.visibility = View.GONE
     }
 }
+

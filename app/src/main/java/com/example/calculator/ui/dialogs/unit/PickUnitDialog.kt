@@ -14,6 +14,7 @@ import com.example.calculator.ui.dialogs.base.BaseDialog
 class PickUnitDialog(private var viewGroup: ViewGroup) : BaseDialog<CustomUnitDialogBinding,UnitViewModel>(CustomUnitDialogBinding::inflate,UnitViewModel::class.java) {
 
 	var adapter: UnitAdapter? = null
+
 	override fun onResume() {
 		super.onResume()
 		val params: WindowManager.LayoutParams? = dialog?.window?.attributes

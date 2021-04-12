@@ -10,7 +10,10 @@
         android:roundIcon="@drawable/ic_equals_sign"
         android:supportsRtl="true"
         android:theme="@style/Theme.Calculator">
-        <activity android:name=".ui.date.DateActivity"></activity>
+        <activity android:name=".ui.mass.MassActivity"></activity>
+        <activity android:name=".ui.length.LengthActivity" />
+        <activity android:name=".ui.discount.DiscountActivity" />
+        <activity android:name=".ui.date.DateActivity" />
         <activity android:name=".ui.dataconvert.DataConverterActivity" />
         <activity android:name=".ui.bmi.BMIActivity" />
         <activity android:name=".ui.share.AgeShareActivity" />

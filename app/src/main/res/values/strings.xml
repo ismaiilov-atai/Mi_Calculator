@@ -52,6 +52,9 @@
     <string name="to">To</string>
     <string name="from">From</string>
     <string name="date">Date</string>
+    <string name="discount">Discount</string>
+    <string name="final_price">Final price</string>
+    <string name="original_price">Original price</string>
 
 
 </resources>
