@@ -19,7 +19,9 @@ class AgeShareActivity : BaseActivity<ActivityAgeShareBinding, AgeShareViewModel
 
 	override fun setupView() {
 		super.setupView()
-		val byteArray = intent.getByteArrayExtra("image")
+		val byteArray: ByteArray? =
+			intent.getByteArrayExtra("image") ?: intent.getByteArrayExtra("bitmap")
+
 		val bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray!!.size)
 
 		binding.imageExt.setImageBitmap(bmp)
@@ -28,7 +30,7 @@ class AgeShareActivity : BaseActivity<ActivityAgeShareBinding, AgeShareViewModel
 			finish()
 		}
 
-		binding.telegram.setOnClickListener{
+		binding.telegram.setOnClickListener {
 			val urlImage = saveMediaToStorage(bmp)
 
 			urlImage?.let {
@@ -60,7 +62,8 @@ class AgeShareActivity : BaseActivity<ActivityAgeShareBinding, AgeShareViewModel
 				fos = imageUri?.let { resolver.openOutputStream(it) }
 			}
 		} else {
-			val imagesDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
+			val imagesDir =
+				Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
 			val image = File(imagesDir, filename)
 			fos = FileOutputStream(image)
 

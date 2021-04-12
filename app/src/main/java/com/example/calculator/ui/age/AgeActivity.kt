@@ -8,11 +8,11 @@ import androidx.core.content.ContextCompat
 import com.example.calculator.R
 import com.example.calculator.base.BaseActivity
 import com.example.calculator.databinding.ActivityAgeBinding
-import com.example.calculator.ui.dialogs.date.CastomDatePicker
+import com.example.calculator.ui.dialogs.date.CustomDatePicker
 import com.example.calculator.ui.share.AgeShareActivity
 import java.io.ByteArrayOutputStream
 
-class AgeActivity : BaseActivity<ActivityAgeBinding, AgeViewModel>(ActivityAgeBinding::inflate, AgeViewModel::class.java), CastomDatePicker.OnDateSetTypeListener {
+class AgeActivity : BaseActivity<ActivityAgeBinding, AgeViewModel>(ActivityAgeBinding::inflate, AgeViewModel::class.java), CustomDatePicker.OnDateSetTypeListener {
 
 	override fun setupView() {
 		super.setupView()
@@ -50,14 +50,14 @@ class AgeActivity : BaseActivity<ActivityAgeBinding, AgeViewModel>(ActivityAgeBi
 	private fun setupUI() {
 
 		binding.birthdayDate.setOnClickListener {
-			showDatePickerDialog(CastomDatePicker.Type.DateOfBirth)
+			showDatePickerDialog(CustomDatePicker.Type.DateOfBirth)
 
 			binding.birthdayDate.setTextColor(ContextCompat.getColor(this, R.color.purple_500))
 			binding.currentDate.setTextColor(ContextCompat.getColor(this, R.color.light_gray))
 		}
 
 		binding.currentDate.setOnClickListener {
-			showDatePickerDialog(CastomDatePicker.Type.ToDay)
+			showDatePickerDialog(CustomDatePicker.Type.ToDay)
 
 			binding.birthdayDate.setTextColor(ContextCompat.getColor(this, R.color.light_gray))
 			binding.currentDate.setTextColor(ContextCompat.getColor(this, R.color.purple_500))
@@ -82,19 +82,19 @@ class AgeActivity : BaseActivity<ActivityAgeBinding, AgeViewModel>(ActivityAgeBi
 		return stream.toByteArray()
 	}
 
-	private fun showDatePickerDialog(type: CastomDatePicker.Type) {
-		val datePicker = CastomDatePicker(type)
+	private fun showDatePickerDialog(type: CustomDatePicker.Type) {
+		val datePicker = CustomDatePicker(type)
 		datePicker.listener = this
 		datePicker.show(supportFragmentManager, "datePicker")
 	}
 
-	override fun onDateSet(type: CastomDatePicker.Type, year: Int, month: Int, dayOfMonth: Int) {
+	override fun onDateSet(type: CustomDatePicker.Type, year: Int, month: Int, dayOfMonth: Int) {
 		when (type) {
-			CastomDatePicker.Type.DateOfBirth -> {
+			CustomDatePicker.Type.DateOfBirth -> {
 				viewModel.setDateOfBirth(year, month, dayOfMonth)
 			}
 
-			CastomDatePicker.Type.ToDay -> {
+			CustomDatePicker.Type.ToDay -> {
 				viewModel.setToDay(year, month, dayOfMonth)
 			}
 

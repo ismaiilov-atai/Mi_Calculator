@@ -8,18 +8,8 @@ class DataConverterActivity : BaseActivity<ActivityDataConverterBinding, DataCon
 
 	override fun setupView() {
 		super.setupView()
-
 		binding.dataArrowBack.setOnClickListener { finish() }
-
-		binding.firstUnitDropDownData.setOnClickListener {
-			val style = supportFragmentManager.beginTransaction()
-			DataUnitDialog(binding.dataLayout).show(style, "dataUnit")
-		}
-
-		binding.secondUnitDropDownData.setOnClickListener {
-			val style = supportFragmentManager.beginTransaction()
-			DataUnitDialog(binding.dataLayout).show(style, "secondUnit")
-		}
-
+		binding.firstUnitDropDownData.setOnClickListener { DataUnitDialog(binding.dataLayout).show(supportFragmentManager.beginTransaction(), "dataUnit") }
+		binding.secondUnitDropDownData.setOnClickListener { DataUnitDialog(binding.dataLayout).show(supportFragmentManager.beginTransaction(), "secondUnit") }
 	}
 }

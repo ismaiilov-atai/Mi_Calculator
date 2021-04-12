@@ -134,302 +134,321 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/date_today" />
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/date_layout"
+        android:layout_width="match_parent"
+        android:layout_height="330dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/difference_layout"></androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/difference_layout"
         android:layout_width="match_parent"
         android:layout_height="330dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:background="@drawable/age_holder_frame"
+        android:background="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/space_after_today_container">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/difference"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/date_first_line_view"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_weight="1">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Difference"
-                android:textColor="@color/purple_500"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <View
-            android:id="@+id/date_first_line_view"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="#E4E0E0"
-            app:layout_constraintVertical_weight="0.01"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/difference_indicator_holder"
-            app:layout_constraintTop_toBottomOf="@+id/difference"/>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/difference_indicator_holder"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:paddingLeft="40dp"
-            android:paddingRight="40dp"
-            app:layout_constraintBottom_toTopOf="@id/date_second_line_view"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/date_first_line_view"
-            app:layout_constraintVertical_weight="0.9">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/date_year_holder"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:padding="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/date_month_holder"
-                app:layout_constraintHorizontal_weight="1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/date_year_txt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="Years"
-                    android:textSize="12sp"
-                    app:layout_constraintBottom_toTopOf="@+id/date_year_indicator"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/date_year_indicator"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="0"
-                    android:textSize="18sp"
-                    android:textColor="#151515"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/date_year_txt" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/date_month_holder"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:padding="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/date_day_holder"
-                app:layout_constraintHorizontal_weight="1"
-                app:layout_constraintStart_toEndOf="@+id/date_year_holder"
-                app:layout_constraintTop_toTopOf="parent">
-
-
-                <TextView
-                    android:id="@+id/date_month_txt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:textSize="12sp"
-                    android:text="Months"
-                    app:layout_constraintBottom_toTopOf="@+id/date_month_indicator"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/date_month_indicator"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="0"
-                    android:textSize="18sp"
-                    android:textColor="#151515"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/date_month_txt" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/date_day_holder"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:padding="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_weight="1"
-                app:layout_constraintStart_toEndOf="@+id/date_month_holder"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/date_days_txt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="Days"
-                    android:textSize="12sp"
-                    app:layout_constraintBottom_toTopOf="@+id/date_days_indicator"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/date_days_indicator"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="0"
-                    android:textSize="18sp"
-                    android:textColor="#151515"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/date_days_txt" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <View
-            android:id="@+id/date_second_line_view"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="#E4E0E0"
-            app:layout_constraintVertical_weight="0.01"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/age_summary"
-            app:layout_constraintTop_toBottomOf="@+id/difference_indicator_holder"/>
-
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/age_summary"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="330dp"
+            android:background="@drawable/age_holder_frame"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/date_second_line_view"
-            app:layout_constraintVertical_weight="2">
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/date_from_holder"
+                android:id="@+id/difference"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:paddingTop="40dp"
-                android:paddingBottom="40dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/powered_by"
+                app:layout_constraintBottom_toTopOf="@+id/date_first_line_view"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/date_to_holder"
                 app:layout_constraintVertical_weight="1">
 
-
                 <TextView
-                    android:id="@+id/date_from_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="@string/from"
-                    android:textSize="20sp"
+                    android:text="Difference"
                     android:textColor="@color/purple_500"
-                    app:layout_constraintBottom_toTopOf="@+id/date_from_indicator"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/date_from_indicator"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="0"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/date_from_txt" />
-
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/date_to_holder"
+            <View
+                android:id="@+id/date_first_line_view"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:paddingTop="40dp"
-                android:paddingBottom="40dp"
-                app:layout_constraintVertical_weight="1"
+                android:background="#E4E0E0"
+                app:layout_constraintBottom_toTopOf="@+id/difference_indicator_holder"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/powered_by"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/date_from_holder">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/difference"
+                app:layout_constraintVertical_weight="0.01" />
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/difference_indicator_holder"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                app:layout_constraintBottom_toTopOf="@id/date_second_line_view"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/date_first_line_view"
+                app:layout_constraintVertical_weight="0.9">
 
-                <TextView
-                    android:id="@+id/date_to_txt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="To"
-                    android:textColor="@color/purple_500"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/date_to_indicator"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/date_to_indicator"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="0"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/date_year_holder"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:padding="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/date_to_txt" />
+                    app:layout_constraintEnd_toStartOf="@+id/date_month_holder"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
+                    <TextView
+                        android:id="@+id/date_year_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="Years"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toTopOf="@+id/date_year_indicator"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/date_year_indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="0"
+                        android:textColor="#151515"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/date_year_txt" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/date_month_holder"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:padding="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/date_day_holder"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toEndOf="@+id/date_year_holder"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <TextView
+                        android:id="@+id/date_month_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="Months"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toTopOf="@+id/date_month_indicator"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/date_month_indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="0"
+                        android:textColor="#151515"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/date_month_txt" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/date_day_holder"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:padding="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toEndOf="@+id/date_month_holder"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/date_days_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="Days"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toTopOf="@+id/date_days_indicator"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/date_days_indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="0"
+                        android:textColor="#151515"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/date_days_txt" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-            <TextView
-                android:id="@+id/powered_by"
-                android:layout_width="match_parent"
+            <View
+                android:id="@+id/date_second_line_view"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:text="Powered by Atai"
-                android:textAlignment="center"
-                android:padding="10dp"
-                android:textSize="10dp"
-                app:layout_constraintVertical_weight="0.3"
-                app:layout_constraintTop_toBottomOf="@+id/date_to_holder"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                android:background="#E4E0E0"
+                app:layout_constraintBottom_toTopOf="@+id/age_summary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/difference_indicator_holder"
+                app:layout_constraintVertical_weight="0.01" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/age_summary"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/date_second_line_view"
+                app:layout_constraintVertical_weight="2">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/date_from_holder"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:paddingTop="40dp"
+                    android:paddingBottom="40dp"
+                    app:layout_constraintBottom_toTopOf="@+id/powered_by"
+                    app:layout_constraintEnd_toStartOf="@+id/date_to_holder"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_weight="1">
+
+
+                    <TextView
+                        android:id="@+id/date_from_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="@string/from"
+                        android:textColor="@color/purple_500"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toTopOf="@+id/date_from_indicator"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/date_from_indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="0"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/date_from_txt" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/date_to_holder"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:paddingTop="40dp"
+                    android:paddingBottom="40dp"
+                    app:layout_constraintBottom_toTopOf="@+id/powered_by"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/date_from_holder"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_weight="1">
+
+
+                    <TextView
+                        android:id="@+id/date_to_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="To"
+                        android:textColor="@color/purple_500"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toTopOf="@+id/date_to_indicator"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/date_to_indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="0"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/date_to_txt" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <TextView
+                    android:id="@+id/powered_by"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:padding="10dp"
+                    android:text="Powered by Atai"
+                    android:textAlignment="center"
+                    android:textSize="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/date_to_holder"
+                    app:layout_constraintVertical_weight="0.3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <TextView
         android:id="@+id/share_btn"

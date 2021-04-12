@@ -9,11 +9,12 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import com.example.calculator.R
 import com.example.calculator.databinding.LengthUnitPickViewBinding
+import com.example.calculator.ui.dialogs.UnitAdapter
 import com.example.calculator.ui.dialogs.base.BaseDialog
 
 class LengthUnitDialog(private val viewGroup: ViewGroup): BaseDialog<LengthUnitPickViewBinding,LengthUnitViewModel>(LengthUnitPickViewBinding::inflate,LengthUnitViewModel::class.java){
 
-	var adapter: LengthUnitAdapter? = null
+	var adapter: UnitAdapter? = null
 
 	override fun onResume() {
 		super.onResume()
@@ -27,13 +28,14 @@ class LengthUnitDialog(private val viewGroup: ViewGroup): BaseDialog<LengthUnitP
 
 	override fun setupUI() {
 		super.setupUI()
-		adapter = LengthUnitAdapter()
+		adapter = UnitAdapter()
 		viewModel.loadData()
 		binding.lengthRecycler.adapter = adapter
-		adapter?.addItemClickListener(object : LengthUnitAdapter.OnItemClickListener{
-			override fun itemClickListener(item: String) {
-				Log.e("TAG", "itemClickListener: $item")
+		adapter?.addItemClickListener(object : UnitAdapter.OnItemClickListener {
+			override fun onClick(item: String) {
+				Log.e("TAG", "onClick: $item" )
 			}
+
 		})
 
 		binding.cancelUnitLength.setOnClickListener{ dismiss() }

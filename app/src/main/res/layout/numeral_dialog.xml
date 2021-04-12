@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/unit_pick_layout_back"
+    android:paddingRight="20dp"
+    android:paddingLeft="20dp"
+    android:paddingBottom="20dp"
+    >
+
+    <TextView
+        android:id="@+id/select_unit_numeral"
+        style="@style/unite_pick"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_unit"
+        android:textAlignment="center"
+        android:paddingTop="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Space
+        android:id="@+id/space_after_lable_numeral"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/select_unit_numeral" />
+
+    <TextView
+        android:id="@+id/binary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="18dp"
+        android:text="Binary BIN"
+        android:textColor="#0B0A0A"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space_after_lable_numeral" />
+
+    <TextView
+        android:id="@+id/octal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="18dp"
+        android:text="Octal OCT"
+        android:textColor="#0B0A0A"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/binary" />
+
+    <TextView
+        android:id="@+id/decimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="18dp"
+        android:text="Decimal DEC"
+        android:textColor="#0B0A0A"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/octal" />
+
+    <TextView
+        android:id="@+id/hexadecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="18dp"
+        android:text="Hexadecimal HEX"
+        android:textColor="#0B0A0A"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/decimal" />
+
+
+
+    <TextView
+        android:id="@+id/cancel_numeric_dialog"
+        style="@style/btn_cancel_style"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/unit_cancel_background"
+        android:padding="10dp"
+        android:text="@string/cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

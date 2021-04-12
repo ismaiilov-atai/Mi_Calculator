@@ -3,10 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/discount_layout"
+    android:id="@+id/length_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.discount.DiscountActivity">
+    tools:context=".ui.length.LengthActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/length_lable_holder"
@@ -86,7 +86,7 @@
             android:layout_marginBottom="1dp"
             android:padding="2dp"
             android:text="1"
-            android:textColor="@color/purple_500"
+            android:textColor="@color/dark_grey"
             android:textSize="22sp"
             app:layout_constraintBottom_toTopOf="@+id/length_txt_first_drop_down"
             app:layout_constraintRight_toRightOf="parent"
@@ -146,7 +146,7 @@
             android:layout_marginBottom="1dp"
             android:padding="2dp"
             android:text="100"
-            android:textColor="@color/purple_500"
+            android:textColor="@color/dark_grey"
             android:textSize="22sp"
             app:layout_constraintBottom_toTopOf="@+id/length_txt_second_drop_down"
             app:layout_constraintRight_toRightOf="parent"

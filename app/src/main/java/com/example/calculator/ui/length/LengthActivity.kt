@@ -12,11 +12,11 @@ class LengthActivity : BaseActivity<ActivityLengthBinding,LengthViewModel>(Activ
 
 		binding.firstUnitHolderLength.setOnClickListener {
 			val style = supportFragmentManager.beginTransaction()
-			LengthUnitDialog(binding.discountLayout).show(style, "unitLength")
+			LengthUnitDialog(binding.lengthLayout).show(style, "unitLength")
 		}
 		binding.secondUnitHolderLength.setOnClickListener {
 			val style = supportFragmentManager.beginTransaction()
-			LengthUnitDialog(binding.discountLayout).show(style, "unitLength")
+			LengthUnitDialog(binding.lengthLayout).show(style, "unitLength")
 		}
 
 	}
