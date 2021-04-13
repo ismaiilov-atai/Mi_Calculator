@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.calculator">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".utils.App"
@@ -12,7 +12,10 @@
         android:roundIcon="@drawable/ic_equals_sign"
         android:supportsRtl="true"
         android:theme="@style/Theme.Calculator">
-        <activity android:name=".ui.speed.SpeedActivity"></activity>
+        <activity android:name=".ui.volume.VolumeActivity"></activity>
+        <activity android:name=".ui.time.TimeActivity" />
+        <activity android:name=".ui.temperature.TemperatureActivity" />
+        <activity android:name=".ui.speed.SpeedActivity" />
         <activity android:name=".ui.numerial.NumeralSystemActivity" />
         <activity android:name=".ui.mass.MassActivity" />
         <activity android:name=".ui.length.LengthActivity" />

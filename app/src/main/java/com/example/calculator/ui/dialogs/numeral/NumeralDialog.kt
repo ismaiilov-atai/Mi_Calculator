@@ -27,10 +27,4 @@ class NumeralDialog(private val viewGroup: ViewGroup) : BaseDialog<NumeralDialog
 		binding.cancelNumericDialog.setOnClickListener{ dismiss() }
 
 	}
-
-	override fun onActivityCreated(savedInstanceState: Bundle?) {
-		super.onActivityCreated(savedInstanceState)
-		dialog?.window?.attributes?.windowAnimations = R.style.dialogAnimation
-	}
-
 }

@@ -20,11 +20,11 @@ class DateViewModel(event: BaseViewModelEventListener) : BaseViewModel(event) {
 		val date = Calendar.getInstance()
 		date.time = Date(System.currentTimeMillis())
 
-		setFomLiveDate(date.get(Calendar.YEAR), date.get(Calendar.MONTH), date.get(Calendar.DAY_OF_MONTH))
+		setFromLiveDate(date.get(Calendar.YEAR), date.get(Calendar.MONTH), date.get(Calendar.DAY_OF_MONTH))
 		setCurrentLiveDate(date.get(Calendar.YEAR), date.get(Calendar.MONTH), date.get(Calendar.DAY_OF_MONTH))
 	}
 
-	fun setFomLiveDate(year:Int, month: Int, dayOfMonth: Int){
+	fun setFromLiveDate(year:Int, month: Int, dayOfMonth: Int){
 		dateOfBirthAge = Age(dayOfMonth, month, year)
 		fromLiveDate.value = "${convert(month)} $dayOfMonth $year"
 
@@ -96,7 +96,6 @@ class DateViewModel(event: BaseViewModelEventListener) : BaseViewModel(event) {
 				months = 0
 			}
 		}
-
 		return Age(days, months, years)
 	}
 

@@ -45,8 +45,4 @@ class MassUnitDialog (private val viewGroup: ViewGroup) : BaseDialog<MassUnitPic
 		}
 	}
 
-	override fun onActivityCreated(savedInstanceState: Bundle?) {
-		super.onActivityCreated(savedInstanceState)
-		dialog?.window?.attributes?.windowAnimations = R.style.dialogAnimation
-	}
 }

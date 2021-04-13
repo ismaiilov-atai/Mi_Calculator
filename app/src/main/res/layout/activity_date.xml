@@ -134,14 +134,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/date_today" />
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="330dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/difference_layout"></androidx.constraintlayout.widget.ConstraintLayout>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/difference_layout"
         android:layout_width="match_parent"
@@ -244,7 +236,6 @@
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/date_year_txt" />
 
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -257,7 +248,6 @@
                     app:layout_constraintHorizontal_weight="1"
                     app:layout_constraintStart_toEndOf="@+id/date_year_holder"
                     app:layout_constraintTop_toTopOf="parent">
-
 
                     <TextView
                         android:id="@+id/date_month_txt"
@@ -283,7 +273,6 @@
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/date_month_txt" />
-
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -323,7 +312,6 @@
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/date_days_txt" />
 
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -338,7 +326,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/difference_indicator_holder"
                 app:layout_constraintVertical_weight="0.01" />
-
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/age_summary"
@@ -361,7 +348,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_weight="1">
-
 
                     <TextView
                         android:id="@+id/date_from_txt"
@@ -387,7 +373,6 @@
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/date_from_txt" />
 
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -401,7 +386,6 @@
                     app:layout_constraintStart_toEndOf="@+id/date_from_holder"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_weight="1">
-
 
                     <TextView
                         android:id="@+id/date_to_txt"
@@ -427,9 +411,7 @@
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/date_to_txt" />
 
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
 
                 <TextView
                     android:id="@+id/powered_by"
@@ -448,7 +430,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     <TextView
         android:id="@+id/share_btn"

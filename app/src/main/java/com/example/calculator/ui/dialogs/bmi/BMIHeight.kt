@@ -45,10 +45,4 @@ class BMIHeight(private var viewGroup: ViewGroup): BaseDialog<BmiHeightLayoutBin
 		params?.gravity = Gravity.BOTTOM
 		dialog?.window?.attributes = params
 	}
-
-	override fun onActivityCreated(savedInstanceState: Bundle?) {
-		super.onActivityCreated(savedInstanceState)
-		dialog?.window?.attributes?.windowAnimations = R.style.dialogAnimation
-	}
-
 }

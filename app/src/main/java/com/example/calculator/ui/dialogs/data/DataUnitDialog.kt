@@ -28,9 +28,4 @@ class DataUnitDialog(private val viewGroup: ViewGroup) : BaseDialog<DataUnitLayo
 		binding.cancelBmiDialog.setOnClickListener{ dismiss() }
 
 	}
-
-	override fun onActivityCreated(savedInstanceState: Bundle?) {
-		super.onActivityCreated(savedInstanceState)
-		dialog?.window?.attributes?.windowAnimations = R.style.dialogAnimation
-	}
 }

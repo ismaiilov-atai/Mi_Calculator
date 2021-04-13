@@ -43,9 +43,4 @@ class AreaUnitDialog(private var viewGroup: ViewGroup) : BaseDialog<CustomUnitDi
 			adapter?.listUnit = it
 		}
 	}
-
-	override fun onActivityCreated(savedInstanceState: Bundle?) {
-		super.onActivityCreated(savedInstanceState)
-		dialog?.window?.attributes?.windowAnimations = R.style.dialogAnimation
-	}
 }

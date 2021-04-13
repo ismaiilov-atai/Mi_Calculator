@@ -17,6 +17,10 @@ import com.example.calculator.ui.discount.DiscountActivity
 import com.example.calculator.ui.length.LengthActivity
 import com.example.calculator.ui.mass.MassActivity
 import com.example.calculator.ui.numerial.NumeralSystemActivity
+import com.example.calculator.ui.speed.SpeedActivity
+import com.example.calculator.ui.temperature.TemperatureActivity
+import com.example.calculator.ui.time.TimeActivity
+import com.example.calculator.ui.volume.VolumeActivity
 
 class ExtraCalculationViewModel(event: BaseViewModelEventListener) : BaseViewModel(event) {
 
@@ -33,10 +37,10 @@ class ExtraCalculationViewModel(event: BaseViewModelEventListener) : BaseViewMod
             ExtraModel(R.drawable.ic_length,R.string.extra_length, Intent(context,             LengthActivity::class.java)),
             ExtraModel(R.drawable.ic_mass,R.string.extra_mass, Intent(context,                 MassActivity::class.java)),
             ExtraModel(R.drawable.ic_num_system,R.string.extra_numeral_system, Intent(context, NumeralSystemActivity::class.java)),
-            ExtraModel(R.drawable.ic_speed,R.string.extra_speed, Intent(context,               MainActivity::class.java)),
-            ExtraModel(R.drawable.ic_temperature,R.string.extra_temperature, Intent(context,   MainActivity::class.java)),
-            ExtraModel(R.drawable.ic_time,R.string.extra_time, Intent(context,                 MainActivity::class.java)),
-            ExtraModel(R.drawable.ic_volume,R.string.extra_volume, Intent(context,             MainActivity::class.java)))
+            ExtraModel(R.drawable.ic_speed,R.string.extra_speed, Intent(context,               SpeedActivity::class.java)),
+            ExtraModel(R.drawable.ic_temperature,R.string.extra_temperature, Intent(context,   TemperatureActivity::class.java)),
+            ExtraModel(R.drawable.ic_time,R.string.extra_time, Intent(context,    TimeActivity::class.java)),
+            ExtraModel(R.drawable.ic_volume,R.string.extra_volume, Intent(context,             VolumeActivity::class.java)))
         )
     }
 }

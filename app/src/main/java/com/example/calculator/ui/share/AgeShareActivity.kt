@@ -15,7 +15,9 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
 
-class AgeShareActivity : BaseActivity<ActivityAgeShareBinding, AgeShareViewModel>(ActivityAgeShareBinding::inflate, AgeShareViewModel::class.java) {
+class AgeShareActivity : BaseActivity<ActivityAgeShareBinding, AgeShareViewModel>(
+	ActivityAgeShareBinding::inflate, AgeShareViewModel::class.java
+) {
 
 	override fun setupView() {
 		super.setupView()

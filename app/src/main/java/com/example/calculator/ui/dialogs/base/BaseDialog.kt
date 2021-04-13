@@ -9,7 +9,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
-
+import com.example.calculator.R
 
 open class BaseDialog<Binding: ViewBinding,VM: ViewModel>(private val inflate: (LayoutInflater, ViewGroup?, Boolean) -> Binding,className: Class<VM>): DialogFragment() {
 
@@ -28,6 +28,11 @@ open class BaseDialog<Binding: ViewBinding,VM: ViewModel>(private val inflate: (
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 		_binding = inflate.invoke(LayoutInflater.from(context),container,false)
 		return  binding.root
+	}
+
+	override fun onActivityCreated(savedInstanceState: Bundle?) {
+		super.onActivityCreated(savedInstanceState)
+		dialog?.window?.attributes?.windowAnimations = R.style.dialogAnimation
 	}
 
 	open fun setupUI(){}

@@ -11,9 +11,7 @@ import com.example.calculator.ui.dialogs.date.CustomDatePicker
 import com.example.calculator.ui.share.AgeShareActivity
 import java.io.ByteArrayOutputStream
 
-class DateActivity : BaseActivity<ActivityDateBinding, DateViewModel>(
-	ActivityDateBinding::inflate, DateViewModel::class.java
-), CustomDatePicker.OnDateSetTypeListener {
+class DateActivity : BaseActivity<ActivityDateBinding, DateViewModel>(ActivityDateBinding::inflate, DateViewModel::class.java), CustomDatePicker.OnDateSetTypeListener {
 
 	override fun setupView() {
 		super.setupView()
@@ -68,7 +66,7 @@ class DateActivity : BaseActivity<ActivityDateBinding, DateViewModel>(
 	override fun onDateSet(type: CustomDatePicker.Type, year: Int, month: Int, dayOfMonth: Int) {
 		when (type) {
 			CustomDatePicker.Type.DateOfBirth -> {
-				viewModel.setFomLiveDate(year, month, dayOfMonth)
+				viewModel.setFromLiveDate(year, month, dayOfMonth)
 			}
 
 			CustomDatePicker.Type.ToDay -> {

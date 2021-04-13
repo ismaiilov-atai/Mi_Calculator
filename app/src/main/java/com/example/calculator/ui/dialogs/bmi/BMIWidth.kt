@@ -33,11 +33,4 @@ class BMIWidth(private var viewGroup: ViewGroup): BaseDialog<BmiWidthLayoutBindi
 		params?.gravity = Gravity.BOTTOM
 		dialog?.window?.attributes = params
 	}
-
-	override fun onActivityCreated(savedInstanceState: Bundle?) {
-		super.onActivityCreated(savedInstanceState)
-		dialog?.window?.attributes?.windowAnimations = R.style.dialogAnimation
-	}
-
-
 }
