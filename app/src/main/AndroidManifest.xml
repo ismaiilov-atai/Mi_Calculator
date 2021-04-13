@@ -12,7 +12,8 @@
         android:roundIcon="@drawable/ic_equals_sign"
         android:supportsRtl="true"
         android:theme="@style/Theme.Calculator">
-        <activity android:name=".ui.volume.VolumeActivity"></activity>
+        <activity android:name=".ui.currency.CurrencyActivity"/>
+        <activity android:name=".ui.volume.VolumeActivity" />
         <activity android:name=".ui.time.TimeActivity" />
         <activity android:name=".ui.temperature.TemperatureActivity" />
         <activity android:name=".ui.speed.SpeedActivity" />

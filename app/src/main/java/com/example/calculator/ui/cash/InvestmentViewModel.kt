@@ -1,15 +1,25 @@
 package com.example.calculator.ui.cash
 
+import android.content.Context
+import android.content.Intent
+import androidx.lifecycle.MutableLiveData
+import com.example.calculator.MainActivity
 import com.example.calculator.R
 import com.example.calculator.base.BaseViewModel
 import com.example.calculator.base.BaseViewModelEventListener
+import com.example.calculator.ui.currency.CurrencyActivity
 import com.example.calculator.ui.extra.ExtraModel
 
-class InvestmentViewModel(event: BaseViewModelEventListener): BaseViewModel(event) {
+class InvestmentViewModel(event: BaseViewModelEventListener) : BaseViewModel(event) {
+	var listMutableLiveData = MutableLiveData<ArrayList<ExtraModel>>()
 
-    val listModel: ArrayList<ExtraModel> = ArrayList(listOf())
-
-//    ExtraModel(R.drawable.ic_dollar_sing,R.string.currency),
-//    ExtraModel(R.drawable.ic_profits,R.string.investment),
-//    ExtraModel(R.drawable.ic_personal,R.string.loan)
+	fun loadData(context: Context) {
+		listMutableLiveData.value = ArrayList(
+			listOf(
+				ExtraModel(R.drawable.ic_dollar_sing, R.string.currency, Intent(context, CurrencyActivity::class.java)),
+				ExtraModel(R.drawable.ic_profits, R.string.investment, Intent(context, MainActivity::class.java)),
+				ExtraModel(R.drawable.ic_personal, R.string.loan, Intent(context, MainActivity::class.java))
+			)
+		)
+	}
 }

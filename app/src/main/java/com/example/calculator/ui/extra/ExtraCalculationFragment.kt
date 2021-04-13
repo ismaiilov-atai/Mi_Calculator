@@ -13,9 +13,7 @@ class ExtraCalculationFragment : BaseFragment<FragmentExtraCalculationBinding, E
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         context?.let { viewModel.loadData(it) }
-
         setupUI()
     }
 

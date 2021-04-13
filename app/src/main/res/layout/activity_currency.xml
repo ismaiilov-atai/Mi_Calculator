@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/currency_layout"
+    tools:context=".ui.currency.CurrencyActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/currency_lable_holder"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/space_after_currency_lable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="1">
+
+        <ImageView
+            android:id="@+id/currency_arrow_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/currency_labale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/curency"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Space
+        android:id="@+id/space_after_currency_lable"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/first_unit_holder_currency"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currency_lable_holder"
+        app:layout_constraintVertical_weight="0.5" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/first_unit_holder_currency"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/space_after_first_unit_holder_currency"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space_after_currency_lable"
+        app:layout_constraintVertical_weight="1.2"
+        >
+
+        <TextView
+            android:id="@+id/first_unit_drop_down_currency"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:text="AUD"
+            android:textSize="18sp"
+            android:drawableRight="@drawable/ic_drop_down"
+            android:textColor="#424040"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/value_indicator_currency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:padding="2dp"
+            android:text="1"
+            android:textColor="@color/dark_grey"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/value_description_currency"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/value_description_currency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:padding="2dp"
+            android:text="Australian dollar"
+            android:textColor="@color/dark_grey"
+            android:textSize="8sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/value_indicator_currency" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Space
+        android:id="@+id/space_after_first_unit_holder_currency"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/second_unit_holder_currency"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_unit_holder_currency"
+        app:layout_constraintVertical_weight="0.8"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/second_unit_holder_currency"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space_after_first_unit_holder_currency"
+        app:layout_constraintBottom_toTopOf="@+id/space_after_second_drop_holder"
+        app:layout_constraintVertical_weight="1.2">
+
+        <TextView
+            android:id="@+id/second_unit_drop_down_currency"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:text="USD"
+            android:textSize="18sp"
+            android:drawableRight="@drawable/ic_drop_down"
+            android:textColor="#424040"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/second_value_indicator_currency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:padding="2dp"
+            android:text="1"
+            android:textColor="@color/dark_grey"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/second_value_description_currency"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/second_value_description_currency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:padding="2dp"
+            android:text="Australian dollar"
+            android:textColor="@color/dark_grey"
+            android:textSize="8sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/second_value_indicator_currency" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Space
+        android:id="@+id/space_after_second_drop_holder"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/third_unit_holder_currency"
+        app:layout_constraintTop_toBottomOf="@+id/second_unit_holder_currency"
+        app:layout_constraintVertical_weight="0.8"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/third_unit_holder_currency"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space_after_second_drop_holder"
+        app:layout_constraintBottom_toTopOf="@+id/currency_show_result"
+        app:layout_constraintVertical_weight="1.2"
+        >
+
+        <TextView
+            android:id="@+id/third_unit_drop_down_currency"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:text="USD"
+            android:textSize="18sp"
+            android:drawableRight="@drawable/ic_drop_down"
+            android:textColor="#424040"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/third_value_indicator_currency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:padding="2dp"
+            android:text="1"
+            android:textColor="@color/dark_grey"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/third_value_description_currency"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/third_value_description_currency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:padding="2dp"
+            android:text="Australian dollar"
+            android:textColor="@color/dark_grey"
+            android:textSize="8sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/third_value_indicator_currency" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/currency_show_result"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintVertical_weight="1"
+    android:padding="2dp"
+    app:layout_constraintBottom_toTopOf="@+id/space_after_second_unit_currency"
+    app:layout_constraintTop_toBottomOf="@+id/third_unit_holder_currency">
+
+    <TextView
+        android:id="@+id/info_exchange_currency"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/exchange_provided"
+        android:gravity="end|bottom"
+        android:textSize="12sp"
+        android:padding="2dp"
+        android:textColor="#CCC8C8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/day_rate_currency"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1"/>
+
+    <TextView
+        android:id="@+id/day_rate_currency"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="(April 13, 2021)"
+        android:gravity="start|bottom"
+        android:textSize="12sp"
+        android:padding="2dp"
+        android:textColor="#CCC8C8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/info_exchange_currency"
+        app:layout_constraintHorizontal_weight="0.4"
+
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Space
+        android:id="@+id/space_after_second_unit_currency"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/line_view_currency"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currency_show_result"
+        app:layout_constraintVertical_weight="0."/>
+
+    <View
+        android:id="@+id/line_view_currency"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="#D5CFCF"
+        app:layout_constraintBottom_toTopOf="@+id/btn_holders_currency"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space_after_second_unit_currency"
+        app:layout_constraintVertical_weight="0.01"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btn_holders_currency"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line_view_currency"
+        app:layout_constraintVertical_weight="9.6">
+
+
+        <GridLayout
+            android:id="@+id/currency_grid_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:columnCount="3"
+            android:rowCount="4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/currency_clear_holder"
+            app:layout_constraintHorizontal_weight="0.8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/figures_seven_currency"
+                style="@style/btn_operation_styles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_vertical"
+                android:text="7"
+                android:textColor="@color/black"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/figures_eight_currency"
+                style="@style/btn_operation_styles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_vertical"
+                android:text="8"
+                android:textColor="@color/black"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/figures_nine_currency"
+                style="@style/btn_operation_styles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_vertical"
+                android:text="9"
+                android:textColor="@color/black"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/figures_four_currency"
+                style="@style/btn_operation_styles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_vertical"
+                android:text="4"
+                android:textColor="@color/black"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/figures_five_currency"
+                style="@style/btn_operation_styles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_vertical"
+                android:text="5"
+                android:textColor="@color/black"
+                android:textSize="34sp"/>
+
+            <TextView
+                android:id="@+id/figures_six_currency"
+                style="@style/btn_operation_styles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_vertical"
+                android:text="6"
+                android:textColor="@color/black"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/figures_one_currency"
+                style="@style/btn_operation_styles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_vertical"
+                android:text="1"
+                android:textColor="@color/black"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/figures_two_currency"
+                style="@style/btn_operation_styles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_vertical"
+                android:text="2"
+                android:textColor="@color/black"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/figures_three_currency"
+                style="@style/btn_operation_styles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_vertical"
+                android:text="3"
+                android:textColor="@color/black"
+                android:textSize="34sp"/>
+
+            <TextView
+                android:id="@+id/empty_currency"
+                style="@style/btn_operation_styles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/black"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/figures_zero_currency"
+                style="@style/btn_operation_styles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_vertical"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/figures_dot_currency"
+                style="@style/btn_operation_styles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_vertical"
+                android:text="."
+                android:textColor="@color/black"
+                android:textSize="34sp" />
+
+        </GridLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/currency_clear_holder"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="0.22"
+            app:layout_constraintStart_toEndOf="@id/currency_grid_container"
+            app:layout_constraintTop_toBottomOf="@+id/currency_grid_container"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <TextView
+                android:id="@+id/currency_clear_btn"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/back_for_two_deletion"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="AC"
+                android:textColor="@color/purple_500"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/space_between_removal_currency"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_weight="1"/>
+
+            <Space
+                android:id="@+id/space_between_removal_currency"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/currency_remove_btn"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/currency_clear_btn"
+                app:layout_constraintVertical_weight="0.2" />
+
+            <ImageView
+                android:id="@+id/currency_remove_btn"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/back_for_two_deletion"
+                android:padding="25dp"
+                android:src="@drawable/ic_back_for_extras"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space_between_removal_currency"
+                app:layout_constraintVertical_weight="1" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

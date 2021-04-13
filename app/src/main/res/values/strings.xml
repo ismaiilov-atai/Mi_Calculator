@@ -55,6 +55,8 @@
     <string name="discount">Discount</string>
     <string name="final_price">Final price</string>
     <string name="original_price">Original price</string>
+    <string name="curency">Currency converter</string>
+    <string name="exchange_provided">Exchange rates are provided by Webull</string>
 
 
 </resources>
