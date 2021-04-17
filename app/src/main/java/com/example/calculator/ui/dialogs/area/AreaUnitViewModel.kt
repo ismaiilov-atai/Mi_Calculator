@@ -9,24 +9,14 @@ class AreaUnitViewModel: ViewModel() {
 
 	fun loadData(){
 		unitListLiveData.value = ArrayList(listOf(
-			"Square kilometer km2",
+			"Square kilometer km²",
 			"Hectare ha",
 			"Are a",
-			"Square meter m2",
-			"Square decimeter dm2",
-			"Square centimeter cm2",
-			"Square millimeter mm2",
-			"Square micron um2",
-			"Square Acre ac",
-			"Square mile mile2",
-			"Square yard yd2",
-			"Square foot ft2",
-			"Square inch in2",
-			"Square rod rd2",
-			"Qing qing",
-			"Mu mu",
-			"Square chi chi2",
-			"Square cun cun2",
-			"Square kilometer gongli2"))
+			"Square meter m²",
+			"Square decimeter dm²",
+			"Square centimeter cm²",
+			"Square millimeter mm²",
+		))
 	}
+
 }

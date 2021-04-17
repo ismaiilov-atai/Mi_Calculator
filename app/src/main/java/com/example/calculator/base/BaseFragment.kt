@@ -63,4 +63,5 @@ abstract class BaseFragment<Binding: ViewBinding, VM: BaseViewModel>(private val
             progressDialog?.hide()
         }
     }
+
 }

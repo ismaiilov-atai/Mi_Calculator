@@ -10,3 +10,11 @@ fun View.setVisibility(mode: Boolean) {
     }
 }
 
+fun View.adjustVisibility (mode: Boolean) {
+    if (mode){
+        this.visibility = View.VISIBLE
+    } else {
+        this.visibility = View.INVISIBLE
+    }
+}
+

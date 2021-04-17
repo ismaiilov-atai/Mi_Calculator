@@ -54,7 +54,6 @@ class DateActivity : BaseActivity<ActivityDateBinding, DateViewModel>(ActivityDa
 			binding.dateMonthIndicator.text = it.months.toString()
 			binding.dateDaysIndicator.text = it.days.toString()
 		}
-
 	}
 
 	private fun showDatePickerDialog(type: CustomDatePicker.Type) {

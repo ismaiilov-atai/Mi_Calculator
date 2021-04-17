@@ -1,28 +1,27 @@
 package com.example.calculator.ui.dataconvert
 
-import android.util.Log
-import android.view.TextureView
+
 import android.view.View
-import android.widget.TextView
+import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import com.example.calculator.R
 import com.example.calculator.base.BaseActivity
 import com.example.calculator.databinding.ActivityDataConverterBinding
 import com.example.calculator.ui.dialogs.data.DataUnitDialog
-import com.example.calculator.utils.App.Companion.prefs
 
-class DataConverterActivity : BaseActivity<ActivityDataConverterBinding, DataConverterViewModel>(ActivityDataConverterBinding::inflate, DataConverterViewModel::class.java), View.OnClickListener {
+
+class DataConverterActivity : BaseActivity<ActivityDataConverterBinding, DataConverterViewModel>(ActivityDataConverterBinding::inflate, DataConverterViewModel::class.java), View.OnClickListener
+, DataUnitDialog.OnDataPickListener{
 
 	override fun setupView() {
 		super.setupView()
+		viewModel.isFieldChanged(DataConverterViewModel.Type.ONE)
+		binding.valueUnitSecondData.setTextColor(ContextCompat.getColor(this, R.color.dark_grey))
+		binding.valueUnitData.setTextColor(ContextCompat.getColor(this, R.color.purple_500))
+
 		binding.dataArrowBack.setOnClickListener { finish() }
-		binding.firstUnitDropDownData.setOnClickListener {
-			DataUnitDialog(binding.dataLayout).show(
-				supportFragmentManager.beginTransaction(), "dataUnit")
-		}
-		binding.secondUnitDropDownData.setOnClickListener {
-			DataUnitDialog(binding.dataLayout).show(supportFragmentManager.beginTransaction(), "secondUnit")
-		}
+		binding.firstUnitDropDownData.setOnClickListener { showDialog(binding.dataLayout,DataConverterViewModel.Type.ONE) }
+		binding.secondUnitDropDownData.setOnClickListener { showDialog(binding.dataLayout,DataConverterViewModel.Type.TWO) }
 
 		binding.figuresZeroData.setOnClickListener(this)
 		binding.figuresOneData.setOnClickListener(this)
@@ -34,20 +33,20 @@ class DataConverterActivity : BaseActivity<ActivityDataConverterBinding, DataCon
 		binding.figuresSevenData.setOnClickListener(this)
 		binding.figuresEightData.setOnClickListener(this)
 		binding.figuresNineData.setOnClickListener(this)
+		binding.figuresDotData.setOnClickListener(this)
 
 		binding.dataClearBtn.setOnClickListener(this)
 		binding.dataRemoveBtnData.setOnClickListener(this)
 
 		binding.valueUnitData.setOnClickListener {
-			prefs?.secondField = binding.valueUnitSecondData.text.toString()
-			viewModel.isFieldChanged(false)
-			binding.valueUnitSecondData.setTextColor(ContextCompat.getColor(this, R.color.light_gray))
+			viewModel.isFieldChanged(DataConverterViewModel.Type.ONE)
+			binding.valueUnitSecondData.setTextColor(ContextCompat.getColor(this, R.color.dark_grey))
 			binding.valueUnitData.setTextColor(ContextCompat.getColor(this, R.color.purple_500))
 		}
+
 		binding.valueUnitSecondData.setOnClickListener {
-			prefs?.firstField = binding.valueUnitData.text.toString()
-			viewModel.isFieldChanged(true)
-			binding.valueUnitData.setTextColor(ContextCompat.getColor(this, R.color.light_gray))
+			viewModel.isFieldChanged(DataConverterViewModel.Type.TWO)
+			binding.valueUnitData.setTextColor(ContextCompat.getColor(this, R.color.dark_grey))
 			binding.valueUnitSecondData.setTextColor(ContextCompat.getColor(this, R.color.purple_500))
 		}
 
@@ -55,23 +54,25 @@ class DataConverterActivity : BaseActivity<ActivityDataConverterBinding, DataCon
 	}
 
 	private fun observe() {
-		viewModel.toFieldLiveData.observe(this) {
-			binding.valueUnitData.text = it
-		}
-
-		viewModel.toSecondFieldLiveData.observe(this) {
-			binding.valueUnitSecondData.text = it
-		}
+		viewModel.toFieldLiveData.observe(this) { binding.valueUnitData.text = it }
+		viewModel.toSecondFieldLiveData.observe(this) { binding.valueUnitSecondData.text = it }
+		viewModel.firstDropDownPickLiveData.observe(this) { binding.firstUnitDropDownData.text = it }
+		viewModel.secondDropDownPickLiveData.observe(this) { binding.secondUnitDropDownData.text = it }
+		viewModel.firstUnitDescripLiveData.observe (this) { binding.descriptionUnitData.text = it }
+		viewModel.secondUnitDescripLiveData.observe (this) { binding.descriptionUnitSecondData.text = it }
 	}
 
 	override fun onClick(v: View?) {
 		viewModel.onButtonClick(v?.id)
 	}
 
-	override fun onDestroy() {
-		super.onDestroy()
-		prefs?.firstField = ""
-		prefs?.secondField = ""
+	private fun showDialog(viewGroup: ViewGroup, type: DataConverterViewModel.Type) {
+		val dialog = DataUnitDialog(viewGroup,type)
+		dialog.listener = this
+		dialog.show(supportFragmentManager.beginTransaction(),"dialog $type")
 	}
 
+	override fun pickDataUnitListener(dataUnit: String, type: DataConverterViewModel.Type) {
+		viewModel.dropDownSet(dataUnit,type)
+	}
 }

@@ -5,4 +5,20 @@ object Constants {
     const val KEY_RESULT = "KEY_RESULT"
     const val KEY_FIRST_FIELD = "FIRST_FIELD"
     const val KEY_SECOND_FIELD = "SECOND_FIELD"
+
+    const val KEY_BYTE_B = "Byte B"
+    const val KEY_KILOBYTE_KB = "Kilobyte KB"
+    const val KEY_MEGABYTE_MB = "Megabyte MB"
+    const val KEY_GIGABYTE_GB = "Gigabyte GB"
+    const val KEY_TERABYTE_TB = "Terabyte TB"
+    const val KEY_PETABYTE_PB = "Petabyte PB"
+
+    const val SQUARE_KILOMETER = "Square kilometer km²"
+    const val HECTARE_HA = "Hectare ha"
+    const val AREA_A = "Are a"
+    const val SQUARE_METER = "Square meter m²"
+    const val SQUARE_DECIMETER = "Square decimeter dm²"
+    const val SQUARE_CENTIMETER = "Square centimeter cm²"
+    const val SQUARE_MILLIMETER_MM2 = "Square millimeter mm²"
+
 }

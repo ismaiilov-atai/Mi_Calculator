@@ -13,6 +13,7 @@ class DateViewModel(event: BaseViewModelEventListener) : BaseViewModel(event) {
 
 	var birthdayCalendarLiveDate: MutableLiveData<Age> = MutableLiveData()
 
+
 	private var dateOfBirthAge = Age()
 	private var toDayAge = Age()
 
