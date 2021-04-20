@@ -21,4 +21,11 @@ object Constants {
     const val SQUARE_CENTIMETER = "Square centimeter cm²"
     const val SQUARE_MILLIMETER_MM2 = "Square millimeter mm²"
 
+    const val KEY_BITMAP = "bitmapKey"
+    const val KEY_BMI_RESULT = "bitmapKey"
+
+    const val OVER_WEIGHT = "Overweight"
+    const val NORMAL = "Normal"
+    const val UNDER_WEIGHT = "Underweight"
+
 }

@@ -11,6 +11,7 @@ import android.provider.MediaStore
 import androidx.core.net.toUri
 import com.example.calculator.base.BaseActivity
 import com.example.calculator.databinding.ActivityAgeShareBinding
+import com.example.calculator.utils.Constants
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
@@ -21,8 +22,15 @@ class AgeShareActivity : BaseActivity<ActivityAgeShareBinding, AgeShareViewModel
 
 	override fun setupView() {
 		super.setupView()
-		val byteArray: ByteArray? =
-			intent.getByteArrayExtra("image") ?: intent.getByteArrayExtra("bitmap")
+		var byteArray: ByteArray? = null
+
+		if ( intent.getByteArrayExtra(Constants.KEY_BITMAP) != null ) {
+			byteArray = intent.getByteArrayExtra(Constants.KEY_BITMAP)
+		} else if (intent.getByteArrayExtra("image") != null) {
+			byteArray = intent.getByteArrayExtra("image")
+		} else if (intent.getByteArrayExtra("bitmap") != null) {
+			byteArray = intent.getByteArrayExtra("bitmap")
+		}
 
 		val bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray!!.size)
 

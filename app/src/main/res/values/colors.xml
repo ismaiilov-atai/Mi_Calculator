@@ -8,6 +8,10 @@
     <color name="black">#FF000000</color>
     <color name="light_gray">#AAA5A5</color>
     <color name="dark_grey">#252424</color>
+    <color name="dark_of_dark">#151515</color>
     <color name="white">#FFFFFFFF</color>
     <color name="onHover">#E3DEDE</color>
+    <color name="underweight_color">#08187C</color>
+    <color name="normal_color">#1D7816</color>
+    <color name="overweight_color">#B63146</color>
 </resources>

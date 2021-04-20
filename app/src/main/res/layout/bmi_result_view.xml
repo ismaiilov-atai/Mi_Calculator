@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="20dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#ffff"
+        android:padding="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/share_btn"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bitmap_view_create"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            android:background="@drawable/age_holder_frame"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/text_container"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/bmi_indicator_result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20.8"
+                    android:textColor="@color/purple_500"
+                    android:textSize="60sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.35"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/bmi_txt_result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="8dp"
+                    android:text="BMI"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="25sp"
+                    app:layout_constraintStart_toEndOf="@+id/bmi_indicator_result"
+                    app:layout_constraintTop_toTopOf="@+id/bmi_indicator_result" />
+
+                <TextView
+                    android:id="@+id/category_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Normal"
+                    android:textColor="#0B6DBC"
+                    android:textSize="10sp"
+                    android:padding="3dp"
+                    app:layout_constraintEnd_toEndOf="@+id/bmi_txt_result"
+                    app:layout_constraintStart_toStartOf="@+id/bmi_txt_result"
+                    app:layout_constraintTop_toBottomOf="@+id/bmi_txt_result"
+                    app:layout_constraintBottom_toBottomOf="@+id/bmi_indicator_result"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <View
+                android:id="@+id/line_grey_view"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:background="@color/dark_of_dark"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_container" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/difference_indicator_holder"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line_grey_view">
+
+                <TextView
+                    android:id="@+id/bmi_info_result"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:text="Information"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textColor="@color/dark_grey"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/estimating_cont_text"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toTopOf="@+id/different_color_line"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bmi_info_result"
+                    app:layout_constraintVertical_weight="1">
+
+                    <TextView
+                        android:id="@+id/underweight"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:gravity="center"
+                        android:text="Underweight"
+                        android:textColor="#08187C"
+                        android:textSize="10sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/normal"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/normal"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:gravity="center"
+                        android:text="Normal"
+                        android:textSize="10sp"
+                        android:textColor="#1D7816"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/overweight"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/underweight"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/overweight"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:gravity="center"
+                        android:text="Overweight"
+                        android:textSize="10sp"
+                        android:textColor="#B63146"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/normal"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/different_color_line"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toTopOf="@+id/different_indicators_holder"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/estimating_cont_text"
+                    app:layout_constraintVertical_weight="0.1">
+
+                    <View
+                        android:id="@+id/blue_line"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="#08187C"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/green_line"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/green_line"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="#1D7816"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/red_line"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/blue_line"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/red_line"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="#B63146"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/green_line"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/different_indicators_holder"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toTopOf="@+id/bmi_powered_by"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/different_color_line"
+                    app:layout_constraintVertical_weight="0.8">
+
+                    <TextView
+                        android:id="@+id/first_indicator"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:gravity="center|start"
+                        android:text="16.0"
+                        android:textColor="@color/dark_grey"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/second_indicator"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/second_indicator"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:gravity="center|end"
+                        android:text="18.5"
+                        android:textColor="@color/dark_grey"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/space_indicator_between"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/first_indicator"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/space_indicator_between"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/third_indicator"
+                        app:layout_constraintHorizontal_weight="1.5"
+                        app:layout_constraintStart_toEndOf="@+id/second_indicator"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/third_indicator"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:gravity="center|start"
+                        android:text="25.0"
+                        android:textColor="@color/dark_grey"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/forth_indicator"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/space_indicator_between"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/forth_indicator"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:gravity="center|end"
+                        android:text="40.0"
+                        android:textColor="@color/dark_grey"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/third_indicator"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/bmi_powered_by"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="Powered by Atai"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/different_indicators_holder"
+                    app:layout_constraintVertical_weight="0.8" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/share_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_500"
+        android:padding="10dp"
+        android:text="Share"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/age_summary" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
