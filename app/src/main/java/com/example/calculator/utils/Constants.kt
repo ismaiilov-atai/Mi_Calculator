@@ -28,4 +28,7 @@ object Constants {
     const val NORMAL = "Normal"
     const val UNDER_WEIGHT = "Underweight"
 
+    const val BASE_URL = "https://api.fastforex.io"
+    const val API_KEY = "25cf194833-73eb8f0c7c-qqj49g"
+
 }

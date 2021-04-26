@@ -72,7 +72,7 @@
             android:layout_height="35dp"
             android:gravity="center_vertical"
             android:padding="3dp"
-            android:text="DEC"
+            android:text="HEX"
             android:textColor="#424040"
             android:textSize="20sp"
             app:drawableRightCompat="@drawable/ic_drop_down"
@@ -82,8 +82,10 @@
 
         <TextView
             android:id="@+id/value_unit_numeral"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            app:layout_constraintLeft_toRightOf="@+id/first_unit_drop_down_numeral"
             android:layout_height="wrap_content"
+            android:textAlignment="textEnd"
             android:layout_marginBottom="1dp"
             android:padding="2dp"
             android:text="1"
@@ -133,11 +135,13 @@
 
         <TextView
             android:id="@+id/value_unit_second_numeral"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="1dp"
             android:padding="2dp"
+            app:layout_constraintLeft_toRightOf="@+id/second_unit_drop_down_numeral"
             android:text="1"
+            android:textAlignment="textEnd"
             android:textColor="@color/dark_grey"
             android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -225,7 +229,7 @@
                 android:layout_rowWeight="1"
                 android:text="F"
                 android:textSize="30sp"
-                android:textColor="@color/light_gray"/>
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/figures_e_numeral"
@@ -237,7 +241,7 @@
                 android:text="E"
                 android:layout_gravity="center_vertical"
                 android:textSize="30sp"
-                android:textColor="@color/light_gray" />
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/figures_seven_numeral"
@@ -285,7 +289,7 @@
                 android:text="D"
                 android:layout_gravity="center_vertical"
                 android:textSize="30sp"
-                android:textColor="@color/light_gray" />
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/figures_four_numeral"
@@ -333,7 +337,7 @@
                 android:text="C"
                 android:layout_gravity="center_vertical"
                 android:textSize="30sp"
-                android:textColor="@color/light_gray" />
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/figures_one_numeral"
@@ -381,7 +385,7 @@
                 android:text="B"
                 android:layout_gravity="center_vertical"
                 android:textSize="30sp"
-                android:textColor="@color/light_gray" />
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/figures_transform_numeral"
@@ -419,7 +423,7 @@
                 android:textColor="@color/black" />
 
             <TextView
-                android:id="@+id/latter_a_numeral"
+                android:id="@+id/figures_a_numeral"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="A"
@@ -428,7 +432,7 @@
                 style="@style/btn_operation_styles"
                 android:layout_gravity="center_vertical"
                 android:textSize="30sp"
-                android:textColor="@color/light_gray"/>
+                android:textColor="@color/black"/>
         </GridLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

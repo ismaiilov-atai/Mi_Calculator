@@ -9,16 +9,17 @@ import com.example.calculator.base.BaseViewModel
 import com.example.calculator.base.BaseViewModelEventListener
 import com.example.calculator.ui.currency.CurrencyActivity
 import com.example.calculator.ui.extra.ExtraModel
+import com.example.calculator.ui.investment.InvestmentActivity
 
 class InvestmentViewModel(event: BaseViewModelEventListener) : BaseViewModel(event) {
 	var listMutableLiveData = MutableLiveData<ArrayList<ExtraModel>>()
 
 	fun loadData(context: Context) {
 		listMutableLiveData.value = ArrayList(
-			listOf(
+			listOf (
 				ExtraModel(R.drawable.ic_dollar_sing, R.string.currency, Intent(context, CurrencyActivity::class.java)),
-				ExtraModel(R.drawable.ic_profits, R.string.investment, Intent(context, MainActivity::class.java)),
-				ExtraModel(R.drawable.ic_personal, R.string.loan, Intent(context, MainActivity::class.java))
+				ExtraModel(R.drawable.ic_profits, R.string.investment, Intent(context,   InvestmentActivity::class.java)),
+				ExtraModel(R.drawable.ic_personal, R.string.loan, Intent(context,        MainActivity::class.java))
 			)
 		)
 	}

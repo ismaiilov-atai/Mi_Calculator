@@ -78,10 +78,7 @@ class BMIActivity : BaseActivity<ActivityBMIBinding,BMIViewModel>(ActivityBMIBin
 		viewModel.unitHeightLiveData.observe(this) { binding.descriptionUnitSecondBmi.text = it}
 	}
 
-	override fun onClick(v: View?) {
-		viewModel.clickButton(v?.id)
-	}
-
+	override fun onClick(v: View?) { viewModel.clickButton(v?.id) }
 
 	override fun unitHeightClickListener(typeHeight: String) { viewModel.setHeight(typeHeight) }
 	override fun unitWeightClickListener(typeWeigh: String) { viewModel.setWeight(typeWeigh) }

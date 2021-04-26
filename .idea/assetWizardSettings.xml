@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/backspace/baseline_backspace_24.xml" />
+                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/fiber_manual_record/baseline_fiber_manual_record_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,8 +28,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="ebaa20" />
-                            <entry key="outputName" value="ic_back_for_extras" />
+                            <entry key="color" value="ebb434" />
+                            <entry key="outputName" value="ic_total_interest" />
                             <entry key="sourceFile" value="$USER_HOME$/Downloads/telegram.svg" />
                           </map>
                         </option>

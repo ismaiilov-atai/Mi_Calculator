@@ -2,8 +2,10 @@ package com.example.calculator.ui.dialogs.speed
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.calculator.base.BaseViewModel
+import com.example.calculator.base.BaseViewModelEventListener
 
-class SpeedViewModel : ViewModel() {
+class SpeedViewModel(event: BaseViewModelEventListener) : BaseViewModel(event) {
 
 	var speedUnitLiveData: MutableLiveData<ArrayList<String>> = MutableLiveData()
 

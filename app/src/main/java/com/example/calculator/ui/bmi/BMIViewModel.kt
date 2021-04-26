@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.calculator.R
 import com.example.calculator.base.BaseViewModel
 import com.example.calculator.base.BaseViewModelEventListener
+import kotlinx.coroutines.launch
 
 class BMIViewModel(event: BaseViewModelEventListener): BaseViewModel(event) {
 
@@ -142,7 +143,9 @@ class BMIViewModel(event: BaseViewModelEventListener): BaseViewModel(event) {
 			else if (type == ChosenType.SECOND && stringSecondField != "0") stringSecondField = stringSecondField.dropLast(1)
 
 		dataSand()
+
 	}
+
 
 	private fun clearAll() {
 		stringFirstField = "0"

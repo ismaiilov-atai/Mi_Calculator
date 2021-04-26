@@ -2,8 +2,10 @@ package com.example.calculator.ui.dialogs.time
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.calculator.base.BaseViewModel
+import com.example.calculator.base.BaseViewModelEventListener
 
-class TimeViewModel : ViewModel() {
+class TimeViewModel(event: BaseViewModelEventListener) : BaseViewModel(event) {
 
 	var timeMutableLiveData: MutableLiveData<ArrayList<String>> = MutableLiveData()
 

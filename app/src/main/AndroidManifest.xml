@@ -3,6 +3,7 @@
     package="com.example.calculator">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:name=".utils.App"
@@ -12,7 +13,12 @@
         android:roundIcon="@drawable/ic_equals_sign"
         android:supportsRtl="true"
         android:theme="@style/Theme.Calculator">
-        <activity android:name=".ui.currency.CurrencyActivity"/>
+        <activity android:name=".ui.results.ResultsActivity"/>
+        <activity
+            android:name=".ui.investment.InvestmentActivity"
+            android:windowSoftInputMode="adjustResize"
+            />
+        <activity android:name=".ui.currency.CurrencyActivity" />
         <activity android:name=".ui.volume.VolumeActivity" />
         <activity android:name=".ui.time.TimeActivity" />
         <activity android:name=".ui.temperature.TemperatureActivity" />

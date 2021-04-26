@@ -2,8 +2,10 @@ package com.example.calculator.ui.dialogs.mass
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.calculator.base.BaseViewModel
+import com.example.calculator.base.BaseViewModelEventListener
 
-class MassViewModel: ViewModel() {
+class MassViewModel(event: BaseViewModelEventListener): BaseViewModel (event) {
 
 	var massLiveData: MutableLiveData<ArrayList<String>> = MutableLiveData()
 
