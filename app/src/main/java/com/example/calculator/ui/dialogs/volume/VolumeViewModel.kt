@@ -2,8 +2,10 @@ package com.example.calculator.ui.dialogs.volume
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.calculator.base.BaseViewModel
+import com.example.calculator.base.BaseViewModelEventListener
 
-class VolumeViewModel: ViewModel() {
+class VolumeViewModel(event: BaseViewModelEventListener): BaseViewModel(event) {
 
 	var volumeUnitLiveData: MutableLiveData<ArrayList<String>> = MutableLiveData()
 

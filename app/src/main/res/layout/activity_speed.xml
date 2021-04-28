@@ -41,6 +41,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Space
@@ -81,16 +82,20 @@
 
         <TextView
             android:id="@+id/value_unit_speed"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="1dp"
             android:padding="2dp"
             android:text="1"
+            android:maxLines="2"
             android:textColor="@color/dark_grey"
             android:textSize="22sp"
+            android:textAlignment="textEnd"
             app:layout_constraintBottom_toTopOf="@+id/speed_txt_first_drop_down"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/first_unit_drop_down_speed"
+            />
 
         <TextView
             android:id="@+id/speed_txt_first_drop_down"
@@ -99,7 +104,7 @@
             android:text="Meter per second"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/value_unit_speed" />
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -132,7 +137,7 @@
             android:drawableRight="@drawable/ic_drop_down"
             android:gravity="center_vertical"
             android:padding="3dp"
-            android:text="kn"
+            android:text="km/s"
             android:textColor="#424040"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -141,25 +146,27 @@
 
         <TextView
             android:id="@+id/value_unit_second_speed"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="1dp"
             android:padding="2dp"
-            android:text="1,94384449"
+            android:text="1"
+            android:maxLines="2"
             android:textColor="@color/dark_grey"
             android:textSize="22sp"
+            android:textAlignment="textEnd"
             app:layout_constraintBottom_toTopOf="@+id/speed_txt_second_drop_down"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/second_unit_drop_down_speed"/>
 
         <TextView
             android:id="@+id/speed_txt_second_drop_down"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Knot"
+            android:text="Kilometer per second"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/value_unit_second_speed" />
+            app:layout_constraintRight_toRightOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

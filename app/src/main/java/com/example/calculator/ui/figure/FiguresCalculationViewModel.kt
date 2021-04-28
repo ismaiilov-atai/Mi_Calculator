@@ -59,7 +59,7 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
         MULTIPLICATION_NORMAL(R.id.figures_multiple_normal, "*"),
         DIVIDE_NORMAL(R.id.figures_divide_normal, "/"),
         PERCENTAGE_NORMAL(R.id.figures_presantage_normal, "%"),
-        DOT_NORMAL(R.id.figures_dot_bmi, "."),
+        DOT_NORMAL(R.id.figures_dot_normal, "."),
 
         TRACTION_NORMAL(R.id.figures_transform_normal),
         EQUAL_NORMAL(R.id.figures_equal_normal),
@@ -138,7 +138,8 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
                 if (isEqualClicked && !checkOperation.contains(operation.type)) {
                     isEqualClicked = false
                     mathString = String()
-                }
+                } else if (mathString.contains(".") && operation.type == Operation.DOT.type && operation.type == Operation.DOT_NORMAL.type) { return }
+
                 mathString += operation.type
                 fieldLiveData.value = mathString
                 realTimeResult()
@@ -177,7 +178,6 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
         if (!isEqualClicked) {
             if (mathString.isNotEmpty()) {
                 try {
-//                    val result = Expressions().eval(mathString).toString()      /* <-------------------------*/
                     val result = ExpressionParser().evaluate(mathString).toString()
 
                     GlobalScope.launch {
@@ -207,9 +207,10 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
 
     private fun realTimeResult() {
         try {
-//            val result = Expressions().eval(mathString)       /* <-------------------------*/
-            val result = ExpressionParser().evaluate(mathString)
+            var result = ExpressionParser().evaluate(mathString).toString()
+            if (result.takeLast(2) == ".0") { result = result.dropLast(2)}
             resultLiveData.value = "= $result"
+
         }catch (e: Exception){
             if (mathString.isNotEmpty()) {
                 resultLiveData.value = "= 0"

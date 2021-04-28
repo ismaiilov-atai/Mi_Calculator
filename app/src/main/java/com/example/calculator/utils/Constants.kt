@@ -31,4 +31,9 @@ object Constants {
     const val BASE_URL = "https://api.fastforex.io"
     const val API_KEY = "25cf194833-73eb8f0c7c-qqj49g"
 
+    const val LIGHT_SPEED = "Lightspeed c"
+    const val METER_PER_SECOND = "Meter per second m/s"
+    const val KILOMETER_PER_SECOND = "Kilometer per second km/s"
+    const val KILOMETER_PER_HOUR = "Kilometer per hour km/h"
+
 }

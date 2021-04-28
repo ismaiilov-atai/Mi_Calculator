@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: cc.cloudist.acplibrary:library:1.2.1@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/399877b9d066f8e96a5c5bad43c0591c/jetified-library-1.2.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/399877b9d066f8e96a5c5bad43c0591c/jetified-library-1.2.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/399877b9d066f8e96a5c5bad43c0591c/jetified-library-1.2.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/28bb5ea2791546984033ca496989d344/jetified-library-1.2.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/28bb5ea2791546984033ca496989d344/jetified-library-1.2.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/28bb5ea2791546984033ca496989d344/jetified-library-1.2.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cc.cloudist.acplibrary/library/1.2.1/9d01d7ed16c4ce678c4ec4ec82e0a31cbc8ddfba/library-1.2.1-javadoc.jar!/" />

@@ -21,4 +21,5 @@ class SwipeAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) 
             else -> Fragment()
         }
     }
+
 }

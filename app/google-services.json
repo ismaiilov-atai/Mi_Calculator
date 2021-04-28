@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "158146670827",
+    "project_id": "mi-calculator-238a0",
+    "storage_bucket": "mi-calculator-238a0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:158146670827:android:163407d4e3f389f7f54eae",
+        "android_client_info": {
+          "package_name": "com.example.calculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "158146670827-0ut65hvcb7s5aj0olaqo8171pa7i6fkq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3oesogHjyF4Hf-H1jBKcoMpMxQPU5y8M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "158146670827-0ut65hvcb7s5aj0olaqo8171pa7i6fkq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

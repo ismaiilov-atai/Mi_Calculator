@@ -2,17 +2,15 @@ package com.example.calculator.ui.dialogs.mass
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
 import android.view.ViewGroup
 import android.view.WindowManager
-import com.example.calculator.R
 import com.example.calculator.databinding.MassUnitPickerBinding
 import com.example.calculator.ui.dialogs.UnitAdapter
 import com.example.calculator.ui.dialogs.base.BaseDialog
 
-class MassUnitDialog (private val viewGroup: ViewGroup) : BaseDialog<MassUnitPickerBinding,MassViewModel>(MassUnitPickerBinding::inflate,MassViewModel::class.java) {
+class MassUnitDialog (private val viewGroup: ViewGroup) : BaseDialog<MassUnitPickerBinding,MassDialogViewModel>(MassUnitPickerBinding::inflate,MassDialogViewModel::class.java) {
 
 	var adapter: UnitAdapter? = null
 	override fun onResume() {
