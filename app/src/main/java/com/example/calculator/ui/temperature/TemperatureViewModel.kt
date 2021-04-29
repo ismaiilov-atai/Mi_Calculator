@@ -1,5 +1,6 @@
 package com.example.calculator.ui.temperature
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.calculator.R
 import com.example.calculator.base.BaseViewModel
@@ -85,6 +86,8 @@ class TemperatureViewModel(event: BaseViewModelEventListener): BaseViewModel(eve
 		FIRST_DROP,SECOND_DROP
 	}
 
+	private var isNegative = false
+	private var isSecondNegative = false
 	private var firstTempType = Temperatures.CELSIUS
 	private var secondTempType = Temperatures.FAHRENHEIT
 
@@ -125,12 +128,10 @@ class TemperatureViewModel(event: BaseViewModelEventListener): BaseViewModel(eve
 		if (fieldType == FieldType.FIRST_FIELD) {
 			if ( firstStringField == "0" && operation?.viewType != ClickType.DOT.viewType) firstStringField = ""
 			else if ( firstStringField.contains(ClickType.DOT.viewType.toString()) && operation?.viewType == ClickType.DOT.viewType ) { return }
-
 			firstStringField += operation?.viewType
 		} else if ( fieldType == FieldType.SECOND_FIELD ) {
 			if ( secondStringField == "0" && operation?.viewType != ClickType.DOT.viewType ) secondStringField = ""
 			else if ( secondStringField.contains(ClickType.DOT.viewType.toString()) && operation?.viewType == ClickType.DOT.viewType ) { return }
-
 			secondStringField += operation?.viewType
 		}
 	}
@@ -144,18 +145,35 @@ class TemperatureViewModel(event: BaseViewModelEventListener): BaseViewModel(eve
 	}
 
 	private fun minusAdd() {
-
+		if (fieldType == FieldType.FIRST_FIELD ) {
+			if (!isNegative) {
+				firstStringField =  "-$firstStringField"
+				isNegative = true
+			} else {
+					firstStringField = firstStringField.removePrefix("-")
+					isNegative = false
+				}
+		} else if ( fieldType == FieldType.SECOND_FIELD ) {
+			if (!isSecondNegative) {
+				secondStringField =  "-$secondStringField"
+				isSecondNegative = true
+			} else {
+				secondStringField = secondStringField.removePrefix("-")
+				isSecondNegative = false
+			}
+		}
+		dataSand()
 	}
 
 	private fun removeLast() {
 		if (fieldType == FieldType.FIRST_FIELD ) {
-			if (firstStringField.isNotEmpty() && firstStringField != "0") {
+			if (firstStringField.isNotEmpty() && firstStringField != "0" &&  firstStringField != "-0") {
 				firstStringField = firstStringField.dropLast(1)
-			} else if ( firstStringField.isEmpty() ) { firstStringField = "0" }
+			} else if ( firstStringField.isEmpty() || firstStringField == "-0") { firstStringField = "0" }
 		} else if ( fieldType == FieldType.SECOND_FIELD ) {
-			if (secondStringField.isNotEmpty() && secondStringField != "0") {
+			if (secondStringField.isNotEmpty() && secondStringField != "0" && secondStringField != "-0") {
 				secondStringField = secondStringField.dropLast(1)
-			} else if (secondStringField.isEmpty()) {
+			} else if (secondStringField.isEmpty() || secondStringField == "-0" ) {
 				secondStringField = "0"
 			}
 		}
@@ -164,7 +182,6 @@ class TemperatureViewModel(event: BaseViewModelEventListener): BaseViewModel(eve
 	private fun clearAll() {
 	    firstStringField = "0"
 		secondStringField = "0"
-
 	}
 
 	private fun dataSand() {
@@ -175,8 +192,14 @@ class TemperatureViewModel(event: BaseViewModelEventListener): BaseViewModel(eve
 		if ( secondStringField.isEmpty()) { secondStringField = "0"; secondFieldValueLiveData.value = secondStringField }
 	}
 
-	fun chosenField(chosenField: FieldType) { fieldType = chosenField }
-	fun chosenDropType (chosenDropType: DropDownType ) { dropDownType = chosenDropType }
+	fun chosenField(chosenField: FieldType) {
+		fieldType = chosenField
+		math()
+	}
+	fun chosenDropType (chosenDropType: DropDownType ) {
+		dropDownType = chosenDropType
+		math()
+	}
 
 	fun setDropDownValue ( dropValue: String ) {
 		if ( dropDownType == DropDownType.FIRST_DROP ) {
