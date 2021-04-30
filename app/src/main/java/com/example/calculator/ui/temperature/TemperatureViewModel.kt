@@ -1,6 +1,5 @@
 package com.example.calculator.ui.temperature
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.calculator.R
 import com.example.calculator.base.BaseViewModel
