@@ -27,7 +27,6 @@ class UnitAdapter : RecyclerView.Adapter<UnitAdapter.UnitViewHolder>() {
 
 	override fun onBindViewHolder(holder: UnitViewHolder, position: Int) {
 		holder.onBind(listUnit[position])
-
 	}
 
 	override fun getItemCount(): Int = listUnit.size

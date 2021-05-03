@@ -65,7 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="Total value"
+            android:text="EMI"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -216,8 +216,6 @@
             android:layout_marginBottom="15dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
     <TextView
         android:id="@+id/share_btn_result"

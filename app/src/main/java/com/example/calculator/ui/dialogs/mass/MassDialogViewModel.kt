@@ -15,23 +15,7 @@ class MassDialogViewModel(event: BaseViewModelEventListener): BaseViewModel (eve
 			"Kilogram kg",
 			"Gram g",
 			"Milligram mg",
-			"Microgram ug",
-			"Quintal q",
-			"Pound ib",
-			"Ounce oz",
-			"Carat ct",
-			"Grain gr",
-			"Long ton l.t",
-			"Short ton sh.t",
-			"UK hundredweght cwt",
-			"US hundredweght cwt",
-			"Stone st",
-			"Dram dr",
-			"Dan Dan ",
-			"Jin jin",
-			"Qian qian",
-			"Liang liang",
-			"Jin (Taiwan) jin(tw)"
+			"Microgram ug"
 		))
 	}
 

@@ -8,7 +8,7 @@ import com.example.calculator.adapter.ExtraAdapter
 import com.example.calculator.ui.extra.ExtraModel
 
 
-class InvestmentFragment: BaseFragment<FragmentInvestmentBinding, InvestmentViewModel>(FragmentInvestmentBinding::inflate, InvestmentViewModel::class.java) {
+class InvestmentFragment: BaseFragment<FragmentInvestmentBinding, InvestmentFragViewModel>(FragmentInvestmentBinding::inflate, InvestmentFragViewModel::class.java) {
 
     val adapter = ExtraAdapter()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

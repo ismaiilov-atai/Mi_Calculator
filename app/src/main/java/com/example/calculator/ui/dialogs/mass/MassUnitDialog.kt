@@ -13,12 +13,14 @@ import com.example.calculator.ui.dialogs.base.BaseDialog
 class MassUnitDialog (private val viewGroup: ViewGroup) : BaseDialog<MassUnitPickerBinding,MassDialogViewModel>(MassUnitPickerBinding::inflate,MassDialogViewModel::class.java) {
 
 	var adapter: UnitAdapter? = null
+	var listener: MassUnitClickListener? = null
+
 	override fun onResume() {
 		super.onResume()
 		val params: WindowManager.LayoutParams? = dialog?.window?.attributes
 		dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 		params?.width = viewGroup.width
-		params?.height = (viewGroup.height * 0.84).toInt()
+		params?.height = (viewGroup.height * 0.45).toInt()
 		params?.gravity = Gravity.BOTTOM
 		dialog?.window?.attributes = params
 	}
@@ -30,7 +32,8 @@ class MassUnitDialog (private val viewGroup: ViewGroup) : BaseDialog<MassUnitPic
 		adapter = UnitAdapter()
 		adapter?.addItemClickListener(object : UnitAdapter.OnItemClickListener {
 			override fun onClick(item: String) {
-				Log.e("TAG", "itemClickListener: $item" )
+				listener?.unitPickClickListener(item)
+				dismiss()
 			}
 		})
 		binding.massRecycler.adapter = adapter
@@ -41,6 +44,10 @@ class MassUnitDialog (private val viewGroup: ViewGroup) : BaseDialog<MassUnitPic
 		viewModel.massLiveData.observe(this){
 			adapter?.listUnit = it
 		}
+	}
+
+	interface MassUnitClickListener {
+		fun unitPickClickListener(massUnit: String)
 	}
 
 }

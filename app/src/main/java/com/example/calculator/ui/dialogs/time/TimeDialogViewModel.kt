@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.example.calculator.base.BaseViewModel
 import com.example.calculator.base.BaseViewModelEventListener
 
-class TimeViewModel(event: BaseViewModelEventListener) : BaseViewModel(event) {
+class TimeDialogViewModel(event: BaseViewModelEventListener) : BaseViewModel(event) {
 
 	var timeMutableLiveData: MutableLiveData<ArrayList<String>> = MutableLiveData()
 
@@ -17,9 +17,7 @@ class TimeViewModel(event: BaseViewModelEventListener) : BaseViewModel(event) {
 			"Hour h",
 			"Minute min",
 			"Second s",
-			"Millisecond ms",
-			"Microsecond us",
-			"Picosecond ps",
+			"Millisecond ms"
 		))
 	}
 

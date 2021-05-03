@@ -40,19 +40,18 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Space
         android:id="@+id/space_after_discount_lable"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="25dp"
         app:layout_constraintBottom_toTopOf="@+id/first_unit_holder_discount"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/discount_lable_holder"
-        app:layout_constraintVertical_weight="0.1" />
+        app:layout_constraintTop_toBottomOf="@+id/discount_lable_holder"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/first_unit_holder_discount"
@@ -81,7 +80,7 @@
 
         <TextView
             android:id="@+id/value_unit_discount"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="1dp"
             android:padding="2dp"
@@ -90,6 +89,8 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/first_unit_drop_down_discount"
             app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/first_unit_drop_down_discount"
+            android:textAlignment="textEnd"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -135,16 +136,20 @@
 
         <TextView
             android:id="@+id/value_unit_second_discount"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="1dp"
             android:padding="2dp"
+            android:maxLength="2"
+            android:textAlignment="textEnd"
             android:text="1"
             android:textColor="@color/dark_grey"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/second_unit_drop_down_discount"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/second_unit_drop_down_discount"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -186,16 +191,19 @@
 
         <TextView
             android:id="@+id/value_unit_third_discount"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="1dp"
             android:padding="2dp"
-            android:text="1"
+            android:text="0.9"
+            android:textAlignment="textEnd"
             android:textSize="18sp"
             android:textColor="@color/dark_grey"
             app:layout_constraintBottom_toBottomOf="@+id/third_unit_drop_down_discount"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/third_unit_drop_down_discount"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -203,7 +211,7 @@
         android:id="@+id/discount_show_result"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="You saved 10"
+        android:text="You saved 0.1"
         android:gravity="center"
         android:padding="10dp"
         android:textSize="18sp"
