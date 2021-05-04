@@ -16,20 +16,25 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
 
-class AgeShareActivity : BaseActivity<ActivityAgeShareBinding, AgeShareViewModel>(
-	ActivityAgeShareBinding::inflate, AgeShareViewModel::class.java
-) {
+class AgeShareActivity : BaseActivity<ActivityAgeShareBinding, AgeShareViewModel>(ActivityAgeShareBinding::inflate, AgeShareViewModel::class.java) {
 
 	override fun setupView() {
 		super.setupView()
 		var byteArray: ByteArray? = null
 
-		if ( intent.getByteArrayExtra(Constants.KEY_BITMAP) != null ) {
-			byteArray = intent.getByteArrayExtra(Constants.KEY_BITMAP)
-		} else if (intent.getByteArrayExtra("image") != null) {
-			byteArray = intent.getByteArrayExtra("image")
-		} else if (intent.getByteArrayExtra("bitmap") != null) {
-			byteArray = intent.getByteArrayExtra("bitmap")
+		when {
+			intent.getByteArrayExtra(Constants.KEY_BITMAP) != null -> {
+				byteArray = intent.getByteArrayExtra(Constants.KEY_BITMAP)
+			}
+			intent.getByteArrayExtra("image") != null -> {
+				byteArray = intent.getByteArrayExtra("image")
+			}
+			intent.getByteArrayExtra("bitmap") != null -> {
+				byteArray = intent.getByteArrayExtra("bitmap")
+			}
+			intent.getByteArrayExtra("imageLoan") != null -> {
+				byteArray = intent.getByteArrayExtra("imageLoan")
+			}
 		}
 
 		val bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray!!.size)

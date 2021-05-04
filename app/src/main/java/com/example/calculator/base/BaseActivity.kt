@@ -29,9 +29,7 @@ abstract class BaseActivity<B: ViewBinding, VM: BaseViewModel>(private var bindi
         setupView()
     }
 
-    val viewModel: VM by lazy {
-        ViewModelProvider(this,BaseFactory(this)).get(className)
-    }
+    val viewModel: VM by lazy { ViewModelProvider(this,BaseFactory(this)).get(className) }
 
     private val progressDialog: ACProgressFlower? by lazy {
         applicationContext?.let {

@@ -110,7 +110,7 @@
             android:layout_height="wrap_content"
             android:hint="Enter annual rate"
             android:textSize="25sp"
-            android:maxLength="2"
+            android:maxLength="3"
             android:inputType="numberDecimal"
             android:background="@android:color/transparent"
             app:layout_constraintTop_toBottomOf="@+id/interest_txt"

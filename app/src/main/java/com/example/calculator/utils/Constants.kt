@@ -1,6 +1,8 @@
 package com.example.calculator.utils
 
 object Constants {
+
+
     const val KEY_MATH = "KEY_MATH"
     const val KEY_RESULT = "KEY_RESULT"
     const val KEY_FIRST_FIELD = "FIRST_FIELD"
@@ -35,5 +37,18 @@ object Constants {
     const val METER_PER_SECOND = "Meter per second m/s"
     const val KILOMETER_PER_SECOND = "Kilometer per second km/s"
     const val KILOMETER_PER_HOUR = "Kilometer per hour km/h"
+
+    const val EMI = "emi"
+    const val INTEREST = "interest"
+    const val TOTAL_PAYMENT = "totalPayment"
+    const val PRINCIPAL = "principal"
+    const val YEAR = "year"
+    const val MONTH = "month"
+
+    const val TOTAL_VALUE = "totalValue"
+    const val INVESTMENT = "investmenet"
+    const val YEAR_INVES = "yearInvest"
+    const val MONTH_INVES = "monthInvest"
+
 
 }
