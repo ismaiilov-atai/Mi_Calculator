@@ -16,6 +16,7 @@ import com.example.calculator.base.BaseActivity
 import com.example.calculator.databinding.ActivityMainBinding
 import com.example.calculator.databinding.FigureMenuBinding
 import com.example.calculator.ui.archive.ArchiveActivity
+import com.example.calculator.ui.dialogs.about.AboutDialog
 import com.google.android.material.tabs.TabLayoutMediator
 
 
@@ -38,9 +39,8 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(ActivityMa
             }
         }.attach()
 
-        binding.moreItem.setOnClickListener {
-            popupDisplay().showAsDropDown(binding.moreItem, -250, -10)
-        }
+        binding.moreItem.setOnClickListener { popupDisplay().showAsDropDown(binding.moreItem, -250, -10) }
+        binding.closeScreen.setOnClickListener { Toast.makeText(applicationContext,"Not completed yet ",Toast.LENGTH_SHORT).show() }
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -75,7 +75,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(ActivityMa
             when (motionEvent.action) {
                 MotionEvent.ACTION_DOWN -> view.setBackgroundColor(ContextCompat.getColor(this, R.color.onHover))
                 MotionEvent.ACTION_UP -> {
-                    Toast.makeText(this,"about item was clicked! ",Toast.LENGTH_SHORT).show()
+                    AboutDialog(binding.mainLayout).show(supportFragmentManager.beginTransaction(),"about")
                     view.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
                     customView.dismiss()
                 }

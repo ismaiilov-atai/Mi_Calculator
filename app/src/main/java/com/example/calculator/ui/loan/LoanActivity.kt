@@ -2,8 +2,6 @@ package com.example.calculator.ui.loan
 
 import android.content.Intent
 import android.text.*
-import android.text.InputFilter.LengthFilter
-import android.util.Log
 import com.example.calculator.base.BaseActivity
 import com.example.calculator.databinding.ActivityLoanBinding
 import com.example.calculator.ui.dialogs.loan.LoanDialog
@@ -23,7 +21,6 @@ class LoanActivity : BaseActivity<ActivityLoanBinding, LoanViewModel>(ActivityLo
 		binding.principalEdit.apply {
 			this.addTextChangedListener(object : TextWatcher {
 				override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
 				override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 				override fun afterTextChanged(s: Editable?) {
 					viewModel.setValueCalculation(s.toString(), id)
@@ -39,14 +36,14 @@ class LoanActivity : BaseActivity<ActivityLoanBinding, LoanViewModel>(ActivityLo
 	}
 
 	private fun sandToNext() {
-		viewModel.letsSee()
+		viewModel.letsDoMath()
 		val intent = Intent(this, ResultsActivity::class.java)
 		intent.putExtra(Constants.TOTAL_PAYMENT, viewModel.totalPayment)
 		intent.putExtra(Constants.INTEREST, viewModel.interest)
 		intent.putExtra(Constants.EMI, viewModel.emi)
 		intent.putExtra(Constants.PRINCIPAL, viewModel.principalValue)
-		intent.putExtra(Constants.YEAR,viewModel.year)
-		intent.putExtra(Constants.MONTH,viewModel.month)
+		intent.putExtra(Constants.YEAR, viewModel.year)
+		intent.putExtra(Constants.MONTH, viewModel.month)
 		startActivity(intent)
 	}
 

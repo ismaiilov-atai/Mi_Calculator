@@ -211,7 +211,7 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
             if (result.takeLast(2) == ".0") { result = result.dropLast(2)}
             resultLiveData.value = "= $result"
 
-        }catch (e: Exception){
+        } catch (e: Exception) {
             if (mathString.isNotEmpty()) {
                 resultLiveData.value = "= 0"
             } else {

@@ -31,12 +31,18 @@ InvestmentDialog.OnValueDataCarryInvestListener, MaskWatcher.EditValueCarryListe
 		binding.investmentCalculationBtn.setOnClickListener {
 			viewModel.letsDoMath()
 			val intent = Intent(this,ResultsActivity::class.java)
-			intent.putExtra(Constants.TOTAL_VALUE,viewModel.futureValue)
-			intent.putExtra(Constants.INVESTMENT,viewModel.principalValue)
-			intent.putExtra(Constants.YEAR_INVES,viewModel.year)
-			intent.putExtra(Constants.MONTH_INVES,viewModel.month)
+			intent.putExtra(Constants.TOTAL_VALUE, viewModel.futureValue)
+			intent.putExtra(Constants.INVESTMENT, viewModel.principalValue)
+			intent.putExtra(Constants.YEAR_INVES, viewModel.year)
+			intent.putExtra(Constants.MONTH_INVES, viewModel.month)
 			startActivity(intent)
 		}
+
+		binding.groupId.setOnCheckedChangeListener { group, checkedId ->
+				if (checkedId == binding.oneTimeRadiobtn.id) viewModel.setInvestType( InvestmentViewModel.InvestmentType.ONE_TIME )
+			    else viewModel.setInvestType( InvestmentViewModel.InvestmentType.RECURRING )
+		}
+
 		observers()
 	}
 
@@ -51,6 +57,7 @@ InvestmentDialog.OnValueDataCarryInvestListener, MaskWatcher.EditValueCarryListe
 	}
 
 	override fun valueCarryListener(year: String, month: String) { viewModel.setTermsLiveData( year, month ) }
+
 	override fun editValueListener(s: String) { viewModel.setInterestValue(s) }
 
 }
