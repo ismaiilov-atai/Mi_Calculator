@@ -2,7 +2,7 @@
 The Mi_Calculator app was copied from Mi build Calculator app written in Kotlin. The app provides standard, scientific, and display sharing with app choosen by you functionality,
 as well as a set of converters between various units of measurement and currencies.
 
-![readme phone](https://user-images.githubusercontent.com/63174725/118520499-f5485f80-b75b-11eb-9d15-91638ce4aebb.jpg)
+![rsz_4firs_page](https://user-images.githubusercontent.com/63174725/118951122-a3325480-b97c-11eb-97a3-8f65630dd8c5.jpg)
 
 # Features
 * Standard Calculator functionality which offers basic operations and evaluates commands immediately as they are entered.
@@ -13,10 +13,9 @@ as well as a set of converters between various units of measurement and currenci
 * Currency conversion based on data retrieved from https://api.fastforex.io.
 * Infinite precision for basic arithmetic operations (addition, subtraction, multiplication, division) so that calculations never lose precision.
 
-![extra_fig_side](https://user-images.githubusercontent.com/63174725/118522347-c29f6680-b75d-11eb-9042-6791556f9166.jpg)
+![second](https://user-images.githubusercontent.com/63174725/118953719-e68dc280-b97e-11eb-8c4c-f98e74d6b614.jpg)
 
 # Getting started
-Prerequisites:
 
 * Get the code.
 
@@ -31,11 +30,30 @@ https://github.com/AtaiDev/Mi_Calculator.git
 * Adding animation to calculator i believe that it gives end-user great experience. 
 * To that end-user experience added slide-animation, alert  dialogs, pick effects, share images by app which you desired. 
 * Below gifts will demonstrate which animation you will face during using this application.
+* 
 
-
-![5a8p6g](https://user-images.githubusercontent.com/63174725/118925167-12e61680-b960-11eb-8f8e-5bbf79e7f1b4.gif) ![5a8rqn](https://user-images.githubusercontent.com/63174725/118928238-c6e9a080-b964-11eb-914e-7ba6ad365fe0.gif) ![5a8spg](https://user-images.githubusercontent.com/63174725/118929579-8428c800-b966-11eb-97b4-355fd3d389c8.gif) ![5a8uvv](https://user-images.githubusercontent.com/63174725/118932970-7aa15f00-b96a-11eb-93b9-377bbe2f8855.gif)
+![5a98pg](https://user-images.githubusercontent.com/63174725/118954706-d9bd9e80-b97f-11eb-99a3-ccead7d2a032.gif) ![extra_view](https://user-images.githubusercontent.com/63174725/118956408-64eb6400-b981-11eb-94fd-7d1c4c18ad7b.gif) ![5a9ha6](https://user-images.githubusercontent.com/63174725/118967830-fb715280-b98c-11eb-9d79-d7dc07358cdd.gif)
 
 # Currency Converter
 
 Since converting money is one of the important thing in our life and I just wanted to describe the functionality of this converter. 
 Its USD based converter which will convert only from the USD to other currencies.  
+
+# Used libraries
+
+* The Room persistence library https://developer.android.com/training/data-storage/room
+* The Retrofit https://square.github.io/retrofit/
+* Kotlin Extensions and Coroutines support for Room https://developer.android.com/kotlin/coroutines
+* Firebase Crashlytics https://firebase.google.com/docs/crashlytics
+* Firebase Analytics https://firebase.google.com/docs/analytics
+
+# Architecture
+
+* MVVM
+* Separation of concerns
+* Drive UI from a model
+* BaseActivity 
+* BaseFragment
+* BaseDialog
+* BaseViewModel
+
