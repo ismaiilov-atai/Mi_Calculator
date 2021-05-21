@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module external.linked.project.id=":app" external.linked.project.path="$MODULE_DIR$/../../../app" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="Calculator" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+  <component name="CloudCustomPersistentConfigurations">
+    <option name="myCloudPersistentConfigurations">
+      <list>
+        <CloudPersistentConfiguration>
+          <option name="name" value="mi test lab matrix" />
+          <option name="devices">
+            <list>
+              <option value="cruiserlteatt" />
+              <option value="Pixel2" />
+              <option value="Nexus5X" />
+            </list>
+          </option>
+          <option name="apiLevels">
+            <list>
+              <option value="23" />
+              <option value="29" />
+              <option value="28" />
+            </list>
+          </option>
+          <option name="languages">
+            <list>
+              <option value="en" />
+            </list>
+          </option>
+          <option name="orientations">
+            <list>
+              <option value="portrait" />
+            </list>
+          </option>
+        </CloudPersistentConfiguration>
+      </list>
+    </option>
+  </component>
   <component name="FacetManager">
     <facet type="android-gradle" name="Android-Gradle">
       <configuration>
@@ -83,6 +116,9 @@
       <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/kapt/debugUnitTest" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/res/google-services/debug" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/crashlytics/res/debug" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/res/resValues/androidTest/debug" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/kapt/debugAndroidTest" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/ap_generated_sources/debugAndroidTest/out" isTestSource="true" generated="true" />
       <excludeFolder url="file://$MODULE_DIR$/../../../app/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/../../../app/build" />
     </content>

@@ -133,18 +133,28 @@ class FiguresCalculationViewModel(event: BaseViewModelEventListener) : BaseViewM
     }
 
     private fun onClickMath(operation: Operation) {
+        val forMath = arrayOf('-','+','/','*','E','%')
         if (!(checkOperation.contains(mathString.takeLast(3)) && checkOperation.contains(operation.type))) {
             if (!((operation.type == Operation.ZERO.type || operation.type == Operation.ZERO_NORMAL.type) && mathString.isEmpty())) {
                 if (isEqualClicked && !checkOperation.contains(operation.type)) {
                     isEqualClicked = false
                     mathString = String()
-                } else if (mathString.contains(".") && operation.type == Operation.DOT.type && operation.type == Operation.DOT_NORMAL.type) { return }
+                }
+                else if (mathString.contains(".") && operation.type == Operation.DOT.type && operation.type == Operation.DOT_NORMAL.type) { return }
+                else if ( checkLastContent(forMath,operation) ) { return }
 
                 mathString += operation.type
                 fieldLiveData.value = mathString
                 realTimeResult()
             }
         }
+    }
+
+    private fun checkLastContent(forMath: Array<Char>, operation: Operation): Boolean {
+        var lastOne = ""
+        forMath.forEach { if ( mathString.takeLast(1) == it.toString())  lastOne = it.toString() }
+        if ( mathString.takeLast(1) == lastOne && operation.type == lastOne) { return true }
+        return false
     }
 
     private fun onOperationClick(operation: Operation) {
